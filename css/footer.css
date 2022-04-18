@@ -1,0 +1,14 @@
+footer {
+    background-color: #C730B5;
+    color: white;
+    padding: 5% 0 5% 20%;
+}
+
+footer a {
+    color: white;
+}
+
+footer .icon i {
+    margin-right: 2%;
+    size: 50px;
+}
