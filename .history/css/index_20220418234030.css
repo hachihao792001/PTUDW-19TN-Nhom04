@@ -11,10 +11,11 @@
 @import "main_about.css";
 @import "footer.css";
 
-/* POPUP HIỆN ĐẶT ĐON HÀNG (KHUM BÍT NHÉT CHỖ NÀO, ĐỂ ĐỠ Ở ĐÂY NHE*/
+/* Popup container */
 
 .popup {
     display: inline-block;
+    cursor: pointer;
 }
 
 .popup .popuptext {
@@ -22,6 +23,9 @@
     border-radius: 1rem;
     padding: 1rem 3rem;
 }
+
+
+/* The actual popup (appears on top) */
 
 .popup {
     visibility: hidden;
