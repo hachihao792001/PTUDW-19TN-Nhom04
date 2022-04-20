@@ -27,17 +27,22 @@
                 </ul>
                 
                 <ul id="left-content" class="navbar-nav">
-                    <li>
-                        <a class="bell-icon" href="#"><i class="fa-solid fa-bell fa-2xl"></i></a>
+                    <li class="nav-item dropdown bell-icon">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-bell fa-2xl"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Hiện không có thông báo</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
+                            <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Tài khoản cá nhân</a>
-                        <a class="dropdown-item" href="#">Cài đặt</a>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                            <a class="dropdown-item" href="#">Tài khoản cá nhân</a>
+                            <a class="dropdown-item" href="#">Cài đặt</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
                         </div>
                     </li>   
                 </ul>
@@ -84,7 +89,7 @@
 
                         <div class="Log-out">
                             <hr>
-                            <h5>Đăng xuất</h5>
+                            <a href="#"><h5>Đăng xuất</h5></a>
                             <hr>
                         </div>
                 </div>
