@@ -5,11 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Hello from Dashboard</h1>
+    <section id="dropdowns">
+        <div class="btn-group">
+            <button type="button" class="btn dropdown-currentchoice">7 ngày gần nhất</button>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">7 ngày gần nhất</a>
+                <a class="dropdown-item" href="#">30 ngày gần nhất</a>
+                <a class="dropdown-item" href="#">90 ngày gần nhất</a>
+                <a class="dropdown-item" href="#">Toàn thời gian</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn dropdown-currentchoice">Mọi đồ uống</button>
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Mọi đồ uống</a>
+                <a class="dropdown-item" href="#">Phindi hạnh nhân</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sales">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </section>
+
 </body>
 
 </html>

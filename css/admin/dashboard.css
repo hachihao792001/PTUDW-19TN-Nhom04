@@ -1,0 +1,19 @@
+#dropdowns {
+    display: flex;
+    gap: 50px;
+}
+
+.dropdown-currentchoice {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+}
+
+.dropdown-togglebutton {
+    background-color: #faf2ff;
+    color: #bb6bd9;
+    border-radius: 5px;
+}
+
+#sales {
+    margin-top: 30px;
+}
