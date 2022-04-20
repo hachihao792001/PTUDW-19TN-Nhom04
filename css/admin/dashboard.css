@@ -1,19 +1,25 @@
-#dropdowns {
+#admin_dashboard__dropdowns {
     display: flex;
     gap: 50px;
 }
 
-.dropdown-currentchoice {
+#admin_dashboard__dropdowns .dropdown-currentchoice {
     background-color: #f6f6f6;
     border-radius: 5px;
 }
 
-.dropdown-togglebutton {
+#admin_dashboard__dropdowns .dropdown-togglebutton {
     background-color: #faf2ff;
     color: #bb6bd9;
     border-radius: 5px;
 }
 
-#sales {
-    margin-top: 30px;
+#admin_dashboard__sales {
+    margin: 50px 0;
+}
+
+#admin_dashboard__access > #access_numbers {
+    margin: 30px 0;
+    display: flex;
+    gap: 70px;
 }
