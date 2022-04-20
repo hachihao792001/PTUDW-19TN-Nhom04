@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-    <title>title</title>
+    <title>Four nations coffee</title>
     <link rel="shortcut icon" type="" href="" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -39,33 +39,135 @@
 
             <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="Logo" />
             </a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-
-            <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="Logo" /></a><button
-                class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-                aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Khuyến mãi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Hình ảnh</a>
-                    </li>
-                </ul>
-                <div class="btn-group">
-                    <a href="sign_in.html" class="btn btn-default btn-outline">Đăng nhập</a>
+
+                <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="Logo" /></a><button
+                    class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Khuyến mãi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Hình ảnh</a>
+                        </li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="sign_in.html" class="btn btn-default btn-outline" data-toggle="modal"
+                            data-target="#signInModal">Đăng nhập</a>
+                    </div>
+
+                    <!-- Sign in Modal -->
+                    <div class="modal fade" id="signInModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Đăng nhập</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body sign_in_main">
+                                    <div class="sign_in_box">
+                                        <form class="sign_in_form" action="index.html">
+                                            <h2>ĐĂNG NHẬP</h2>
+
+                                            <div>
+                                                <h5>Email</h5>
+                                                <input type="email">
+                                            </div>
+                                            <div>
+                                                <h5>Mật khẩu</h5>
+                                                <input type="password">
+                                            </div>
+                                            <button type="submit" class="btn-default btn-outline">Đăng nhập</button>
+
+                                        </form>
+
+                                        <p>Bạn chưa có tài khoản? <a href="#" data-toggle="modal"
+                                                data-target="#signUpModal">Đăng
+                                                ký ngay!</a></p>
+                                        <a href="#" class="button">Quên mật khẩu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sign in Modal -->
+
+                    <!-- Sign up Modal -->
+                    <div class="modal fade" id="signUpModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Đăng ký</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body sign_up_main">
+                                    <div class="sign_up_box">
+                                        <form class="sign_up_form" action="index.html">
+                                            <h2>ĐĂNG KÝ</h2>
+                                            <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+                                            <div class="sign_up__client_info">
+                                                <div class="separator"><span>Thông tin khách hàng</span></div>
+                                                <div>
+                                                    <h5>Tên đầy đủ</h5>
+                                                    <input type="text">
+                                                </div>
+                                                <div>
+                                                    <h5>Số điện thoại</h5>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="sign_up__sign_in_info">
+                                                <div class="separator"><span>Thông tin đăng nhập</span></div>
+                                                <div>
+                                                    <h5>Email</h5>
+                                                    <input type="email">
+                                                </div>
+                                                <div>
+                                                    <h5>Mật khẩu</h5>
+                                                    <input type="password">
+                                                </div>
+                                                <div>
+                                                    <h5>Xác nhận mật khẩu</h5>
+                                                    <input type="password">
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn-default btn-outline">Đăng ký</button>
+
+                                        </form>
+
+                                        <p>Bạn đã có tài khoản? <a href="#" data-dismiss="modal"
+                                                aria-label="Sign in">Đăng
+                                                nhập</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sign up Modal -->
                 </div>
-            </div>
         </nav>
     </header>
     <main>
@@ -516,9 +618,12 @@
                     </div>
                     <br>
                     <div class="icon">
-                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i class="fa-brands fa-facebook-square fa-xl"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i
+                                class="fa-brands fa-facebook-square fa-xl"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i
+                                class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100004364118031"><i
+                                class="fa-brands fa-twitter fa-xl"></i></a>
 
                     </div>
 
