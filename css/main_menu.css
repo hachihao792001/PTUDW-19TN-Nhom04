@@ -1,3 +1,7 @@
+#menu {
+  border-bottom: 2px solid var(--purple);
+}
+
 .menu-list,
 .menu-book {
   margin: 20px;
@@ -7,31 +11,38 @@
   padding: 20px;
 }
 
-.item-logo img {
-  max-width: 75px;
-  height: 75px
-}
-
-.item-description h3 {
-  font-size: 1.25rem;
-}
-
-.item-quantity input {
-  width: 100%;
-}
-
 .menu-list__group {
   overflow-y: auto;
   max-height: 800px;
   overflow-x: hidden;
 }
 
-.menu-list__group__items h3 {}
+.menu-list__group__items h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 .menu-list__group__items li {
   padding: 1rem 0;
   border-bottom: 1px solid var(--purple);
 }
+
+.item-logo img {
+  max-width: 75px;
+  height: 75px
+}
+
+.item-quantity input {
+  width: 100%;
+}
+
+
+
+.item-description h3 {
+  font-size: 1rem;
+}
+
+
 
 .menu-book {
   display: flex;
@@ -47,4 +58,78 @@
 .menu-book .btn-default {
   width: 100%;
   margin-top: 20px;
+}
+
+.menu-nav {
+  padding: 20px;
+  border-right: 2px solid var(--purple);
+  height: 100%;
+}
+
+.menu-nav ul li {
+  margin: 20px 0;
+  position: relative;
+}
+
+.menu-nav ul li a {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.menu-nav ul li.active::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--purple);
+}
+
+.menu-nav ul li.active a {
+  padding-left: 35px;
+  color: var(--purple);
+}
+
+
+.menu-nav ul li a:hover {
+  color: var(--purple);
+}
+
+.menu-list__search {
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.menu-list__search input {
+  width: 100%;
+  padding: .5rem .5rem .5rem 40px;
+  border: 2px solid var(--purple-light);
+  border-radius: 5px;
+  outline: none;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.menu-list__search input:focus {
+  border: 2px solid var(--purple);
+}
+
+.menu-list__search:focus img {
+  right: 5px;
+  left: initial;
+}
+
+
+.menu-list__search img {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
 }
