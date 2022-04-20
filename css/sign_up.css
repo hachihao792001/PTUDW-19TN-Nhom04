@@ -1,6 +1,5 @@
-.sign_in_main {
+.sign_up_main {
     height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,17 +10,19 @@
     position: relative;
 }
 
-.sign_in_box {
+.sign_up_box {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     border: black 1px solid;
     box-shadow: 5px 5px 5px;
     padding: 25px;
+    margin: 50px 0;
+    overflow-y: auto;
     background-color: white;
 }
 
-.sign_in_form {
+.sign_up_form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,22 +30,30 @@
     margin-bottom: 20px;
 }
 
-.sign_in_form h2 {
+.sign_up_form > h2 {
     color: var(--purple);
 }
 
-.sign_in_form div {
+.sign_up_form > p {
+    color: #cccccc;
+}
+
+.sign_up_form > .sign_up__sign_in_info {
+    margin: 50px 0;
+}
+
+.sign_up_form div {
     margin-top: 20px;
 }
 
-.sign_in_form div input {
+.sign_up_form div input {
     width: 350px;
     height: 40px;
     background-color: #f6f6f6;
     border: none;
 }
 
-.sign_in_form button {
+.sign_up_form button {
     margin-top: 20px;
     border-radius: 20px;
     background-color: var(--purple);
@@ -53,11 +62,11 @@
     height: 35px;
 }
 
-.sign_in_box p a {
+.sign_up_box p a {
     color: var(--purple);
 }
 
-.sign_in_box > a {
+.sign_up_box > a {
     color: var(--purple);
     background-color: transparent;
     border-style: solid none none none;
@@ -67,4 +76,16 @@
     padding-top: 7px;
     margin-top: 20px;
     text-align: center;
+}
+
+.separator {
+    /* https://stackoverflow.com/a/5214204/13440955 */
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0em;
+}
+.separator span {
+    background: #fff;
+    padding: 0 10px;
 }
