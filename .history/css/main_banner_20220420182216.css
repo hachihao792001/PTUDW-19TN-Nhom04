@@ -43,6 +43,6 @@
     padding: 0.6rem 2.5rem;
 }
 
-.btn-default:hover {
+#banner .banner__content .btn-default:hover {
     background-color: var(--purple-dark);
 }

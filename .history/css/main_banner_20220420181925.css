@@ -42,7 +42,3 @@
     margin-top: 30px;
     padding: 0.6rem 2.5rem;
 }
-
-.btn-default:hover {
-    background-color: var(--purple-dark);
-}
