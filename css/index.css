@@ -16,6 +16,12 @@
 
 /* POPUP HIỆN ĐẶT ĐON HÀNG (KHUM BÍT NHÉT CHỖ NÀO, ĐỂ ĐỠ Ở ĐÂY NHE*/
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .popup {
   display: inline-block;
 }

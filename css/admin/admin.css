@@ -1,3 +1,5 @@
+@import "./dashboard.css";
+
 h1 {
     font-weight: bold;
     color: #c730b5;
@@ -51,4 +53,8 @@ h6.col-md-10 {
 .Log-out h5 {
     font-weight: bold;
     color: gray;
+}
+
+#admin_dashboard__content {
+    margin-top: 30px;
 }
