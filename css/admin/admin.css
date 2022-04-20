@@ -1,21 +1,21 @@
 h1 {
     font-weight: bold;
-    color: #C730B5;
+    color: #c730b5;
 }
 
-#navbarHeaderAdmin{
+#navbarHeaderAdmin {
     margin-left: 11%;
     text-align: center;
 }
 
-.bell-icon i{
+.bell-icon i {
     color: gray;
     size: 100px;
     padding-top: 30px;
     margin-right: 50px;
 }
 
-.bell-icon:hover{
+.bell-icon:hover {
     color: gray;
 }
 
@@ -29,14 +29,18 @@ h1 {
 
 a.row {
     padding-bottom: 20px;
+    margin-right: 0px;
+    border: none;
+    background-color: transparent;
 }
 
 .fa-solid {
-    color: #C730B5;
+    color: #c730b5;
 }
 
-h6.col-md-11 {
+h6.col-md-10 {
     padding-left: 40px;
+    padding-right: 0px;
     color: gray;
 }
 
@@ -48,4 +52,3 @@ h6.col-md-11 {
     font-weight: bold;
     color: gray;
 }
-
