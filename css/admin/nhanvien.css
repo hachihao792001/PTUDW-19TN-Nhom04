@@ -1,0 +1,51 @@
+h1 {
+    font-weight: bold;
+    color: #C730B5;
+}
+
+#navbarHeaderAdmin{
+    margin-left: 11%;
+    text-align: center;
+}
+
+.bell-icon i{
+    color: gray;
+    size: 100px;
+    padding-top: 30px;
+    margin-right: 50px;
+}
+
+.bell-icon:hover{
+    color: gray;
+}
+
+#left-content {
+    margin-right: 10%;
+}
+
+.sidebar {
+    padding-top: 25%;
+}
+
+a.row {
+    padding-bottom: 20px;
+}
+
+.fa-solid {
+    color: #C730B5;
+}
+
+h6.col-md-11 {
+    padding-left: 40px;
+    color: gray;
+}
+
+.Log-out {
+    margin-top: 30%;
+}
+
+.Log-out h5 {
+    font-weight: bold;
+    color: gray;
+}
+
