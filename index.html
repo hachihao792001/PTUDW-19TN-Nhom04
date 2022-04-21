@@ -31,8 +31,7 @@
 
                 <ul id="left-content" class="navbar-nav">
                     <li class="nav-item dropdown bell-icon">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-2xl"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -40,8 +39,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -60,31 +58,31 @@
             <div class="row">
                 <div class="col-md-3">
                     <ul class="sidebar">
-                        <li>
+                        <li class="sidebar-item">
                             <a href="#" onclick="switchContent('admin_dashboard.html')" class="row">
                                 <i class="fa-solid fa-table-columns col-md-1"></i>
                                 <h6 class="col-md-10">Dashboard</h6>
                             </a>
                         </li>
-                        <li>
+                        <li class="sidebar-item">
                             <a href="#" onclick="switchContent('admin_nhanvien.html')" class="row">
                                 <i class="fa-solid fa-user-group col-md-1"></i>
                                 <h6 class="col-md-10">Nhân viên</h6>
                             </a>
                         </li>
-                        <li>
+                        <li class="sidebar-item">
                             <a href="#" onclick="switchContent('admin_donhang.html')" class="row">
                                 <i class="fa-solid fa-cart-shopping col-md-1"></i>
                                 <h6 class="col-md-10">Đơn hàng</h6>
                             </a>
                         </li>
-                        <li>
+                        <li class="sidebar-item">
                             <a href="#" onclick="switchContent('admin_sanpham.html')" class="row">
                                 <i class="fa-solid fa-mug-saucer col-md-1"></i>
                                 <h6 class="col-md-10">Sản phẩm</h6>
                             </a>
                         </li>
-                        <li>
+                        <li class="sidebar-item">
                             <a href="#" onclick="switchContent('admin_khuyenmai.html')" class="row">
                                 <i class="fa-solid fa-tag col-md-1"></i>
                                 <h6 class="col-md-10">Khuyến mãi</h6>
@@ -183,6 +181,13 @@
     <script src="js/admin_nhanvien.js"></script>
 
 
+    <script src="./js/admin_order_orderlist.js "></script>
+    <script>
+        var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+        var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+        })
+    </script>
 </body>
 
 </html>
