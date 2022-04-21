@@ -73,6 +73,7 @@ h6 {
 .sidebar .sidebar-item:hover {
     background-color: rgba(192, 192, 192, 0.329);
     border-radius: 0.6rem;
+    cursor: pointer;
 }
 
 a.row {
