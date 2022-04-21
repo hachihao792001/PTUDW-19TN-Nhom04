@@ -1,11 +1,9 @@
 /*File khởi tạo các css chung của page*/
 
 @import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-
 @import "./dashboard.css";
 @import "./nhanvien.css";
 @import "./donhang.css";
-
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +28,7 @@ h5,
 h6 {
     font-family: "Montserrat", sans-serif;
 }
+
 
 /*Import các file css khác vào đây*/
 
@@ -67,11 +66,29 @@ h6 {
     padding-top: 5%;
 }
 
+.sidebar .sidebar-item {
+    padding: 1.2rem 2rem 0.5rem 2rem;
+}
+
+.sidebar .sidebar-item:hover {
+    background-color: rgba(192, 192, 192, 0.329);
+    border-radius: 0.6rem;
+}
+
 a.row {
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     margin-right: 0px;
     border: none;
     background-color: transparent;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap; */
+}
+
+.sidebar-item i {
+    font-size: 1rem;
 }
 
 .fa-solid {
@@ -79,9 +96,11 @@ a.row {
 }
 
 h6.col-md-10 {
-    padding-left: 40px;
+    font-size: 1.1rem;
+    padding-left: 2rem;
     padding-right: 0px;
     color: gray;
+    display: block;
 }
 
 .Log-out {
