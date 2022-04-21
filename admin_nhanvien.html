@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="filter_bar" class="container">
+        <h4 class="filter_heading">Danh sách nhân viên</h4>
+        <div class="row filter_row">
+            <div class="col-md-4">
+                <div class="btn-group">
+                    <button type="button" class="btn">Sắp xếp theo tên</button>
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Sắp xếp theo tên</a>
+                        <a class="dropdown-item" href="#">Sắp xếp theo ID</a>
+                        <a class="dropdown-item" href="#">Sắp xếp theo ngày tạo</a>
+                        <a class="dropdown-item" href="#">Sắp xếp theo trạng thái</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                    <input class="filter_input btn"  type="text" placeholder="Nhập tên để tìm kiếm">
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-outline filter_button">+ Thêm nhân viên</button>
+                
+            </div>
+        </div>
+    </div>
+    
+    <br><br><br>
+
+    <div id="list_staff" class="container">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Tên nhân viên</th>
+                <th scope="col">Ngày tạo</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">1</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_off rounded-pilled">Offline</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">2</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_off rounded-pilled">Offline</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">3</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">4</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">5</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">6</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">7</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">8</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_on rounded-pilled">Active</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">9</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_off rounded-pilled">Offline</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">10</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_off rounded-pilled">Offline</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr><tr>
+                    <td scope="row">11</td>
+                    <td>
+                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                    </td>
+                    <td>Selena Havoy</td>
+                    <td>September 9, 2013</td>
+                    <td>
+                        <button class="button status_off rounded-pilled">Offline</button>
+                    </td>
+                    <td>
+                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+
+</html>

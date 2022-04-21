@@ -1,21 +1,25 @@
 /*File khởi tạo các css chung của page*/
 
-@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+@import "./dashboard.css";
+@import "./nhanvien.css";
+@import "./donhang.css";
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
 ul {
-  list-style: none;
-  list-style-type: none;
+    list-style: none;
+    list-style-type: none;
 }
 
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h1,
@@ -24,7 +28,79 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 /*Import các file css khác vào đây*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    color: #c730b5;
+}
+
+#navbarHeaderAdmin {
+    margin-left: 11%;
+    text-align: center;
+}
+
+.bell-icon i {
+    color: gray;
+    size: 100px;
+    padding-top: 30px;
+    margin-right: 50px;
+}
+
+.bell-icon:hover {
+    color: gray;
+}
+
+#left-content {
+    margin-right: 10%;
+}
+
+.sidebar {
+    padding-top: 5%;
+}
+
+a.row {
+    padding-bottom: 30px;
+    margin-right: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+.fa-solid {
+    color: #c730b5;
+}
+
+h6.col-md-10 {
+    padding-left: 40px;
+    padding-right: 0px;
+    color: gray;
+}
+
+.Log-out {
+    margin-top: 500px;
+}
+
+.Log-out h5 {
+    font-weight: bold;
+    color: gray;
+}
+
+#admin_dashboard__content {
+    margin-top: 30px;
+}
+
+.sidebar {
+    position: fixed;
+}
+
+.Log-out {
+    position: fixed;
+}
