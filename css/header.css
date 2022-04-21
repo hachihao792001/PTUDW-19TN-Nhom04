@@ -1,14 +1,23 @@
 .header-top {
   padding: .5rem 1rem;
   border-bottom: 1px solid #000;
+  flex-wrap: wrap;
 }
 
 .header-top__contact,
 .header-top__social {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   margin: 0;
+}
+
+.header-top__contact {
+  margin-right: auto;
+}
+
+.header-top__social {
+  margin-left: auto;
 }
 
 .header-top__contact li {

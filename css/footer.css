@@ -1,17 +1,23 @@
 footer {
-    background-color: #C730B5;
-    color: white;
-    padding: 5% 0 5% 20%;
+  background-color: #C730B5;
+  color: white;
+  padding: 40px 0;
 }
 
 footer a {
-    color: white;
+  color: white;
 }
 
 footer a:hover {
-    color: #F28CFA;
+  color: #F28CFA;
 }
+
 footer .icon i {
-    margin-right: 2%;
-    size: 50px;
+  margin-right: 2%;
+  size: 50px;
+}
+
+footer .nav-link {
+  display: inline-block !important;
+  padding: .5rem 0 !important;
 }

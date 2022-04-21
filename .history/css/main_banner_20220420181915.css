@@ -40,9 +40,5 @@
 
 #banner .banner__content .btn-default {
     margin-top: 30px;
-    padding: 0.6rem 2.5rem;
-}
-
-.btn-default:hover {
-    background-color: var(--purple-dark);
+    padding: 1rem 2rem;
 }
