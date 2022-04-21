@@ -22,82 +22,74 @@
     box-sizing: border-box;
 }
 
-.popup {
-  display: inline-block;
-}
-
-.popup .popuptext {
-  background-color: rgb(255, 255, 255);
-  border-radius: 1rem;
-  padding: 1rem 3rem;
+.modal-dialog {
+    max-width: 600px;
 }
 
 .popup {
-  visibility: hidden;
-  width: 50vw;
-  height: 50vw;
-  text-align: center;
-  position: fixed;
-  z-index: 22222;
-  top: 5vw;
-  left: 25vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    padding: 1rem 3rem;
 }
 
-.popup .popuptext .item {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  font-size: 1rem;
-  margin: 2rem 0;
+.popup .item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    margin-bottom: 2rem;
 }
 
-.popup .popuptext .item .info {
-  font-size: 1rem;
-  text-align: left;
-  margin: 0 3rem;
+.popup .item .info {
+    font-size: 1rem;
+    text-align: left;
+    margin: 0 3rem;
 }
 
-.popup .popuptext .item .info h3 {
-  font-weight: 700;
-  font-size: 1rem;
+.popup .item .info h3 {
+    font-weight: 700;
+    font-size: 1rem;
 }
 
-.popup .popuptext .item .info p {}
+.popup .item .info p {}
 
-.popup .popuptext .item .info span {
-  font-weight: 600;
+.popup .item .info span {
+    font-weight: 600;
 }
 
-.popup .popuptext .item .img {
-  width: 20%;
+.popup .item .img {
+    width: 20%;
 }
 
-.popup .popuptext .item .img img {
-  width: 100%;
+.popup .item .img img {
+    width: 100%;
 }
 
-.popup .popuptext .item .select {
-  text-align: left;
+.popup .item .select {
+    text-align: left;
 }
 
-.popup .popuptext .total {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 2rem;
+.popup .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.popup .popuptext .total button {
-  padding: 0.5rem 1.5rem;
-  background-color: var(--purple);
-  margin-left: 2rem;
-  border-radius: 2rem;
-  color: white;
-  border: none;
+.btn {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--purple);
+    margin-left: 2rem;
+    border-radius: 2rem;
+    color: white;
+    border: none;
 }
 
-.popup .show {
-  visibility: visible;
+.btn-close {
+    padding: 0.5rem 1.5rem;
+    background-color: #a3a3a3;
+    margin-left: 2rem;
+    border-radius: 2rem;
+    color: white;
+    border: none;
 }
-
