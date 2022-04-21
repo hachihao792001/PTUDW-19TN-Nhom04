@@ -102,7 +102,50 @@
                 </div>
 
                 <div id="admin_dashboard__content" class="col-md-8">
-                    <h1>Hello from San pham</h1>
+                    <div id="filter_bar" class="container">
+                        <h4 class="filter_heading">Danh sách sản phẩm</h4>
+                        <div class="row filter_row">
+                            <div class="col-md-4">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Chọn loại sản phẩm
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
+                                        <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline filter_button">+ Thêm sản phẩm</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+
+                    <div id="list_product" class="container">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã</th>
+                                    <th scope="col">Hình ảnh</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Mô tả</th>
+                                    <th scope="col">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_content">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,6 +157,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./js/index.js"></script>
+
+    <script src="./js/admin_sanpham.js"></script>
 </body>
 
 </html>
