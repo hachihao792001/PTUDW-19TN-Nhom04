@@ -1,24 +1,24 @@
 :root {
-    --purple: #C730B5;
-    --purple-dark: #a72798;
-    --purple-light: #F28CFA;
+  --purple: #C730B5;
+  --purple-dark: #a72798;
+  --purple-light: #F28CFA;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
 ul {
-    list-style: none;
-    list-style-type: none;
+  list-style: none;
+  list-style-type: none;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1,
@@ -27,31 +27,47 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-default {
-    background-color: var(--purple);
-    color: #fff;
-    padding: .5rem 2rem;
-    border-radius: 30px;
-    border: 1px solid var(--purple);
-    text-transform: uppercase;
-    transition: .2s ease-in-out;
+  background-color: var(--purple);
+  color: #fff;
+  padding: .5rem 2rem;
+  border-radius: 30px;
+  border: 1px solid var(--purple);
+  text-transform: uppercase;
+  transition: .2s ease-in-out;
 }
 
 .btn-default.btn-outline {
-    background-color: #fff;
-    color: var(--purple);
+  background-color: #fff;
+  color: var(--purple);
 }
 
 .btn-default.btn-outline:hover {
-    background-color: var(--purple);
-    color: #fff;
+  background-color: var(--purple);
+  color: #fff;
 }
 
 .title-default {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--purple);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.slick-dots li button:before {
+  font-size: 1rem;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li.slick-active button:before {
+  color: var(--purple);
+  transition: .1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .title-default {
+    font-size: 2.5rem;
+  }
 }

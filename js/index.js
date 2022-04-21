@@ -1,11 +1,50 @@
 window.addEventListener("load", function () {
     $(document).ready(function () {
-        $(".images-slider").slick({
+        $(".promotion-slider").slick({
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
             dots: true,
             arrows: true,
+            prevArrow: $(".slider-prev"),
+            nextArrow: $(".slider-next"),
+            autoplay: true,
+            autoplaySpeed: 1500,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
+        });
+        $(".images-slider").slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
         });
 
         const menuCategory = [
@@ -284,7 +323,7 @@ window.addEventListener("load", function () {
 									</div>
 									<div class="col-6 col-md-2">
 											<div class="item-price">
-													${itemDetail.price}
+													${itemDetail.price}đ
 											</div>
 									</div>
 									<div class="col-6 col-md-2">

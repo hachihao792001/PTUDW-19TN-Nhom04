@@ -1,5 +1,6 @@
 #menu {
   border-bottom: 2px solid var(--purple);
+  background-color: rgb(245, 245, 245);
 }
 
 .menu-list,
@@ -9,6 +10,10 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 20px;
+}
+
+.menu-list {
+  margin-left: 40px;
 }
 
 .menu-list__group {
@@ -69,10 +74,11 @@
   padding: 20px;
   border-right: 2px solid var(--purple);
   height: 100%;
+  background: #fff;
 }
 
 .menu-nav ul li {
-  margin: 20px 0;
+  margin: 20px 0 20px 20px;
   position: relative;
 }
 
