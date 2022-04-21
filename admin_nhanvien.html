@@ -2,205 +2,311 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portal</title>
+    <link rel="shortcut icon" type="" href="" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
-    <div id="filter_bar" class="container">
-        <h4 class="filter_heading">Danh sách nhân viên</h4>
-        <div class="row filter_row">
-            <div class="col-md-4">
-                <div class="btn-group">
-                    <button type="button" class="btn">Sắp xếp theo tên</button>
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Sắp xếp theo tên</a>
-                        <a class="dropdown-item" href="#">Sắp xếp theo ID</a>
-                        <a class="dropdown-item" href="#">Sắp xếp theo ngày tạo</a>
-                        <a class="dropdown-item" href="#">Sắp xếp theo trạng thái</a>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarHeaderAdmin">
+                <a class="navbar-brand" href="#">
+                    <h1>4nation<br>Cafe</h1>
+                </a>
+
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                </ul>
+
+                <ul id="left-content" class="navbar-nav">
+                    <li class="nav-item dropdown bell-icon">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-solid fa-bell fa-2xl"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Hiện không có thông báo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Tài khoản cá nhân</a>
+                            <a class="dropdown-item" href="#">Cài đặt</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="sidebar">
+                        <li class="sidebar-item">
+                            <a href="index.html" class="row">
+                                <i class="fa-solid fa-table-columns col-md-1"></i>
+                                <h6 class="col-md-10">Dashboard</h6>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="admin_nhanvien.html" class="row">
+                                <i class="fa-solid fa-user-group col-md-1"></i>
+                                <h6 class="col-md-10">Nhân viên</h6>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="admin_donhang.html" class="row">
+                                <i class="fa-solid fa-cart-shopping col-md-1"></i>
+                                <h6 class="col-md-10">Đơn hàng</h6>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="admin_sanpham.html" class="row">
+                                <i class="fa-solid fa-mug-saucer col-md-1"></i>
+                                <h6 class="col-md-10">Sản phẩm</h6>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="admin_khuyenmai.html" class="row">
+                                <i class="fa-solid fa-tag col-md-1"></i>
+                                <h6 class="col-md-10">Khuyến mãi</h6>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="Log-out">
+                        <hr>
+                        <a href="#">
+                            <h5>Đăng xuất</h5>
+                        </a>
+                        <hr>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                    <input class="filter_input btn"  type="text" placeholder="Nhập tên để tìm kiếm">
-            </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-outline filter_button">+ Thêm nhân viên</button>
-                
+
+                <div id="admin_dashboard__content" class="col-md-8">
+                    <div id="filter_bar" class="container">
+                        <h4 class="filter_heading">Danh sách nhân viên</h4>
+                        <div class="row filter_row">
+                            <div class="col-md-4">
+                                <div class="btn-group">
+                                    <button type="button" class="btn">Sắp xếp theo tên</button>
+                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Sắp xếp theo tên</a>
+                                        <a class="dropdown-item" href="#">Sắp xếp theo ID</a>
+                                        <a class="dropdown-item" href="#">Sắp xếp theo ngày tạo</a>
+                                        <a class="dropdown-item" href="#">Sắp xếp theo trạng thái</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline filter_button">+ Thêm nhân viên</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+
+                    <div id="list_staff" class="container">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Avatar</th>
+                                    <th scope="col">Tên nhân viên</th>
+                                    <th scope="col">Ngày tạo</th>
+                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_content">
+                                <!-- <tr>
+                                    <td scope="row">1</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_off rounded-pilled">Offline</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">2</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_off rounded-pilled">Offline</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">3</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">4</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">5</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">6</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">7</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">8</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_on rounded-pilled">Active</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">9</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_off rounded-pilled">Offline</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">10</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_off rounded-pilled">Offline</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td>
+                                </tr><tr>
+                                    <td scope="row">11</td>
+                                    <td>
+                                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
+                                    </td>
+                                    <td>Selena Havoy</td>
+                                    <td>September 9, 2013</td>
+                                    <td>
+                                        <button class="button status_off rounded-pilled">Offline</button>
+                                    </td>
+                                    <td>
+                                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
+                                    </td> 
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-    
-    <br><br><br>
+    </main>
 
-    <div id="list_staff" class="container">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Avatar</th>
-                <th scope="col">Tên nhân viên</th>
-                <th scope="col">Ngày tạo</th>
-                <th scope="col">Trạng thái</th>
-                <th scope="col">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody id="table_content">
-                <!-- <tr>
-                    <td scope="row">1</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_off rounded-pilled">Offline</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_off rounded-pilled">Offline</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">3</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">4</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">5</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">6</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">7</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">8</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_on rounded-pilled">Active</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">9</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_off rounded-pilled">Offline</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">10</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_off rounded-pilled">Offline</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td>
-                </tr><tr>
-                    <td scope="row">11</td>
-                    <td>
-                        <img src="./assets/images/avatar_staff.jpg" width="40" height="40" class="rounded-circle" >
-                    </td>
-                    <td>Selena Havoy</td>
-                    <td>September 9, 2013</td>
-                    <td>
-                        <button class="button status_off rounded-pilled">Offline</button>
-                    </td>
-                    <td>
-                        <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    </td> 
-                </tr> -->
-            </tbody>
-          </table>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
 
-
+    <script src="./js/admin_nhanvien.js "></script>
 </body>
 
 </html>
