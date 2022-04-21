@@ -67,11 +67,11 @@ h6 {
     padding-top: 5%;
 }
 
-.sidebar .sidebar-item {
-    padding: 1.2rem 2rem 0.5rem 2rem;
+.sidebar .sidebar-item a {
+    padding: 1.2rem 2rem 0.5rem 1.2rem;
 }
 
-.sidebar .sidebar-item:hover {
+.sidebar .sidebar-item a:hover {
     background-color: rgba(192, 192, 192, 0.329);
     border-radius: 0.6rem;
     cursor: pointer;
