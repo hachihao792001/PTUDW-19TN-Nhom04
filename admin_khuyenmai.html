@@ -91,7 +91,7 @@
                             </a>
                         </li>
                     </ul>
-
+    
                     <div class="Log-out">
                         <hr>
                         <a href="#">
@@ -100,9 +100,55 @@
                         <hr>
                     </div>
                 </div>
-
+    
                 <div id="admin_dashboard__content" class="col-md-8">
-                    <h1>Hello from Khuyen mai</h1>
+                    <div id="filter_bar" class="container">
+                        <h4 class="filter_heading">Danh sách nhân viên</h4>
+                        <div class="row filter_row">
+                            <div class="col-md-3">
+                                <div class="btn-group">
+                                    <button type="button" class="btn dropdown_placeholder">Trạng thái</button>
+                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu filter_dropdown">
+                                        <a class="dropdown-item" href="#">Hoạt động</a>
+                                        <a class="dropdown-item" href="#">Hết hạn</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline filter_button">+ Thêm khuyến mãi</button>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                    <br><br><br>
+    
+                    <div id="list_staff" class="container">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Mã</th>
+                                    <th scope="col">Còn lại</th>
+                                    <th scope="col">Ngày bắt đầu</th>
+                                    <th scope="col">Ngày hết hạn</th>
+                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">Loại</th>
+                                    <th scope="col">Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_content">
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,6 +160,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/admin_khuyenmai.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@
 @import "./dashboard.css";
 @import "./nhanvien.css";
 @import "./donhang.css";
+@import "./khuyenmai.css";
 * {
     margin: 0;
     padding: 0;

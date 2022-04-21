@@ -45,6 +45,7 @@
 }
 
 /* Table CSS */
+
 thead tr th {
     color:#C730B5
 }
@@ -78,3 +79,36 @@ td i {
     margin: 20px 20px 0 20px;
 }
 
+td.column_name{
+    text-align: left;
+    padding-left: 40px;
+}
+
+/* Modal CSS */
+.staff_avatar {
+    text-align: center;
+}
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}  
+
+.staff_modal form div label {
+    font-weight: bold;
+}
+
+.btn_status {
+    display: flex;
+    gap: 10px;
+}
+.modal_footer {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.modal_footer .btn-primary {
+    background-color: #C730B5;
+    border: none;
+}
