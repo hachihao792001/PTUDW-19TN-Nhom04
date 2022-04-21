@@ -17,9 +17,10 @@
                 <input class="filter" type="text" placeholder="Tìm theo ID đơn hàng">
                 <input class="filter" type="text" placeholder="Tìm theo ID khách hàng">
                 <div class="dropdown filter p-0">
-                    <button class="btn dropdown-toggle h-100 m-0 w-100 bg-white text-black" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                              Trạng thái
-                            </button>
+                    <button class="btn dropdown-toggle h-100 m-0 w-100 bg-white text-black" type="button"
+                        id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                        Trạng thái
+                    </button>
                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
                         <li><a class="dropdown-item" href="#">Chờ xác nhận</a></li>
                         <li><a class="dropdown-item" href="#">Đã xác nhận </a></li>
@@ -61,7 +62,110 @@
             </table>
         </div>
     </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+        Sửa đơn hàng
+    </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa đơn hàng</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="editDonHang_body">
+                    <div id="editDonHang_clientInfo">
+                        <h6>Thông tin liên hệ khách hàng</h6>
+                        <div>
+                            <div>
+                                <p>Tên khách hàng</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>Địa chỉ email</p>
+                                <input type="email">
+                            </div>
+                            <div>
+                                <p>Số điện thoại</p>
+                                <input type="phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="editDonHang_paymentMethod">
+                        <h6>Hình thức thanh toán</h6>
+                        <div>
+                            <p>Hình thức thanh toán</p>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tiền mặt
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Tiền mặt</a>
+                                    <a class="dropdown-item" href="#">Chuyển tiền</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="editDonHang_status">
+                        <h6>Trạng thái đơn hàng</h6>
+                        <div>
+                            <p>Trạng thái</p>
+                            <div class="btn-group">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Chờ xác nhận
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Chờ xác nhận</a>
+                                    <a class="dropdown-item" href="#">Đã xác nhận</a>
+                                    <a class="dropdown-item" href="#">Đang xử lí</a>
+                                    <a class="dropdown-item" href="#">Đang giao</a>
+                                    <a class="dropdown-item" href="#">Đã giao</a>
+                                    <a class="dropdown-item" href="#">Hoàn tất</a>
+                                    <a class="dropdown-item" href="#">Trả hàng</a>
+                                    <a class="dropdown-item" href="#">Đơn huỷ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="editDonHang_deliveryInfo">
+                        <h6>Thông tin liên hệ khách hàng</h6>
+                        <div>
+                            <div>
+                                <p>Địa chỉ giao hàng</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>Tỉnh/Thành phố</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>Quận/Huyện</p>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <p>Phường/Xã</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ đơn hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
