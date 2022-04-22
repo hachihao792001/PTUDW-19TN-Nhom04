@@ -113,7 +113,7 @@ window.addEventListener("load", function () {
                         }">${mapStatus(order.status).title}</button>
                         </td>
                         <td>
-                            <a href="#" type="button" data-toggle="modal" data-target="#exampleModalLong">
+                            <a href="#" type="button" data-toggle="modal" data-target="#editDonHangModal">
                                 <i class="fa fa-edit"></i>
                             </a>
                         </td>

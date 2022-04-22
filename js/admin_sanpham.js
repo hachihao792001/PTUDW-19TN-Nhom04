@@ -50,7 +50,7 @@ var items = product_list
             <td>${item.price}</td>
             <td>${item.description}</td>
             <td>
-                <a href="#" type="button" data-toggle="modal" data-target="#exampleModalLong">
+                <a href="#" type="button" data-toggle="modal" data-target="#editSanPhamModal">
                     <i class="fa-solid fa-pen fa-2xl"></i>
                 </a>
             </td>
