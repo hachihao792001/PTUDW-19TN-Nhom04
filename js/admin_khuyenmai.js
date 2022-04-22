@@ -117,7 +117,7 @@ var items = KM_list.map(function (item) {
             <td>${item.status}</td>
             <td>${item.type}</td>
             <td>
-                <a href="#"><i class="fa-solid fa-circle-info fa-2xl"></i></a>
+                <a href="#" data-toggle="modal" data-target="#settingDiscount"><i class="fa-solid fa-circle-info fa-2xl"></i></a>
             </td>
         </tr>
         `
@@ -136,4 +136,29 @@ for (let i=0; i< field_name.length; i++){
         placeholer.innerHTML = name;
     }) 
 }
+
+//Condition && Type
+var listTypeSelect = document.querySelector('.type_group select')
+var listTypeInput = document.querySelector('.type_group input')
+
+listTypeSelect.addEventListener('change', () => {
+  if (listTypeSelect.value == 'Tiền cố định'){
+    listTypeInput.setAttribute('placeholder', 'VND')
+  } else {
+    listTypeInput.setAttribute('placeholder', '%')
+  }
+})
+
+var listConditionSelect = document.querySelector('.condition_group select')
+var listConditionInput = document.querySelector('.condition_group input')
+
+listConditionSelect.addEventListener('change', () => {
+  if (listConditionSelect.value == 'Không có'){
+    listConditionInput.setAttribute('placeholder', '')
+    listConditionInput.setAttribute('disabled','')
+  } else {
+    listConditionInput.setAttribute('placeholder', 'VND')
+    listConditionInput.removeAttribute('disabled')
+  }
+})
 
