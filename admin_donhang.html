@@ -31,7 +31,8 @@
 
                 <ul id="left-content" class="navbar-nav">
                     <li class="nav-item dropdown bell-icon">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-2xl"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -39,7 +40,8 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -109,7 +111,9 @@
                                 <input class="filter" type="text" placeholder="Tìm theo ID đơn hàng">
                                 <input class="filter" type="text" placeholder="Tìm theo ID khách hàng">
                                 <div class="dropdown filter p-0">
-                                    <button class="btn dropdown-toggle h-100 m-0 w-100 bg-white text-black" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                    <button class="btn dropdown-toggle h-100 m-0 w-100 bg-white text-black"
+                                        type="button" id="defaultDropdown" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="true" aria-expanded="false">
                                         Trạng thái
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
@@ -154,12 +158,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-purple edit-order-btn" data-toggle="modal" data-target="#exampleModalLong">
-                        Sửa đơn hàng
-                    </button>
-
                     <!-- Edit don hang modal -->
-                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -168,84 +169,82 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body" id="editDonHang_body">
-                                    <div id="editDonHang_clientInfo">
-                                        <h6>Thông tin liên hệ khách hàng</h6>
-                                        <div>
+                                <div class="modal-body">
+                                    <form id="editDonHang_body">
+                                        <div id="editDonHang_clientInfo">
+                                            <h6>Thông tin liên hệ khách hàng</h6>
                                             <div>
-                                                <p>Tên khách hàng</p>
-                                                <input type="text">
-                                            </div>
-                                            <div>
-                                                <p>Địa chỉ email</p>
-                                                <input type="email">
-                                            </div>
-                                            <div>
-                                                <p>Số điện thoại</p>
-                                                <input type="phone">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div id="editDonHang_paymentMethod">
-                                        <h6>Hình thức thanh toán</h6>
-                                        <div>
-                                            <p>Hình thức thanh toán</p>
-                                            <div class="btn-group">
-                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Tiền mặt
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Tiền mặt</a>
-                                                    <a class="dropdown-item" href="#">Chuyển tiền</a>
+                                                <div>
+                                                    <p>Tên khách hàng</p>
+                                                    <input type="text" name="client_name">
+                                                </div>
+                                                <div>
+                                                    <p>Địa chỉ email</p>
+                                                    <input type="email" name="email">
+                                                </div>
+                                                <div>
+                                                    <p>Số điện thoại</p>
+                                                    <input type="text" name="phone">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div id="editDonHang_status">
-                                        <h6>Trạng thái đơn hàng</h6>
-                                        <div>
-                                            <p>Trạng thái</p>
-                                            <div class="btn-group">
-                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Chờ xác nhận
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Chờ xác nhận</a>
-                                                    <a class="dropdown-item" href="#">Đã xác nhận</a>
-                                                    <a class="dropdown-item" href="#">Đang xử lí</a>
-                                                    <a class="dropdown-item" href="#">Đang giao</a>
-                                                    <a class="dropdown-item" href="#">Đã giao</a>
-                                                    <a class="dropdown-item" href="#">Hoàn tất</a>
-                                                    <a class="dropdown-item" href="#">Trả hàng</a>
-                                                    <a class="dropdown-item" href="#">Đơn huỷ</a>
+                                        <div id="editDonHang_paymentMethod">
+                                            <h6>Hình thức thanh toán</h6>
+                                            <div>
+                                                <p>Hình thức thanh toán</p>
+                                                <div class="btn-group">
+                                                    <select class="btn dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false"
+                                                        name="payment_method">
+                                                        <option>Tiền mặt</a>
+                                                        <option>Chuyển tiền</a>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div id="editDonHang_deliveryInfo">
-                                        <h6>Thông tin liên hệ khách hàng</h6>
-                                        <div>
+                                        <div id="editDonHang_status">
+                                            <h6>Trạng thái đơn hàng</h6>
                                             <div>
-                                                <p>Địa chỉ giao hàng</p>
-                                                <input type="text">
-                                            </div>
-                                            <div>
-                                                <p>Tỉnh/Thành phố</p>
-                                                <input type="text">
-                                            </div>
-                                            <div>
-                                                <p>Quận/Huyện</p>
-                                                <input type="text">
-                                            </div>
-                                            <div>
-                                                <p>Phường/Xã</p>
-                                                <input type="text">
+                                                <p>Trạng thái</p>
+                                                <div class="btn-group">
+                                                    <select class="btn dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false"
+                                                        name="delivery_status">
+                                                        <option>Mới</option>
+                                                        <option>Đã xác nhận</option>
+                                                        <option>Đang giao</option>
+                                                        <option>Đã giao</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+
+                                        <div id="editDonHang_deliveryInfo">
+                                            <h6>Thông tin liên hệ khách hàng</h6>
+                                            <div>
+                                                <div>
+                                                    <p>Địa chỉ giao hàng</p>
+                                                    <input type="text" name="address">
+                                                </div>
+                                                <div>
+                                                    <p>Tỉnh/Thành phố</p>
+                                                    <input type="text" name="city">
+                                                </div>
+                                                <div>
+                                                    <p>Quận/Huyện</p>
+                                                    <input type="text" name="district">
+                                                </div>
+                                                <div>
+                                                    <p>Phường/Xã</p>
+                                                    <input type="text" name="ward">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
 
                                 <div class="modal-footer">
@@ -271,7 +270,7 @@
     <script src="./js/admin_order_orderlist.js "></script>
     <script>
         var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-        var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
             return new bootstrap.Dropdown(dropdownToggleEl)
         })
     </script>

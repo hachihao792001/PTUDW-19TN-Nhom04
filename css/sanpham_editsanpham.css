@@ -1,5 +1,4 @@
 #editSanPham_body {
-    row-gap: 50px;
     padding: 30px;
 }
 
@@ -20,7 +19,7 @@
     justify-content: space-between;
 }
 
-.dropzone {
+#editSanPham_body .dropzone {
     border: 4px solid #c730b5;
     color: #c730b5;
 }
