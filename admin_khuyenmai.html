@@ -31,7 +31,8 @@
 
                 <ul id="left-content" class="navbar-nav">
                     <li class="nav-item dropdown bell-icon">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-2xl"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -39,7 +40,8 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -56,36 +58,37 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12">
                     <ul class="sidebar">
-                        <li class="sidebar-item">
+                        <li class="sidebar-item active">
                             <a href="index.html" class="row">
-                                <i class="fa-solid fa-table-columns col-md-1"></i>
-                                <h6 class="col-md-10">Dashboard</h6>
+                                <i class="fa-solid fa-table-columns col-1"></i>
+                                <h6 class="col-10">
+                                    Dashboard</h6>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="admin_nhanvien.html" class="row">
-                                <i class="fa-solid fa-user-group col-md-1"></i>
-                                <h6 class="col-md-10">Nhân viên</h6>
+                                <i class="fa-solid fa-user-group col-1"></i>
+                                <h6 class="col-10">Nhân viên</h6>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="admin_donhang.html" class="row">
-                                <i class="fa-solid fa-cart-shopping col-md-1"></i>
-                                <h6 class="col-md-10">Đơn hàng</h6>
+                                <i class="fa-solid fa-cart-shopping col-1"></i>
+                                <h6 class="col-10">Đơn hàng</h6>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="admin_sanpham.html" class="row">
-                                <i class="fa-solid fa-mug-saucer col-md-1"></i>
-                                <h6 class="col-md-10">Sản phẩm</h6>
+                                <i class="fa-solid fa-mug-saucer col-1"></i>
+                                <h6 class="col-10">Sản phẩm</h6>
                             </a>
                         </li>
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="admin_khuyenmai.html" class="row">
-                                <i class="fa-solid fa-tag col-md-1"></i>
-                                <h6 class="col-md-10">Khuyến mãi</h6>
+                                <i class="fa-solid fa-tag col-1"></i>
+                                <h6 class="col-10">Khuyến mãi</h6>
                             </a>
                         </li>
                     </ul>
@@ -106,7 +109,8 @@
                             <div class="col-md-3">
                                 <div class="btn-group">
                                     <button type="button" class="btn dropdown_placeholder">Trạng thái</button>
-                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu filter_dropdown">
@@ -119,7 +123,8 @@
                                 <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
                             </div>
                             <div class="col-md-4">
-                                <button type="button" class="btn btn-outline filter_button" data-toggle="modal" data-target="#settingDiscount">+ Thêm khuyến mãi</button>
+                                <button type="button" class="btn btn-outline filter_button" data-toggle="modal"
+                                    data-target="#settingDiscount">+ Thêm khuyến mãi</button>
 
                             </div>
                         </div>
@@ -151,14 +156,15 @@
         </div>
     </main>
 
-    <div class="modal fade" id="settingDiscount" tabindex="-1" role="dialog" aria-labelledby="settingDiscountTitle" aria-hidden="true">
+    <div class="modal fade" id="settingDiscount" tabindex="-1" role="dialog" aria-labelledby="settingDiscountTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="settingDiscountTitle">Chỉnh sửa nhân viên</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body discount_modal">
                     <form class="form_edit" method="get">
@@ -180,13 +186,15 @@
                         <div class="form-group row">
                             <div class="col-6">
                                 <label class="name_label" for="InputExpired">Ngày hết hạn</label>
-                                <input type="date" class="form-control" id="InputExpired" name="date_expired" placeholder="dd/m/yyyy">
+                                <input type="date" class="form-control" id="InputExpired" name="date_expired"
+                                    placeholder="dd/m/yyyy">
                             </div>
                             <div class="col-6">
                                 <label class="name_label" for="dropdownStatus">Trạng thái</label>
                                 <br>
-                                <select class="btn dropdown-toggle" type="button" id="dropdownStatus" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false" name="status_method">
+                                <select class="btn dropdown-toggle" type="button" id="dropdownStatus"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    name="status_method">
                                     <option>Hoạt động</a>
                                     <option>Hết hạn</a>
                                 </select>
@@ -198,8 +206,9 @@
                             <div class="col-6">
                                 <label class="name_label" for="dropdownType">Loại khuyến mãi</label>
                                 <br>
-                                <select class="btn dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" name="type_method">
+                                <select class="btn dropdown-toggle" type="button" id="dropdownType"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    name="type_method">
                                     <option>Tiền cố định</a>
                                     <option>Phần trăm</a>
                                 </select>
@@ -215,15 +224,17 @@
                             <div class="col-6">
                                 <label class="name_label" for="dropdownCondition">Điều kiện</label>
                                 <br>
-                                <select class="btn dropdown-toggle" type="button" id="dropdownCondition" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" name="condition_method">
+                                <select class="btn dropdown-toggle" type="button" id="dropdownCondition"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    name="condition_method">
                                     <option>Mua trên</a>
                                     <option>Không có</a>
                                 </select>
                             </div>
                             <div class="col-6">
                                 <label class="name_label" for="InputCondition">Giá trị (điều kiện)</label>
-                                <input type="text" class="form-control" id="InputCondition" name="condition" placeholder="VND">
+                                <input type="text" class="form-control" id="InputCondition" name="condition"
+                                    placeholder="VND">
                             </div>
                         </div>
                         <br>

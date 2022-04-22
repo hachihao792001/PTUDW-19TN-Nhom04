@@ -31,7 +31,6 @@ h6 {
     font-family: "Montserrat", sans-serif;
 }
 
-
 /*Import các file css khác vào đây*/
 
 h1,
@@ -75,7 +74,7 @@ h6 {
 }
 
 .sidebar .sidebar-item a {
-    padding: 1.2rem 2rem 0.5rem 1.2rem;
+    padding: 1.2rem 1.2rem 0.5rem 1.2rem;
 }
 
 .sidebar .sidebar-item a:hover {
@@ -104,10 +103,8 @@ a.row {
     color: #c730b5;
 }
 
-h6.col-md-10 {
+.sidebar h6 {
     font-size: 1.1rem;
-    padding-left: 2rem;
-    padding-right: 0px;
     color: gray;
     display: block;
 }
@@ -123,10 +120,6 @@ h6.col-md-10 {
 
 #admin_dashboard__content {
     margin-top: 30px;
-}
-
-.sidebar {
-    position: fixed;
 }
 
 .Log-out {
