@@ -4,21 +4,21 @@
 }
 
 #admin_dashboard__dropdowns .dropdown-currentchoice {
-    background-color: #f6f6f6;
-    border-radius: 5px;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
 }
 
 #admin_dashboard__dropdowns .dropdown-togglebutton {
-    background-color: #faf2ff;
+    background-color: #f8f9fa;
     color: #bb6bd9;
-    border-radius: 5px;
+    border-radius: 0.5rem;
 }
 
 #admin_dashboard__sales {
     margin: 50px 0;
 }
 
-#admin_dashboard__access > #access_numbers {
+#admin_dashboard__access>#access_numbers {
     margin: 30px 0;
     display: flex;
     gap: 70px;
@@ -28,7 +28,7 @@
     margin-top: 30px;
 }
 
-#consume > h2 {
+#consume>h2 {
     margin-bottom: 20px;
 }
 
@@ -43,7 +43,7 @@
     margin-right: auto;
 }
 
-#consume + button {
+#consume+button {
     margin: 30px 0;
     float: right;
 }

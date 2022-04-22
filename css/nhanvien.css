@@ -1,10 +1,12 @@
 /* Filter Bar CSS */
+
 #filter_bar {
-    background-color: #E5E5E5;
+    background-color: #f8f9fa;
     text-align: center;
+    border-radius: 0.5rem;
 }
 
-.filter_heading{
+.filter_heading {
     text-align: start;
     color: #C730B5;
     padding: 20px;
@@ -26,7 +28,7 @@
     border: 0;
 }
 
-.filter_input:hover{
+.filter_input:hover {
     background-color: white;
 }
 
@@ -39,22 +41,26 @@
     color: black;
     border: 0;
 }
+
 .btn-group button:hover {
     background-color: #C730B5;
     color: white;
 }
 
+
 /* Table CSS */
 
 thead tr th {
-    color:#C730B5
+    color: #C730B5
 }
+
 td {
     line-height: 40px;
 }
 
 #list_staff {
-    background-color: #E5E5E5;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
 }
 
 .status_on {
@@ -79,20 +85,23 @@ td i {
     margin: 20px 20px 0 20px;
 }
 
-td.column_name{
+td.column_name {
     text-align: left;
     padding-left: 40px;
 }
 
+
 /* Modal CSS */
+
 .staff_avatar {
     text-align: center;
 }
+
 .avatar {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-}  
+}
 
 .staff_modal form div label {
     font-weight: bold;
@@ -102,6 +111,7 @@ td.column_name{
     display: flex;
     gap: 10px;
 }
+
 .modal_footer {
     display: flex;
     justify-content: end;

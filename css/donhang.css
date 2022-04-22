@@ -1,4 +1,12 @@
 @import "./donhang_editdonhang.css";
+#order-container {
+    position: relative;
+}
+
+.order-container {
+    margin-bottom: 6rem;
+}
+
 .order-container .order-control h2 {
     color: #c730b5;
     font-size: 1.4rem;
@@ -6,8 +14,9 @@
 }
 
 .order-container .order-control {
-    background-color: #f7f7f7;
+    background-color: #f8f9fa;
     padding: 2rem;
+    border-radius: 0.5rem;
 }
 
 .order-container .order-filter {
@@ -20,8 +29,8 @@
 .order-container .order-filter .filter {
     width: calc(100% / 3);
     border: none;
-    border-radius: 0.6rem;
-    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
     background-color: white;
 }
 
@@ -52,15 +61,23 @@
     padding: 0.5rem 1.5rem;
     background-color: #a3a3a3;
     margin-left: 2rem;
-    border-radius: 0.6rem;
+    border-radius: 0.5rem;
     color: white;
     border: none;
 }
 
 .order-list {
     margin: 2rem 0;
-    background-color: #f7f7f7;
-    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.edit-order-btn {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+    margin-left: 1rem;
 }
 
 
@@ -74,7 +91,7 @@
 
 .status {
     border: 0;
-    border-radius: 14px;
+    border-radius: 1rem;
     padding: 0 0.2rem;
     color: white;
     height: 2.2rem;

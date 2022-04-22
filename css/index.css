@@ -47,6 +47,7 @@ h6 {
 #navbarHeaderAdmin {
     margin-left: 11%;
     text-align: center;
+    background-color: #f8f9fa;
 }
 
 .bell-icon i {
@@ -69,8 +70,8 @@ h6 {
 }
 
 .active a {
-    background-color: rgba(192, 192, 192, 0.329) !important;
-    border-radius: 0.6rem;
+    background-color: #f8f9fa !important;
+    border-radius: 0.5rem;
 }
 
 .sidebar .sidebar-item a {
@@ -78,8 +79,8 @@ h6 {
 }
 
 .sidebar .sidebar-item a:hover {
-    background-color: rgba(192, 192, 192, 0.329);
-    border-radius: 0.6rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 
