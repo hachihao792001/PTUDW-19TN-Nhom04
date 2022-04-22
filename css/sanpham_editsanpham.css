@@ -17,9 +17,16 @@
 #editSanPham_body .giaca_soluong {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 #editSanPham_body .dropzone {
     border: 4px solid #c730b5;
     color: #c730b5;
+}
+
+@media screen and (max-width: 576px) {
+    #editSanPhamModalTitle {
+        font-size: 1.4rem;
+    }
 }
