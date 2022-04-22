@@ -70,7 +70,7 @@
     margin: 2rem 0;
     background-color: #f8f9fa;
     border-radius: 0.5rem;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 .edit-order-btn {
@@ -79,7 +79,6 @@
     bottom: 2rem;
     margin-left: 1rem;
 }
-
 
 /* .order-list thead th {
     font-size: 1rem;
@@ -109,9 +108,9 @@
 }
 
 .delivering {
-    background-color: #00CF2E;
+    background-color: #00cf2e;
 }
 
 .delivered {
-    background-color: #8C978E;
+    background-color: #8c978e;
 }

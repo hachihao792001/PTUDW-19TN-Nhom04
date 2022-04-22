@@ -172,76 +172,82 @@
                                 </div>
                                 <div class="modal-body">
                                     <form id="editDonHang_body">
-                                        <div id="editDonHang_clientInfo">
+                                        <div class="row editDonHang_topHalf pt-3">
+                                            <div class="col-12 col-md-6 editDonHang_topHalf_left px-0 px-md-2">
+                                                <h6>Thông tin liên hệ khách hàng</h6>
+                                                <div>
+                                                    <div>
+                                                        <p>Tên khách hàng</p>
+                                                        <input type="text" name="client_name">
+                                                    </div>
+                                                    <div>
+                                                        <p>Địa chỉ email</p>
+                                                        <input type="email" name="email">
+                                                    </div>
+                                                    <div>
+                                                        <p>Số điện thoại</p>
+                                                        <input type="text" name="phone">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 editDonHang_topHalf_right px-0 pt-2 pt-md-0">
+                                                <div>
+                                                    <h6>Hình thức thanh toán</h6>
+                                                    <div>
+                                                        <p>Hình thức thanh toán</p>
+                                                        <div class="btn-group">
+                                                            <select class="btn dropdown-toggle" type="button"
+                                                                id="dropdownMenuButton" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                name="payment_method">
+                                                                <option>Tiền mặt</a>
+                                                                <option>Chuyển tiền</a>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h6>Trạng thái đơn hàng</h6>
+                                                    <div>
+                                                        <p>Trạng thái</p>
+                                                        <div class="btn-group">
+                                                            <select class="btn dropdown-toggle" type="button"
+                                                                id="dropdownMenuButton" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                name="delivery_status">
+                                                                <option>Mới</option>
+                                                                <option>Đã xác nhận</option>
+                                                                <option>Đang giao</option>
+                                                                <option>Đã giao</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="editDonHang_bottomHalf">
                                             <h6>Thông tin liên hệ khách hàng</h6>
                                             <div>
-                                                <div>
-                                                    <p>Tên khách hàng</p>
-                                                    <input type="text" name="client_name">
-                                                </div>
-                                                <div>
-                                                    <p>Địa chỉ email</p>
-                                                    <input type="email" name="email">
-                                                </div>
-                                                <div>
-                                                    <p>Số điện thoại</p>
-                                                    <input type="text" name="phone">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="editDonHang_paymentMethod">
-                                            <h6>Hình thức thanh toán</h6>
-                                            <div>
-                                                <p>Hình thức thanh toán</p>
-                                                <div class="btn-group">
-                                                    <select class="btn dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false"
-                                                        name="payment_method">
-                                                        <option>Tiền mặt</a>
-                                                        <option>Chuyển tiền</a>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="editDonHang_status">
-                                            <h6>Trạng thái đơn hàng</h6>
-                                            <div>
-                                                <p>Trạng thái</p>
-                                                <div class="btn-group">
-                                                    <select class="btn dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false"
-                                                        name="delivery_status">
-                                                        <option>Mới</option>
-                                                        <option>Đã xác nhận</option>
-                                                        <option>Đang giao</option>
-                                                        <option>Đã giao</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="editDonHang_deliveryInfo">
-                                            <h6>Thông tin liên hệ khách hàng</h6>
-                                            <div>
-                                                <div>
+                                                <div class="row">
                                                     <p>Địa chỉ giao hàng</p>
                                                     <input type="text" name="address">
                                                 </div>
-                                                <div>
-                                                    <p>Tỉnh/Thành phố</p>
-                                                    <input type="text" name="city">
-                                                </div>
-                                                <div>
-                                                    <p>Quận/Huyện</p>
-                                                    <input type="text" name="district">
-                                                </div>
-                                                <div>
-                                                    <p>Phường/Xã</p>
-                                                    <input type="text" name="ward">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
+                                                        <p>Tỉnh/Thành phố</p>
+                                                        <input type="text" name="city">
+                                                    </div>
+                                                    <div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
+                                                        <p>Quận/Huyện</p>
+                                                        <input type="text" name="district">
+                                                    </div>
+                                                    <div class="col-12 col-md-4 px-0">
+                                                        <p>Phường/Xã</p>
+                                                        <input type="text" name="ward">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
