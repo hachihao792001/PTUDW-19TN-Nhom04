@@ -52,3 +52,9 @@
     height: 3em;
     padding: 10px;
 }
+
+@media screen and (max-width: 576px) {
+    #editDonHangModalTitle {
+        font-size: 1.4rem;
+    }
+}
