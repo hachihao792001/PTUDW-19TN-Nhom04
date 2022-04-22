@@ -31,8 +31,7 @@
 
                 <ul id="left-content" class="navbar-nav">
                     <li class="nav-item dropdown bell-icon">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-2xl"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -40,8 +39,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -66,7 +64,7 @@
                                 <h6 class="col-md-10">Dashboard</h6>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item active">
                             <a href="admin_nhanvien.html" class="row">
                                 <i class="fa-solid fa-user-group col-md-1"></i>
                                 <h6 class="col-md-10">Nhân viên</h6>
@@ -107,8 +105,7 @@
                         <div class="row filter_row">
                             <div class="col-md-4">
                                 <div class="btn-group">
-                                    <button type="button" class="btn dropdown-toggle dropdown_placeholder"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sắp xếp theo ID
+                                    <button type="button" class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sắp xếp theo ID
                                     </button>
                                     <div class="dropdown-menu filter_dropdown">
                                         <a class="dropdown-item">Sắp xếp theo tên</a>
@@ -149,56 +146,55 @@
             </div>
         </div>
     </main>
-    
+
     <div class="modal fade" id="settingStaff" tabindex="-1" role="dialog" aria-labelledby="settingStaffTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="settingStaffTitle">Chỉnh sửa nhân viên</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingStaffTitle">Chỉnh sửa nhân viên</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            </div>
-            <div class="modal-body staff_modal">
-                <form method="get">
-                    <div class="form-group staff_avatar">
-                        <img class="avatar" src="./assets/images/avatar_staff.jpg">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="name_label" for="InputName">Tên nhân viên</label>
-                        <input type="text" class="form-control" id="InputName" name="name" placeholder="Name">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="InputStatus">Trạng thái</label>
+                </div>
+                <div class="modal-body staff_modal">
+                    <form method="get">
+                        <div class="form-group staff_avatar">
+                            <img class="avatar" src="./assets/images/avatar_staff.jpg">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="name_label" for="InputName">Tên nhân viên</label>
+                            <input type="text" class="form-control" id="InputName" name="name" placeholder="Name">
+                        </div>
                         <br>
-                        <div class="btn-group btn-group-toggle btn_status" data-toggle="buttons">
-                            <label class="btn btn-outline-success active">
+                        <div class="form-group">
+                            <label for="InputStatus">Trạng thái</label>
+                            <br>
+                            <div class="btn-group btn-group-toggle btn_status" data-toggle="buttons">
+                                <label class="btn btn-outline-success active">
                                 <input type="radio" name="options" id="Active" value="active" checked> Active
                             </label>
-                            <label class="btn btn-outline-secondary">
+                                <label class="btn btn-outline-secondary">
                                 <input type="radio" name="options" id="Offline" value="offline"> Offline
                             </label>
+                            </div>
                         </div>
-                    </div>
-                    <br>  
-                    <div class="modal_footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
+                        <br>
+                        <div class="modal_footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
 
+                </div>
             </div>
-        </div>
         </div>
     </div>
-    
 
-    <div class="modal fade" id="modal_AddStaff" tabindex="-1" role="dialog" aria-labelledby="modal_AddStaffTitle"
-        aria-hidden="true">
+
+    <div class="modal fade" id="modal_AddStaff" tabindex="-1" role="dialog" aria-labelledby="modal_AddStaffTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -212,7 +208,7 @@
                         <div class="form-group staff_avatar">
                             <img class="avatar" src="./assets/images/1024px-User-avatar.png">
                         </div>
-                    
+
                         <div class="form-group">
                             <label class="name_label" for="InputName">Tên nhân viên</label>
                             <input type="text" class="form-control" id="InputName" name="name" placeholder="Name">
