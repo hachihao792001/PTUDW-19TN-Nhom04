@@ -48,6 +48,9 @@
   object-fit: contain;
 }
 
+header .navbar-brand {
+  margin-left: 10px;
+}
 
 header .navbar-brand img {
   width: 50px;
@@ -85,12 +88,11 @@ header .navbar-toggler {
   }
 
   .navbar-collapse {
-    background-color: var(--purple) !important;
-    padding: 1rem 0;
+    padding: 1rem 0 !important;
   }
 
   header .btn-group {
-    margin: 0 auto;
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 }

@@ -48,6 +48,10 @@
 }
 
 @media (max-width: 768px) {
+  #banner .banner__content {
+    padding: 150px 0;
+  }
+
   #banner .banner__content h1 {
     font-size: 2.5rem;
   }

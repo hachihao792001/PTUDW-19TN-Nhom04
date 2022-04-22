@@ -1,15 +1,27 @@
 footer {
   background-color: #C730B5;
   color: white;
-  padding: 40px 0;
+  padding: 50px 10px;
 }
 
 footer a {
   color: white;
+  transition: all .1s ease-in-out;
 }
 
 footer a:hover {
   color: #F28CFA;
+}
+
+footer .icon {
+  display: flex;
+  justify-content: flex-start;
+}
+
+footer .icon a {
+  display: inline-block;
+  align-items: flex-start;
+  margin-right: 15px;
 }
 
 footer .icon i {
@@ -21,3 +33,5 @@ footer .nav-link {
   display: inline-block !important;
   padding: .5rem 0 !important;
 }
+
+@media (max-width: 768px) {}

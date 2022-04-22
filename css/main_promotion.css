@@ -83,6 +83,14 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  #promotion {
+    padding: 50px 0;
+  }
+
+}
+
 @media (max-width: 576px) {
 
   #promotion .slider-prev,

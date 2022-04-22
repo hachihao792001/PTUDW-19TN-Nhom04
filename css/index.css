@@ -15,8 +15,6 @@
 @import "sign_in.css";
 @import "sign_up.css";
 
-/* POPUP HIỆN ĐẶT ĐON HÀNG (KHUM BÍT NHÉT CHỖ NÀO, ĐỂ ĐỠ Ở ĐÂY NHE*/
-
 * {
   margin: 0;
   padding: 0;
@@ -25,70 +23,4 @@
 
 .modal-dialog {
   max-width: 600px;
-}
-
-.popup {
-  background-color: rgb(255, 255, 255);
-  border-radius: 1rem;
-  padding: 1rem 3rem;
-}
-
-.popup .item {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.popup .item .info {
-  font-size: 1rem;
-  text-align: left;
-  margin: 0 3rem;
-}
-
-.popup .item .info h3 {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.popup .item .info span {
-  font-weight: 600;
-}
-
-.popup .item .img {
-  width: 20%;
-}
-
-.popup .item .img img {
-  width: 100%;
-}
-
-.popup .item .select {
-  text-align: left;
-}
-
-.popup .total {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.btn {
-  padding: 0.5rem 1.5rem;
-  background-color: var(--purple);
-  margin-left: 2rem;
-  border-radius: 2rem;
-  color: white;
-  border: none;
-}
-
-.btn-close {
-  padding: 0.5rem 1.5rem;
-  background-color: #a3a3a3;
-  margin-left: 2rem;
-  border-radius: 2rem;
-  color: white;
-  border: none;
 }
