@@ -1,7 +1,7 @@
 @import "./donhang_editdonhang.css";
 .order-container .order-control h2 {
     color: #c730b5;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
 }
 
@@ -61,4 +61,40 @@
     margin: 2rem 0;
     background-color: #f7f7f7;
     padding: 2rem;
+}
+
+
+/* .order-list thead th {
+    font-size: 1rem;
+} */
+
+.order-list .id {
+    width: 1rem;
+}
+
+.status {
+    border: 0;
+    border-radius: 14px;
+    padding: 0 0.2rem;
+    color: white;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.new {
+    background-color: #e30000;
+}
+
+.confirmed {
+    background-color: #e3cc00;
+}
+
+.delivering {
+    background-color: #00CF2E;
+}
+
+.delivered {
+    background-color: #8C978E;
 }

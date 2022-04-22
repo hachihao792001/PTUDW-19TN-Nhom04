@@ -1,34 +1,5 @@
 window.addEventListener("load", function() {
     $(document).ready(function() {
-        // const orderTitle = [{
-        //         name: "ID đơn hàng",
-        //         id: "order_id",
-        //     },
-        //     {
-        //         name: "ID khách hàng",
-        //         id: "customer_id",
-        //     },
-        //     {
-        //         name: "Thanh toán",
-        //         id: "payment_method",
-        //     },
-        //     {
-        //         name: "Tổng tiền",
-        //         id: "total",
-        //     },
-        //     {
-        //         name: "Ngày mua",
-        //         id: "date",
-        //     },
-        //     {
-        //         name: "Trạng thái",
-        //         id: "status",
-        //     },
-        //     {
-        //         name: "Thao tác",
-        //         id: "action",
-        //     },
-        // ];
 
         const orderItems = [{
                 order_id: 1,
@@ -36,7 +7,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Chờ xác nhận",
+                status: "DELIVERED",
                 action: "",
             },
             {
@@ -45,7 +16,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Hoàn tất",
+                status: "CONFIRMED",
                 action: "",
             },
             {
@@ -54,7 +25,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Đã xác nhận",
+                status: "NEW",
                 action: "",
             }, {
                 order_id: 4,
@@ -62,7 +33,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Chờ xác nhận",
+                status: "DELIVERING",
                 action: "",
             }, {
                 order_id: 5,
@@ -70,7 +41,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Đang giao",
+                status: "CONFIRMED",
                 action: "",
             }, {
                 order_id: 6,
@@ -78,7 +49,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Đang xử lý",
+                status: "DELIVERING",
                 action: "",
             }, {
                 order_id: 7,
@@ -86,7 +57,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Đã hủy",
+                status: "NEW",
                 action: "",
             }, {
                 order_id: 8,
@@ -94,7 +65,7 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Chờ xác nhận",
+                status: "CONFIRMED",
                 action: "",
             }, {
                 order_id: 9,
@@ -102,24 +73,34 @@ window.addEventListener("load", function() {
                 payment_method: "Tiền mặt",
                 total: "49.000",
                 date: "19/4/2022",
-                status: "Trả hàng",
+                status: "NEW",
                 action: "",
             },
         ];
 
-        // orderTitle.forEach((order) => {
-        //     orderMap[order.id] = order.name;
-        // });
+        const orderStatus = [{ code: "NEW", className: "new", title: "Mới" },
+            { code: "CONFIRMED", className: "confirmed", title: "Đã xác nhận" },
+            { code: "DELIVERING", className: "delivering", title: "Đang giao" },
+            { code: "DELIVERED", className: "delivered", title: "Đã giao" },
+        ];
+        const mapStatus = function(cod) { return orderStatus.find(o => o.code === cod) };
+        // const mapStatus = function(cod) { orderStatus => orderStatus.code == 'NEW' };
+
+        // <button class="
+        // ${mapStatus(order.status).className}">${mapStatus(order.status).title}
+        // <button>
 
         $(".order-table tbody").append(
             orderItems.map(function(order) {
                 return `<tr>
-                        <th scope="row">${order.order_id}</th>
+                        <td>${order.order_id}</th>
                         <td>${order.customer_id}</td>
                         <td>${order.payment_method}</td>
                         <td>${order.total}</td>                    
                         <td>${order.date}</td>
-                        <td>${order.status}</td>
+                        <td>
+                        <button class="status ${mapStatus(order.status).className}">${mapStatus(order.status).title}</button>
+                        </td>
                         <td><i class="fa fa-edit"></i></td>
                     </tr>`;
             }));
