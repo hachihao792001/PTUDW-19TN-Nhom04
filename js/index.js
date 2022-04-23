@@ -299,41 +299,43 @@ window.addEventListener("load", function () {
                 }">
 					<h3>${categoryMap[item.categoryId]}</h3>
 					<ul>
-						${item.items.map(function (itemDetail) {
-                            return `
-							<li>
-							<div class="row">
-									<div class="col-6  col-md-2">
-											<div class="item-logo">
-													<img src="${itemDetail.image}" alt="${itemDetail.name}" />
+						${item.items
+                            .map(function (itemDetail) {
+                                return `
+									<li>
+										<div class="row">
+											<div class="col-6  col-md-2">
+													<div class="item-logo">
+															<img src="${itemDetail.image}" alt="${itemDetail.name}" />
+													</div>
 											</div>
-									</div>
-									<div class="col-6 col-md-6">
-											<div class="item-description">
-													<h3 >
-															${itemDetail.name}
-													</h3>
-													<h4>
-															${itemDetail.description}
-													</h4>
+											<div class="col-6 col-md-6">
+													<div class="item-description">
+															<h3 >
+																	${itemDetail.name}
+															</h3>
+															<h4>
+																	${itemDetail.description}
+															</h4>
+													</div>
 											</div>
-									</div>
-									<div class="col-6 col-md-2">
-											<div class="item-price">
-													${itemDetail.price}đ
+											<div class="col-6 col-md-2">
+													<div class="item-price">
+															${itemDetail.price}đ
+													</div>
 											</div>
-									</div>
-									<div class="col-6 col-md-2">
-											<div class="item-quantity">
-													<i class="fa-solid fa-minus"></i>
-													<input type="number" value="1" min="0"/>
-													<i class="fa-solid fa-plus"></i>
+											<div class="col-6 col-md-2">
+													<div class="item-quantity">
+															<i class="fa-solid fa-minus"></i>
+															<input type="number" value="1" min="0"/>
+															<i class="fa-solid fa-plus"></i>
+													</div>
 											</div>
-									</div>
-							</div>
-					</li>
-							`;
-                        })}
+										</div>
+									</li>
+									`;
+                            })
+                            .join("")}
 					</ul>
 					</div>`;
             })
