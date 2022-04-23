@@ -1,5 +1,6 @@
 window.addEventListener("load", function () {
     $(document).ready(function () {
+        AOS.init({ duration: 1000 });
         $(".promotion-slider").slick({
             infinite: true,
             slidesToShow: 3,
