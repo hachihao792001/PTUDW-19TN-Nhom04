@@ -32,19 +32,11 @@ h4,
 h5,
 h6 {
     font-family: "Montserrat", sans-serif;
-}
-
-/*Import các file css khác vào đây*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
     font-weight: bold;
     color: #c730b5;
 }
+
+/*Import các file css khác vào đây*/
 
 #navbarHeaderAdmin {
     margin-left: 11%;

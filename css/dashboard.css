@@ -18,32 +18,39 @@
     margin: 50px 0;
 }
 
-#admin_dashboard__access>#access_numbers {
+#admin_dashboard__access > #access_numbers {
     margin: 30px 0;
     display: flex;
     gap: 70px;
 }
 
-#consume {
+#admin_dashboard__consume {
     margin-top: 30px;
 }
 
-#consume>h2 {
+#admin_dashboard__consume > h2 {
     margin-bottom: 20px;
 }
 
-#consume th,
-#consume td {
+#admin_dashboard__consume th,
+#admin_dashboard__consume td {
     text-align: center;
 }
 
-#consume td img {
+#admin_dashboard__consume td img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-#consume+button {
+#admin_dashboard__consume + button {
     margin: 30px 0;
     float: right;
+}
+
+@media screen and (max-width: 576px) {
+    #admin_dashboard__access > h2,
+    #admin_dashboard__consume > h2 {
+        font-size: 1.4rem;
+    }
 }
