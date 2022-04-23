@@ -1,74 +1,101 @@
 <html lang="en">
-    <head>
-        <title>Four nations coffee</title>
-        <link rel="shortcut icon" type="" href="" />
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-        <link rel="stylesheet" href="./css/index.css" />
-    </head>
 
-    <body>
-        <!-- Sign in Modal -->
-        <div
-            class="modal fade"
-            id="signInModal"
-            data-backdrop="static"
-            data-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                            Đăng nhập
-                        </h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
+<head>
+    <title>Four nations coffee</title>
+    <link rel="shortcut icon" type="" href="" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/logo.png" />
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <!-- Sign in Modal -->
+    <div class="modal fade" id="signInModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        Đăng nhập
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-                    <div class="modal-body sign_in_main">
-                        <div class="sign_in_box">
-                            <form class="sign_in_form" action="index.html">
-                                <h2>ĐĂNG NHẬP</h2>
+                </div>
+                <div class="modal-body sign_in_main">
+                    <div class="sign_in_box">
+                        <form class="sign_in_form" action="index.html">
+                            <h2>ĐĂNG NHẬP</h2>
 
+                            <div>
+                                <h5>Email</h5>
+                                <input type="email" />
+                            </div>
+                            <div>
+                                <h5>Mật khẩu</h5>
+                                <input type="password" />
+                            </div>
+                            <button type="submit" class="btn-default btn-outline">
+                                    Đăng nhập
+                                </button>
+                        </form>
+
+                        <p>
+                            Bạn chưa có tài khoản?
+                            <a href="#" data-toggle="modal" data-target="#signUpModal">Đăng ký ngay!</a
+                                >
+                            </p>
+                            <a href="#" class="button">Quên mật khẩu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in Modal -->
+
+    <!-- Sign up Modal -->
+    <div class="modal fade" id="signUpModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        Đăng ký
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body sign_up_main">
+                    <div class="sign_up_box">
+                        <form class="sign_up_form" action="index.html">
+                            <h2>ĐĂNG KÝ</h2>
+                            <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+                            <div class="sign_up__client_info">
+                                <div class="separator">
+                                    <span>Thông tin khách hàng</span>
+                                </div>
+                                <div>
+                                    <h5>Tên đầy đủ</h5>
+                                    <input type="text" />
+                                </div>
+                                <div>
+                                    <h5>Số điện thoại</h5>
+                                    <input type="text" />
+                                </div>
+                            </div>
+
+                            <div class="sign_up__sign_in_info">
+                                <div class="separator">
+                                    <span>Thông tin đăng nhập</span>
+                                </div>
                                 <div>
                                     <h5>Email</h5>
                                     <input type="email" />
@@ -77,109 +104,20 @@
                                     <h5>Mật khẩu</h5>
                                     <input type="password" />
                                 </div>
-                                <button
-                                    type="submit"
-                                    class="btn-default btn-outline"
-                                >
-                                    Đăng nhập
-                                </button>
-                            </form>
-
-                            <p>
-                                Bạn chưa có tài khoản?
-                                <a
-                                    href="#"
-                                    data-toggle="modal"
-                                    data-target="#signUpModal"
-                                    >Đăng ký ngay!</a
-                                >
-                            </p>
-                            <a href="#" class="button">Quên mật khẩu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sign in Modal -->
-
-        <!-- Sign up Modal -->
-        <div
-            class="modal fade"
-            id="signUpModal"
-            data-backdrop="static"
-            data-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                            Đăng ký
-                        </h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body sign_up_main">
-                        <div class="sign_up_box">
-                            <form class="sign_up_form" action="index.html">
-                                <h2>ĐĂNG KÝ</h2>
-                                <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
-
-                                <div class="sign_up__client_info">
-                                    <div class="separator">
-                                        <span>Thông tin khách hàng</span>
-                                    </div>
-                                    <div>
-                                        <h5>Tên đầy đủ</h5>
-                                        <input type="text" />
-                                    </div>
-                                    <div>
-                                        <h5>Số điện thoại</h5>
-                                        <input type="text" />
-                                    </div>
+                                <div>
+                                    <h5>Xác nhận mật khẩu</h5>
+                                    <input type="password" />
                                 </div>
+                            </div>
 
-                                <div class="sign_up__sign_in_info">
-                                    <div class="separator">
-                                        <span>Thông tin đăng nhập</span>
-                                    </div>
-                                    <div>
-                                        <h5>Email</h5>
-                                        <input type="email" />
-                                    </div>
-                                    <div>
-                                        <h5>Mật khẩu</h5>
-                                        <input type="password" />
-                                    </div>
-                                    <div>
-                                        <h5>Xác nhận mật khẩu</h5>
-                                        <input type="password" />
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    class="btn-default btn-outline"
-                                >
+                            <button type="submit" class="btn-default btn-outline">
                                     Đăng ký
                                 </button>
-                            </form>
+                        </form>
 
-                            <p>
-                                Bạn đã có tài khoản?
-                                <a
-                                    href="#"
-                                    data-dismiss="modal"
-                                    aria-label="Sign in"
-                                    >Đăng nhập</a
+                        <p>
+                            Bạn đã có tài khoản?
+                            <a href="#" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a
                                 >
                             </p>
                         </div>
@@ -477,121 +415,96 @@
                                 src="./assets/images/icon-instagram.png"
                                 alt="Fb"
                         /></a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="./assets/images/icon-facebook.png"
-                                alt="Fb"
-                        /></a>
-                    </li>
-                </ul>
-            </div>
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <a class="navbar-brand" href="/"
-                    ><img src="./assets/images/logo.png" alt="Logo" /></a
-                ><button
-                    class="navbar-toggler d-lg-none"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapsibleNavId"
-                    aria-controls="collapsibleNavId"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                            </li>
+                            <li>
+                                <a href="#"><img src="./assets/images/icon-facebook.png" alt="Fb" /></a>
+                            </li>
+                            </ul>
+                    </div>
+                    <nav class="navbar navbar-expand-md navbar-light bg-light">
+                        <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="Logo" /></a><button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#promotion">Khuyến mãi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#menu">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#images">Hình ảnh</a>
-                        </li>
-                    </ul>
-                    <div class="btn-group">
-                        <button
-                            class="btn-default btn-outline"
-                            data-toggle="modal"
-                            data-target="#signInModal"
-                        >
+                        <div class="collapse navbar-collapse" id="collapsibleNavId">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#promotion">Khuyến mãi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#menu">Menu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#images">Hình ảnh</a>
+                                </li>
+                            </ul>
+                            <div class="btn-group">
+                                <button class="btn-default btn-outline" data-toggle="modal" data-target="#signInModal">
                             Đăng nhập
                         </button>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section id="banner">
-                <div class="container-fluid">
-                    <div class="banner__content">
-                        <h1>NƠI TÌNH YÊU CÙNG CÀ PHÊ BẮT ĐẦU</h1>
-                        <p>Tình từ đâu mà đến, sâu đậm tự bao giờ...</p>
-                        <button class="btn-default">KHÁM PHÁ</button>
-                    </div>
-                </div>
-            </section>
-            <section id="promotion">
-                <div class="container">
-                    <h1 class="title-default">Khuyến mãi</h1>
-                    <div class="slider-prev"></div>
-                    <div class="slider-next"></div>
-                    <div class="promotion-slider">
-                        <div class="image-box">
-                            <h3>BUA TRUA VUI VE</h3>
-                            <span>Discount 50%</span>
+                            </div>
                         </div>
-                        <div class="image-box">
-                            <h3>FREE SHIP</h3>
-                            <span>Miễn phí giao hàng</span>
-                        </div>
-                        <div class="image-box">
-                            <h3>KHONG LO FA</h3>
-                            <span>Discount 30%</span>
-                        </div>
-                        <div class="image-box">
-                            <h3>MUNG 8/3</h3>
-                            <span>Discount 20% cho khách hàng nữ</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="menu">
-                <div class="container-fluid position-relative">
-                    <div class="row">
-                        <div class="col-12 col-lg-3 p-0">
-                            <nav class="menu-nav">
-                                <ul></ul>
-                            </nav>
-                        </div>
-                        <div class="row col-12 col-lg-9 p-0">
-                            <div class="col-12 col-md-8 p-0">
-                                <div class="menu-list">
-                                    <div class="menu-list__search">
-                                        <input
-                                            type="text"
-                                            placeholder="Tìm món"
-                                        />
-                                        <img
-                                            src="./assets/images/icon-search.png"
-                                            alt="search"
-                                        />
-                                    </div>
-
-                                    <div class="menu-list__group"></div>
+                    </nav>
+                    </header>
+                    <main>
+                        <section id="banner">
+                            <div class="container-fluid">
+                                <div class="banner__content">
+                                    <h1>NƠI TÌNH YÊU CÙNG CÀ PHÊ BẮT ĐẦU</h1>
+                                    <p>Tình từ đâu mà đến, sâu đậm tự bao giờ...</p>
+                                    <button class="btn-default">KHÁM PHÁ</button>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-4">
-                                <div class="menu-book">
-                                    <span
-                                        >15 phần -
+                        </section>
+                        <section id="promotion">
+                            <div class="container">
+                                <h1 class="title-default">Khuyến mãi</h1>
+                                <div class="slider-prev"></div>
+                                <div class="slider-next"></div>
+                                <div class="promotion-slider">
+                                    <div class="image-box">
+                                        <h3>BUA TRUA VUI VE</h3>
+                                        <span>Discount 50%</span>
+                                    </div>
+                                    <div class="image-box">
+                                        <h3>FREE SHIP</h3>
+                                        <span>Miễn phí giao hàng</span>
+                                    </div>
+                                    <div class="image-box">
+                                        <h3>KHONG LO FA</h3>
+                                        <span>Discount 30%</span>
+                                    </div>
+                                    <div class="image-box">
+                                        <h3>MUNG 8/3</h3>
+                                        <span>Discount 20% cho khách hàng nữ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="menu">
+                            <div class="container-fluid position-relative">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 p-0">
+                                        <nav class="menu-nav">
+                                            <ul></ul>
+                                        </nav>
+                                    </div>
+                                    <div class="row col-12 col-lg-9 p-0">
+                                        <div class="col-12 col-md-8 p-0">
+                                            <div class="menu-list">
+                                                <div class="menu-list__search">
+                                                    <input type="text" placeholder="Tìm món" />
+                                                    <img src="./assets/images/icon-search.png" alt="search" />
+                                                </div>
+
+                                                <div class="menu-list__group"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="menu-book">
+                                                <span>15 phần -
                                         <span
                                             class="menu-book-btn"
                                             data-toggle="modal"
@@ -602,100 +515,79 @@
 
                                     <span>Tổng cộng: 199.000đ</span>
 
-                                    <button
-                                        class="btn-default"
-                                        data-toggle="modal"
-                                        data-target="#paymentModal"
-                                    >
+                                                <button class="btn-default" data-toggle="modal" data-target="#paymentModal">
                                         Đặt ngay
                                     </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="about__content">
-                                <h1 class="title-default">
-                                    Về FourNations Coffee
-                                </h1>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Quidem, ratione quae?
-                                    Obcaecati voluptas accusantium optio ! Et,
-                                    in. Fugit ut deleniti sint id. Temporibus,
-                                    esse quidem repellat explicabo ullam maxime
-                                    eaque magni dolores sit rerum?
-                                    Exercitationem labore iste culpa repudiandae
-                                    officia nihil est necessitatibus facere. A,
-                                    reiciendis maxime at veniam nulla corrupti
-                                    enim, similique non ratione assumenda
-                                    deleniti.
-                                </p>
-                                <button class="btn-default">XEM THÊM</button>
+                        </section>
+                        <section id="about">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="about__content">
+                                            <h1 class="title-default">
+                                                Về FourNations Coffee
+                                            </h1>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ratione quae? Obcaecati voluptas accusantium optio ! Et, in. Fugit ut deleniti sint id. Temporibus, esse quidem repellat explicabo ullam maxime eaque magni dolores sit rerum? Exercitationem
+                                                labore iste culpa repudiandae officia nihil est necessitatibus facere. A, reiciendis maxime at veniam nulla corrupti enim, similique non ratione assumenda deleniti.
+                                            </p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ratione quae? Obcaecati voluptas accusantium optio ! Et, in. Fugit ut deleniti sint id. Temporibus, esse quidem repellat explicabo ullam maxime eaque magni dolores sit rerum? Exercitationem
+                                                labore iste culpa repudiandae officia consectetur adipisicing elit. Quidem, ratione quae? Obcaecati voluptas accusantium optio ! Et, in. Fugit ut deleniti sint id. Temporibus, esse quidem repellat explicabo
+                                                ullam maxime eaque magni dolores sit rerum? Exercitationem labore iste culpa repudiandae officia nihil est necessitatibus facere. A, reiciendis maxime at veniam nulla corrupti enim, similique non ratione
+                                                assumenda deleniti.
+                                            </p>
+                                            <button class="btn-default">XEM THÊM</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img src="./assets/images/about.png" alt="about" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-5">
-                            <img src="./assets/images/about.png" alt="about" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="images">
-                <div class="container">
-                    <h1 class="title-default">Hình ảnh</h1>
-                    <div class="images-slider">
-                        <div class="image-box">
-                            <img
-                                src="./assets/images/cafe-image-1.jpg"
-                                alt="img-1"
-                            />
-                        </div>
-                        <div class="image-box">
-                            <img
-                                src="./assets/images/cafe-image-2.jpg"
-                                alt="img-2"
-                            />
-                        </div>
-                        <div class="image-box">
-                            <img
-                                src="./assets/images/cafe-image-3.jpg"
-                                alt="img-3"
-                            />
-                        </div>
-                        <div class="image-box">
-                            <img
-                                src="./assets/images/cafe-image-4.jpg"
-                                alt="img-4"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 p-3">
-                        <h4>Giới thiệu</h4>
-                        <br />
-                        <div>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#about"
-                                        >Về chúng tôi</a
+                        </section>
+                        <section id="images">
+                            <div class="container">
+                                <h1 class="title-default">Hình ảnh</h1>
+                                <div class="images-slider">
+                                    <div class="image-box">
+                                        <img src="./assets/images/cafe-image-1.jpg" alt="img-1" />
+                                    </div>
+                                    <div class="image-box">
+                                        <img src="./assets/images/cafe-image-2.jpg" alt="img-2" />
+                                    </div>
+                                    <div class="image-box">
+                                        <img src="./assets/images/cafe-image-3.jpg" alt="img-3" />
+                                    </div>
+                                    <div class="image-box">
+                                        <img src="./assets/images/cafe-image-4.jpg" alt="img-4" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <footer>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-5 p-3">
+                                    <h4>Giới thiệu</h4>
+                                    <br />
+                                    <div>
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#about">Về chúng tôi</a
                                     >
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#menu">Menu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#promotion"
-                                        >Khuyến mãi</a
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#promotion">Khuyến mãi</a
                                     >
                                 </li>
                             </ul>
@@ -704,44 +596,39 @@
 
                     <div class="col-md-7 p-3">
                         <h4>Đặt hàng: <a href="tel:19001520">1900 5200</a></h4>
-                        <br />
-                        <div>
-                            <h5>Liên hệ:</h5>
-                            <p class="item">
-                                227 Nguyễn Văn Cừ, Phường 7, Quận 5, TP HCM
-                            </p>
-                        </div>
-                        <br />
-                        <div class="icon">
-                            <a href="#"
-                                ><i
+                                                <br />
+                                                <div>
+                                                    <h5>Liên hệ:</h5>
+                                                    <p class="item">
+                                                        227 Nguyễn Văn Cừ, Phường 7, Quận 5, TP HCM
+                                                    </p>
+                                                </div>
+                                                <br />
+                                                <div class="icon">
+                                                    <a href="#"><i
                                     class="fa-brands fa-facebook-square fa-xl"
                                 ></i
                             ></a>
-                            <a href="#"
-                                ><i class="fa-brands fa-instagram fa-xl"></i
+                                                    <a href="#"><i class="fa-brands fa-instagram fa-xl"></i
                             ></a>
-                            <a href="#"
-                                ><i class="fa-brands fa-twitter fa-xl"></i
+                                                    <a href="#"><i class="fa-brands fa-twitter fa-xl"></i
                             ></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        <script
-            type="text/javascript"
-            src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="./js/index.js"></script>
-        <script>
-            $("#myModal").on("shown.bs.modal", function () {
-                $("#myInput").trigger("focus");
-            });
-        </script>
-    </body>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </footer>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    <script src="./js/index.js"></script>
+                    <script>
+                        $("#myModal").on("shown.bs.modal", function() {
+                            $("#myInput").trigger("focus");
+                        });
+                    </script>
+</body>
+
 </html>

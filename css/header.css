@@ -1,98 +1,102 @@
 .header-top {
-  padding: .5rem 1rem;
-  border-bottom: 1px solid #000;
-  flex-wrap: wrap;
+    padding: .5rem 1rem;
+    border-bottom: 1px solid #000;
+    flex-wrap: wrap;
 }
 
 .header-top__contact,
 .header-top__social {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
 }
 
 .header-top__contact {
-  margin-right: auto;
+    margin-right: auto;
 }
 
 .header-top__social {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .header-top__contact li {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .header-top__social li {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .header-top__contact li a {
-  color: #000;
-  transition: .1s ease-in-out;
+    color: #000;
+    transition: .1s ease-in-out;
 }
 
 .header-top__contact li a:hover {
-  color: var(--purple);
+    color: var(--purple);
 }
 
 .header-top__contact li a i {
-  display: inline-block;
-  margin-right: 5px;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .header-top__social li a img {
-  max-width: 25px;
-  -o-object-fit: contain;
-  object-fit: contain;
+    max-width: 25px;
+    -o-object-fit: contain;
+    object-fit: contain;
 }
 
 header .navbar-brand {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 header .navbar-brand img {
-  width: 50px;
-  -o-object-fit: contain;
-  object-fit: contain;
+    width: 50px;
+    -o-object-fit: contain;
+    object-fit: contain;
 }
 
 header .navbar-nav .nav-item {
-  margin-left: 20px;
+    margin-left: 20px;
+    font-size: 0.9rem;
 }
 
 header .nav-link {
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: .2s ease-in-out;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: .2s ease-in-out;
 }
 
 header .nav-link:hover {
-  color: var(--purple) !important;
+    color: var(--purple) !important;
 }
 
 header .btn-group {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 header .navbar-toggler {
-  border: none;
-  background-color: transparent;
-  outline: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.btn-default.btn-outline {
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  header .navbar {
-    padding: 0;
-  }
-
-  .navbar-collapse {
-    padding: 1rem 0 !important;
-  }
-
-  header .btn-group {
-    display: flex;
-    justify-content: center;
-  }
+    header .navbar {
+        padding: 0;
+    }
+    .navbar-collapse {
+        padding: 1rem 0 !important;
+    }
+    header .btn-group {
+        display: flex;
+        justify-content: center;
+    }
 }
