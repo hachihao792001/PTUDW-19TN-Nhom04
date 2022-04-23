@@ -84,28 +84,28 @@ window.addEventListener("load", function () {
                 categoryId: "phindi",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/daxay.jpg",
+                        name: "Đá xay chocolate",
+                        description: "Iced Chocolate",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/trasua.webp",
+                        name: "Trà sữa",
+                        description: "Milk Tea",
+                        price: "28.000",
+                    },
+                    {
+                        image: "./assets/images/tradao.webp",
+                        name: "Trà Đào",
+                        description: "Peach Tea",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
+                        price: "32.000",
                     },
                 ],
             },
@@ -113,28 +113,28 @@ window.addEventListener("load", function () {
                 categoryId: "caphetruyenthong",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/capheden.jpg",
+                        name: "Cà phê đen",
+                        description: "Coffee",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/caphesua.jpg",
+                        name: "Cà phê sữa",
+                        description: "Latte",
+                        price: "32.000",
+                    },
+                    {
+                        image: "./assets/images/capheden.jpg",
+                        name: "Cà phê đen",
+                        description: "Coffee",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        image: "./assets/images/daxay.jpg",
+                        name: "Đá xay chocolate",
+                        description: "Iced Chocolate",
+                        price: "35.000",
                     },
                 ],
             },
@@ -142,22 +142,22 @@ window.addEventListener("load", function () {
                 categoryId: "expresso",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/trasua.webp",
+                        name: "Trà sữa",
+                        description: "Milk Tea",
+                        price: "25.000",
+                    },
+                    {
+                        image: "./assets/images/tradao.webp",
+                        name: "Trà Đào",
+                        description: "Peach Tea",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
+                        price: "27.000",
                     },
                     {
                         image: "./assets/images/example_logo.jpeg",
@@ -171,10 +171,10 @@ window.addEventListener("load", function () {
                 categoryId: "daxay",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        image: "./assets/images/daxay.jpg",
+                        name: "Đá xay chocolate",
+                        description: "Iced Chocolate",
+                        price: "29.000",
                     },
                     {
                         image: "./assets/images/example_logo.jpeg",
@@ -183,16 +183,16 @@ window.addEventListener("load", function () {
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/tradao.webp",
+                        name: "Trà Đào",
+                        description: "Peach Tea",
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
+                        price: "29.000",
                     },
                 ],
             },
@@ -200,27 +200,28 @@ window.addEventListener("load", function () {
                 categoryId: "tra",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/tradao.webp",
+                        name: "Trà Đào",
+                        description: "Peach Tea",
+                        price: "39.000",
+                    },
+                    {
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
                         price: "39.000",
                     },
                     {
                         image: "./assets/images/example_logo.jpeg",
                         name: "Phindi hạnh nhân",
                         description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        price: "38.000",
                     },
+
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
                         price: "39.000",
                     },
                 ],
@@ -235,10 +236,10 @@ window.addEventListener("load", function () {
                         price: "39.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
+                        image: "./assets/images/tiramisu.webp",
+                        name: "Tiramisu",
                         description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        price: "35.000",
                     },
                     {
                         image: "./assets/images/example_logo.jpeg",
@@ -258,27 +259,22 @@ window.addEventListener("load", function () {
                 categoryId: "banhngot",
                 items: [
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
+                        image: "./assets/images/tiramisu.webp",
+                        name: "Tiramisu",
                         description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
+                        price: "34.000",
+                    },
+
+                    {
+                        image: "./assets/images/tradao.webp",
+                        name: "Trà Đào",
+                        description: "Peach Tea",
+                        price: "32.000",
                     },
                     {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
-                        price: "39.000",
-                    },
-                    {
-                        image: "./assets/images/example_logo.jpeg",
-                        name: "Phindi hạnh nhân",
-                        description: "Iced PHIN Coffee with Almond Milk",
+                        image: "./assets/images/tradau.jpg",
+                        name: "Trà dâu",
+                        description: "Strawberry Tea",
                         price: "39.000",
                     },
                 ],
@@ -314,12 +310,12 @@ window.addEventListener("load", function () {
 									</div>
 									<div class="col-6 col-md-6">
 											<div class="item-description">
-													<h3>
+													<h3 >
 															${itemDetail.name}
 													</h3>
-													<h3>
+													<h4>
 															${itemDetail.description}
-													</h3>
+													</h4>
 											</div>
 									</div>
 									<div class="col-6 col-md-2">
