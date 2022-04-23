@@ -65,6 +65,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 .item-quantity input {
@@ -78,7 +79,7 @@
 }
 
 .item-description {
-    padding-left: 20px;
+    padding-left: 0rem;
 }
 
 .item-description h3 {
