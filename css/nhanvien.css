@@ -1,191 +1,213 @@
 /* Filter Bar CSS */
 
 #filter_bar {
-    background-color: #f8f9fa;
-    text-align: center;
-    border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 2rem;
 }
 
 .filter_heading {
-    text-align: start;
-    color: #C730B5;
-    padding: 20px;
+  text-align: start;
+  color: #C730B5;
 }
 
 .filter_button {
-    color: #C730B5;
-    border-color: #C730B5;
+  color: #C730B5;
+  border-color: #C730B5;
+  margin: 10px;
 }
 
 .filter_button:hover {
-    color: white;
-    border: 0;
-    background-color: #C730B5;
+  color: white;
+  background-color: #C730B5;
 }
 
 .filter_input {
-    background-color: white;
-    border: 0;
+  background-color: white;
+  border: 0;
+  margin: 10px;
 }
 
 .filter_input:hover {
-    background-color: white;
+  background-color: white;
 }
 
 .filter_row {
-    padding: 10px 0 30px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.btn-group {
+  margin: 10px;
 }
 
 .btn-group button {
-    background-color: white;
-    color: black;
-    border: 0;
+  background-color: white;
+  color: black;
+  border: 0;
 }
 
 .btn-group button:hover {
-    background-color: #C730B5;
-    color: white;
+  background-color: #C730B5;
+  color: white;
 }
 
-
-/* Table CSS */
-.table-hover {
-    overflow-x: auto
+.table {
+  min-width: 600px;
 }
+
 thead tr th {
-    color: #C730B5
+  color: #C730B5
 }
 
 td {
-    line-height: 40px;
+  line-height: 40px;
 }
 
 #list_staff {
-    background-color: #f8f9fa;
-    border-radius: 0.5rem;
+  margin: 2rem 0;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  overflow-x: auto;
 }
 
 .status_on {
-    border: 0;
-    border-radius: 14px;
-    background-color: #00CF2E;
-    color: white;
-    height: fit-content;
-    padding: 0 15px 0 15px;
+  border: 0;
+  border-radius: 14px;
+  background-color: #00CF2E;
+  color: white;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0 15px 0 15px;
 }
 
 .status_off {
-    border: 0;
-    border-radius: 14px;
-    background-color: #8C978E;
-    color: white;
-    height: fit-content;
-    padding: 0 15px 0 15px;
+  border: 0;
+  border-radius: 14px;
+  background-color: #8C978E;
+  color: white;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0 15px 0 15px;
 }
 
 td i {
-    margin: 20px 20px 0 20px;
+  margin: 20px 20px 0 20px;
 }
 
 td.column_name {
-    text-align: left;
-    padding-left: 40px;
+  text-align: left;
+  padding-left: 40px;
 }
 
 
 /* Modal CSS */
 
 .staff_avatar {
-    text-align: center;
+  text-align: center;
 }
 
 
-.avatar-wrapper{
-	position: relative;
-	height: 200px;
-	width: 200px;
-	margin: 50px auto;
-	border-radius: 50%;
-	overflow: hidden;
-	box-shadow: 1px 1px 15px -5px black;
-	transition: all .3s ease;
+.avatar-wrapper {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin: 50px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 1px 15px -5px black;
+  transition: all .3s ease;
 }
-.avatar-wrapper:hover{
-		transform: scale(1.05);
-		cursor: pointer;
-	}
-.avatar-wrapper:hover .profile-pic{
-		opacity: .5;
-	}
+
+.avatar-wrapper:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.avatar-wrapper:hover .profile-pic {
+  opacity: .5;
+}
+
 .profile-pic {
-    height: 100%;
-	width: 100%;
-	transition: all .3s ease;
+  height: 100%;
+  width: 100%;
+  transition: all .3s ease;
 }
-.profile-pic:after{
-			font-family: FontAwesome;
-			content: "\f007";
-			top: 0; left: 0;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			font-size: 190px;
-			background: #ecf0f1;
-			color: #34495e;
-			text-align: center;
-		}
+
+.profile-pic:after {
+  font-family: FontAwesome;
+  content: "\f007";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 190px;
+  background: #ecf0f1;
+  color: #34495e;
+  text-align: center;
+}
 
 .upload-button {
-		position: absolute;
-		top: 0; left: -5px;
-		height: 100%;
-		width: 100%;
+  position: absolute;
+  top: 0;
+  left: -5px;
+  height: 100%;
+  width: 100%;
 }
-.fa-arrow-circle-up{
-			position: absolute;
-			font-size: 234px;
-			top: -17px;
-			left: 0;
-			text-align: center;
-			opacity: 0;
-			transition: all .3s ease;
-			color: #34495e;
+
+.fa-arrow-circle-up {
+  position: absolute;
+  font-size: 234px;
+  top: -17px;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  transition: all .3s ease;
+  color: #34495e;
 }
-.upload-button:hover .fa-arrow-circle-up{
-			opacity: .9;
-		}
+
+.upload-button:hover .fa-arrow-circle-up {
+  opacity: .9;
+}
 
 
 
 
 
 .avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .staff_modal label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .btn_status {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .modal_footer {
-    display: flex;
-    justify-content: end;
-    gap: 10px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
 }
 
 .modal_footer .btn-primary {
-    background-color: #28a745;;
-    border: none;
+  background-color: #28a745;
+  ;
+  border: none;
 }
 
 .modal_footer .btn-secondary {
-    background-color: #EA5454;
+  background-color: #EA5454;
 }
-

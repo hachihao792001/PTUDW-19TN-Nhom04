@@ -51,7 +51,7 @@ var items = product_list
             <td>${item.description}</td>
             <td>
                 <a href="#" type="button" data-toggle="modal" data-target="#editSanPhamModal">
-                    <i class="fa-solid fa-pen fa-2xl"></i>
+                    <i class="fa-solid fa-edit"></i>
                 </a>
             </td>
         </tr>

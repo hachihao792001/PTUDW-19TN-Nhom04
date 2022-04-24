@@ -1,193 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Portal</title>
+        <link rel="shortcut icon" type="" href="" />
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<head>
-    <title>Portal</title>
-    <link rel="shortcut icon" type="" href="" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="./css/index.css" />
+    </head>
 
-    <link rel="stylesheet" href="./css/index.css" />
-</head>
-
-<body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="collapse navbar-collapse" id="navbarHeaderAdmin">
+    <body>
+        <header>
+            <nav class="header-navbar container">
                 <a class="navbar-brand" href="#">
-                    <h1>4nation<br>Cafe</h1>
+                    <h1>4Nations<br />Cafe - Portal</h1>
                 </a>
 
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                </ul>
-
-                <ul id="left-content" class="navbar-nav">
+                <ul class="navbar-menu">
                     <li class="nav-item dropdown bell-icon">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <span
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
                             <i class="fa-solid fa-bell fa-2xl"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Hiện không có thông báo</a>
+                        </span>
+                        <div
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdownMenuLink"
+                        >
+                            <a class="dropdown-item" href="#"
+                                >Hiện không có thông báo</a
+                            >
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="./assets/images/admin_avatar.jpg" width="50" height="50" class="rounded-circle">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Tài khoản cá nhân</a>
+                        <span
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            <img
+                                src="./assets/images/admin_avatar.jpg"
+                                width="50"
+                                height="50"
+                                class="rounded-circle"
+                            />
+                        </span>
+                        <div
+                            class="dropdown-menu"
+                            aria-labelledby="navbarDropdownMenuLink"
+                        >
+                            <a class="dropdown-item" href="#"
+                                >Tài khoản cá nhân</a
+                            >
                             <a class="dropdown-item" href="#">Cài đặt</a>
-                            <a class="dropdown-item" href="sign_in.html">Đăng xuất</a>
+                            <a class="dropdown-item" href="sign_in.html"
+                                >Đăng xuất</a
+                            >
                         </div>
                     </li>
                 </ul>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-12">
-                    <ul class="sidebar">
-                        <li class="sidebar-item active">
-                            <a href="index.html" class="row">
-                                <i class="fa-solid fa-table-columns col-1"></i>
-                                <h6 class="col-10">
-                                    Dashboard</h6>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="admin_nhanvien.html" class="row">
-                                <i class="fa-solid fa-user-group col-1"></i>
-                                <h6 class="col-10">Nhân viên</h6>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="admin_donhang.html" class="row">
-                                <i class="fa-solid fa-cart-shopping col-1"></i>
-                                <h6 class="col-10">Đơn hàng</h6>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="admin_sanpham.html" class="row">
-                                <i class="fa-solid fa-mug-saucer col-1"></i>
-                                <h6 class="col-10">Sản phẩm</h6>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="admin_khuyenmai.html" class="row">
-                                <i class="fa-solid fa-tag col-1"></i>
-                                <h6 class="col-10">Khuyến mãi</h6>
-                            </a>
-                        </li>
-                    </ul>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul class="sidebar">
+                            <li class="sidebar-item active">
+                                <a href="index.html" class="row">
+                                    <i
+                                        class="fa-solid fa-table-columns col-1"
+                                    ></i>
+                                    <h6 class="col-10">Dashboard</h6>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="admin_nhanvien.html" class="row">
+                                    <i class="fa-solid fa-user-group col-1"></i>
+                                    <h6 class="col-10">Nhân viên</h6>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="admin_donhang.html" class="row">
+                                    <i
+                                        class="fa-solid fa-cart-shopping col-1"
+                                    ></i>
+                                    <h6 class="col-10">Đơn hàng</h6>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="admin_sanpham.html" class="row">
+                                    <i class="fa-solid fa-mug-saucer col-1"></i>
+                                    <h6 class="col-10">Sản phẩm</h6>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="admin_khuyenmai.html" class="row">
+                                    <i class="fa-solid fa-tag col-1"></i>
+                                    <h6 class="col-10">Khuyến mãi</h6>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <div class="Log-out">
-                        <hr>
-                        <a href="#">
-                            <h5>Đăng xuất</h5>
-                        </a>
-                        <hr>
+                    <div id="admin_dashboard__content" class="col-lg-9">
+                        <section id="admin_dashboard__dropdowns">
+                            <div class="btn-group">
+                                <button
+                                    type="button"
+                                    class="btn dropdown-currentchoice"
+                                >
+                                    7 ngày gần nhất
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"
+                                        >7 ngày gần nhất</a
+                                    >
+                                    <a class="dropdown-item" href="#"
+                                        >30 ngày gần nhất</a
+                                    >
+                                    <a class="dropdown-item" href="#"
+                                        >90 ngày gần nhất</a
+                                    >
+                                    <a class="dropdown-item" href="#"
+                                        >Toàn thời gian</a
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button
+                                    type="button"
+                                    class="btn dropdown-currentchoice"
+                                >
+                                    Mọi đồ uống
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"
+                                        >Mọi đồ uống</a
+                                    >
+                                    <a class="dropdown-item" href="#"
+                                        >Phindi hạnh nhân</a
+                                    >
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="admin_dashboard__sales">
+                            <canvas
+                                id="saleChart"
+                                width="400"
+                                height="200"
+                            ></canvas>
+                        </section>
+
+                        <section id="admin_dashboard__access">
+                            <h2>Tỉ lệ truy cập người dùng</h2>
+                            <canvas
+                                id="accessChart"
+                                width="400"
+                                height="200"
+                            ></canvas>
+                            <div id="access_numbers">
+                                <p>Số lượng người dùng hiện tại: 10000</p>
+                                <p>Số người đăng ký mới: 1000</p>
+                            </div>
+                        </section>
+
+                        <section id="admin_dashboard__consume">
+                            <h2>Mức tiêu thụ người dùng</h2>
+                            <div style="width: 100%; overflow-x: auto">
+                                <table
+                                    id="consume_table"
+                                    class="table table-striped"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Mã</th>
+                                            <th scope="col">Hình ảnh</th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Số lượng đã bán</th>
+                                            <th scope="col">Phần trăm</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <button class="btn btn-primary">Xuất excel</button>
                     </div>
                 </div>
-
-                <div id="admin_dashboard__content" class="col-md-8">
-                    <section id="admin_dashboard__dropdowns">
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-currentchoice">7 ngày gần nhất</button>
-                            <button type="button"
-                                class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">7 ngày gần nhất</a>
-                                <a class="dropdown-item" href="#">30 ngày gần nhất</a>
-                                <a class="dropdown-item" href="#">90 ngày gần nhất</a>
-                                <a class="dropdown-item" href="#">Toàn thời gian</a>
-                            </div>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-currentchoice">Mọi đồ uống</button>
-                            <button type="button"
-                                class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Mọi đồ uống</a>
-                                <a class="dropdown-item" href="#">Phindi hạnh nhân</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="admin_dashboard__sales">
-                        <canvas id="saleChart" width="400" height="200"></canvas>
-                    </section>
-
-                    <section id="admin_dashboard__access">
-                        <h2>Tỉ lệ truy cập người dùng</h2>
-                        <canvas id="accessChart" width="400" height="200"></canvas>
-                        <div id="access_numbers">
-                            <p>Số lượng người dùng hiện tại: 10000</p>
-                            <p>Số người đăng ký mới: 1000</p>
-                        </div>
-                    </section>
-
-                    <section id="admin_dashboard__consume">
-                        <h2>Mức tiêu thụ người dùng</h2>
-                        <table id="consume_table" class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Mã</th>
-                                    <th scope="col">Hình ảnh</th>
-                                    <th scope="col">Tên sản phẩm</th>
-                                    <th scope="col">Số lượng đã bán</th>
-                                    <th scope="col">Phần trăm</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </section>
-
-                    <button class="btn btn-primary">Xuất excel</button>
-                </div>
             </div>
-        </div>
-    </main>
+        </main>
+        <footer>
+            <div class="container">
+                <h6>The4Nations Coffee - Portal</h6>
+            </div>
+        </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="./js/index.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script
+            type="text/javascript"
+            src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="./js/index.js"></script>
 
+        <script>
+            window.onload = () => {
+                loadSaleChart();
+                loadAccessChart();
+            };
+        </script>
 
-    <script>
-        window.onload = () => {
-            loadSaleChart();
-            loadAccessChart();
-        }
-    </script>
-
-
-    <script src="js/admin_dashboard.js"></script>
-    <script src="js/admin_dashboard_saleschart.js"></script>
-    <script src="js/admin_dashboard_accesschart.js"></script>
-</body>
-
+        <script src="js/admin_dashboard.js"></script>
+        <script src="js/admin_dashboard_saleschart.js"></script>
+        <script src="js/admin_dashboard_accesschart.js"></script>
+    </body>
 </html>

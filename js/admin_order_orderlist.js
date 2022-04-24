@@ -114,7 +114,7 @@ window.addEventListener("load", function () {
                         </td>
                         <td>
                             <a href="#" type="button" data-toggle="modal" data-target="#editDonHangModal">
-                                <i class="fa fa-edit"></i>
+                                <i class="fa-solid fa-edit"></i>
                             </a>
                         </td>
                     </tr>`;
