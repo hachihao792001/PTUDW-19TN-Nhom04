@@ -1,79 +1,101 @@
 <html lang="en">
-    <head>
-        <title>Four Nations Coffee</title>
-        <link rel="shortcut icon" type="" href="" />
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        />
-        <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="./assets/images/logo.png"
-        />
-        <link rel="stylesheet" href="./css/index.css" />
-    </head>
 
-    <body>
-        <!-- Sign in Modal -->
-        <div
-            class="modal fade"
-            id="signInModal"
-            data-backdrop="static"
-            data-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                            Đăng nhập
-                        </h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
+<head>
+    <title>Four Nations Coffee</title>
+    <link rel="shortcut icon" type="" href="" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/logo.png" />
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <!-- Sign in Modal -->
+    <div class="modal fade" id="signInModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        Đăng nhập
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-                    <div class="modal-body sign_in_main">
-                        <div class="sign_in_box">
-                            <form class="sign_in_form" action="index.html">
-                                <h2>ĐĂNG NHẬP</h2>
+                </div>
+                <div class="modal-body sign_in_main">
+                    <div class="sign_in_box">
+                        <form class="sign_in_form" action="index.html">
+                            <h2>ĐĂNG NHẬP</h2>
 
+                            <div>
+                                <h5>Email</h5>
+                                <input type="email" />
+                            </div>
+                            <div>
+                                <h5>Mật khẩu</h5>
+                                <input type="password" />
+                            </div>
+                            <button type="submit" class="btn-default btn-outline">
+                                    Đăng nhập
+                                </button>
+                        </form>
+
+                        <p>
+                            Bạn chưa có tài khoản?
+                            <a href="#" data-toggle="modal" data-target="#signUpModal">Đăng ký ngay!</a
+                                >
+                            </p>
+                            <a href="#" class="button">Quên mật khẩu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign in Modal -->
+
+    <!-- Sign up Modal -->
+    <div class="modal fade" id="signUpModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        Đăng ký
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body sign_up_main">
+                    <div class="sign_up_box">
+                        <form class="sign_up_form" action="index.html">
+                            <h2>ĐĂNG KÝ</h2>
+                            <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+                            <div class="sign_up__client_info">
+                                <div class="separator">
+                                    <span>Thông tin khách hàng</span>
+                                </div>
+                                <div>
+                                    <h5>Tên đầy đủ</h5>
+                                    <input type="text" />
+                                </div>
+                                <div>
+                                    <h5>Số điện thoại</h5>
+                                    <input type="text" />
+                                </div>
+                            </div>
+
+                            <div class="sign_up__sign_in_info">
+                                <div class="separator">
+                                    <span>Thông tin đăng nhập</span>
+                                </div>
                                 <div>
                                     <h5>Email</h5>
                                     <input type="email" />
@@ -82,109 +104,20 @@
                                     <h5>Mật khẩu</h5>
                                     <input type="password" />
                                 </div>
-                                <button
-                                    type="submit"
-                                    class="btn-default btn-outline"
-                                >
-                                    Đăng nhập
-                                </button>
-                            </form>
-
-                            <p>
-                                Bạn chưa có tài khoản?
-                                <a
-                                    href="#"
-                                    data-toggle="modal"
-                                    data-target="#signUpModal"
-                                    >Đăng ký ngay!</a
-                                >
-                            </p>
-                            <a href="#" class="button">Quên mật khẩu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sign in Modal -->
-
-        <!-- Sign up Modal -->
-        <div
-            class="modal fade"
-            id="signUpModal"
-            data-backdrop="static"
-            data-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                            Đăng ký
-                        </h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body sign_up_main">
-                        <div class="sign_up_box">
-                            <form class="sign_up_form" action="index.html">
-                                <h2>ĐĂNG KÝ</h2>
-                                <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
-
-                                <div class="sign_up__client_info">
-                                    <div class="separator">
-                                        <span>Thông tin khách hàng</span>
-                                    </div>
-                                    <div>
-                                        <h5>Tên đầy đủ</h5>
-                                        <input type="text" />
-                                    </div>
-                                    <div>
-                                        <h5>Số điện thoại</h5>
-                                        <input type="text" />
-                                    </div>
+                                <div>
+                                    <h5>Xác nhận mật khẩu</h5>
+                                    <input type="password" />
                                 </div>
+                            </div>
 
-                                <div class="sign_up__sign_in_info">
-                                    <div class="separator">
-                                        <span>Thông tin đăng nhập</span>
-                                    </div>
-                                    <div>
-                                        <h5>Email</h5>
-                                        <input type="email" />
-                                    </div>
-                                    <div>
-                                        <h5>Mật khẩu</h5>
-                                        <input type="password" />
-                                    </div>
-                                    <div>
-                                        <h5>Xác nhận mật khẩu</h5>
-                                        <input type="password" />
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    class="btn-default btn-outline"
-                                >
+                            <button type="submit" class="btn-default btn-outline">
                                     Đăng ký
                                 </button>
-                            </form>
+                        </form>
 
-                            <p>
-                                Bạn đã có tài khoản?
-                                <a
-                                    href="#"
-                                    data-dismiss="modal"
-                                    aria-label="Sign in"
-                                    >Đăng nhập</a
+                        <p>
+                            Bạn đã có tài khoản?
+                            <a href="#" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a
                                 >
                             </p>
                         </div>
@@ -217,167 +150,104 @@
                                 src="./assets/images/icon-instagram.png"
                                 alt="Fb"
                         /></a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            ><img
-                                src="./assets/images/icon-facebook.png"
-                                alt="Fb"
-                        /></a>
-                    </li>
-                </ul>
-            </div>
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <a class="navbar-brand" href="/"
-                    ><img src="./assets/images/logo.png" alt="Logo" /></a
-                ><button
-                    class="navbar-toggler d-lg-none"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#collapsibleNavId"
-                    aria-controls="collapsibleNavId"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                            </li>
+                            <li>
+                                <a href="#"><img src="./assets/images/icon-facebook.png" alt="Fb" /></a>
+                            </li>
+                            </ul>
+                    </div>
+                    <nav class="navbar navbar-expand-md navbar-light bg-light">
+                        <a class="navbar-brand" href="/"><img src="./assets/images/logo.png" alt="Logo" /></a><button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#promotion">Khuyến mãi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#menu">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#images">Hình ảnh</a>
-                        </li>
-                    </ul>
-                    <div class="btn-group">
-                        <button
-                            class="btn-default btn-outline"
-                            data-toggle="modal"
-                            data-target="#signInModal"
-                        >
-                            Đăng nhập
-                        </button>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="about__content">
-                                <h1 class="title-default" data-aos="fade-down">
-                                    Câu chuyện cà phê
-                                </h1>
-                                <p data-aos="fade-right">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Quidem, ratione quae?
-                                    Obcaecati voluptas accusantium optio ! Et,
-                                    in. Fugit ut deleniti sint id. Temporibus,
-                                    esse quidem repellat explicabo ullam maxime
-                                    eaque magni dolores sit rerum?
-                                    Exercitationem labore iste culpa repudiandae
-                                    officia nihil est necessitatibus facere. A,
-                                    reiciendis maxime at veniam nulla corrupti
-                                    enim, similique non ratione assumenda
-                                    deleniti.
-                                    <br />
-                                    Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Voluptatum recusandae
-                                    rerum, consequuntur mollitia, repellendus
-                                    veritatis est odit aperiam similique sint
-                                    hic. Iste, provident ipsum! Porro incidunt
-                                    iusto enim minus ullam distinctio
-                                    reprehenderit corrupti cum consectetur
-                                    quibusdam sed labore quam earum nostrum
-                                    fugit libero, officia cumque, ipsam sunt et!
-                                    Tempora, perferendis?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <img
-                                data-aos="fade-left"
-                                src="./assets/images/about.png"
-                                alt="about"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="images">
-                <div class="container">
-                    <h1 class="title-default my-5" data-aos="fade-down">
-                        Hình ảnh tại The4Nations Coffee
-                    </h1>
-                    <div class="image-gallery-grid">
-                        <div class="grid-row">
-                            <div class="grid-column">
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-1.jpg"
-                                    alt="coffee-img-1"
-                                />
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-2.jpg"
-                                    alt="coffee-img-2"
-                                />
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-3.jpg"
-                                    alt="coffee-img-3"
-                                />
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-4.jpg"
-                                    alt="coffee-img-4"
-                                />
-                            </div>
-                            <div class="grid-column">
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-5.jpg"
-                                    alt="coffee-img-5"
-                                />
-                                <img
-                                    data-aos="zoom-in-up"
-                                    src="./assets/images/cafe-image-7.jpg"
-                                    alt="coffee-img-7"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 p-3">
-                        <h4>Giới thiệu</h4>
-                        <br />
-                        <div>
-                            <ul class="nav flex-column">
+                        <div class="collapse navbar-collapse" id="collapsibleNavId">
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#about"
-                                        >Về chúng tôi</a
-                                    >
+                                    <a class="nav-link" href="#promotion">Khuyến mãi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#menu">Menu</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#promotion"
-                                        >Khuyến mãi</a
+                                    <a class="nav-link" href="#images">Hình ảnh</a>
+                                </li>
+                            </ul>
+                            <div class="btn-group">
+                                <button class="btn-default btn-outline" data-toggle="modal" data-target="#signInModal">
+                            Đăng nhập
+                        </button>
+                            </div>
+                        </div>
+                    </nav>
+                    </header>
+                    <main>
+                        <section id="about">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="about__content">
+                                            <h1 class="title-default" data-aos="fade-down">
+                                                Câu chuyện cà phê
+                                            </h1>
+                                            <p data-aos="fade-right">
+                                                Em có còn nhớ anh đã tặng Em bao nhiêu bông hồng không? Em có biết Em là người phụ nữ đầu tiên anh tặng hoa hồng không? Mới ba tháng mà anh cũng không còn nhớ Anh đã tặng Em bao nhiêu bông hồng nữa. Để Anh nuôi bao nhiêu hy vọng trong những cánh hồng
+                                                đó, và tới khi hoa tàn cánh rụng Em cũng để hy vọng của Anh bay theo. Hoa hồng tình yêu có lỗi gì đâu sao em cứ bắt Anh gom gom góp cánh hoa rơi.Vâng Anh có lỗi, giống như bao nhiêu người sinh ra trên thế
+                                                giới này Anh chỉ khác họ một điều là Anh yêu em, vậy Em cho đó là lỗi lầm của Anh sao? <br><br>Ngày hôm nay ngồi bên Em và nói chuyện với em, lúc ấy Anh rất
+                                                vui. Nhưng khi Anh chào em quay người bước đi còn Em về phòng, Anh đã ngoái lại để đón một ánh mắt yêu thương, chờ đợi một người dõi theo Anh lúc Anh ra về, Em vô tư quá làm mình cảm thấy vẫn còn xa cách.
+                                                Anh sẽ chờ một nụ cười khi bắt gặp em ở đâu đó trong cái thế giới chật hẹp này, Anh sẽ chờ những tin nhắn, những ánh mắt dõi theo Anh lúc Anh ra về. Thôi bình minh sắp tới rồi, Anh lại sắp phải làm việc
+                                                rồi, không những thế chiều nay Anh còn phải thi nữa, hy vộng rằng tí nữa Anh sẽ nhận được lời chúc may mắn của Em. Anh biết Em có rất nhiều lý do để chưa đến bên Anh, nhưng không sao Anh sẽ chờ em hay vui
+                                                cười Em nhé. Anh mong Em luôn cảm thấy mình hạnh phúc. Thôi Anh học bài đây gặp Em sau nhé!!!! Chúc Em ngủ ngon Anh của Em!!!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <img data-aos="fade-left" src="./assets/images/about.png" alt="about" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="images">
+                            <div class="container">
+                                <h1 class="title-default my-5" data-aos="fade-down">
+                                    Hình ảnh tại The4Nations Coffee
+                                </h1>
+                                <div class="image-gallery-grid">
+                                    <div class="grid-row">
+                                        <div class="grid-column">
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-1.jpg" alt="coffee-img-1" />
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-2.jpg" alt="coffee-img-2" />
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-3.jpg" alt="coffee-img-3" />
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-4.jpg" alt="coffee-img-4" />
+                                        </div>
+                                        <div class="grid-column">
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-5.jpg" alt="coffee-img-5" />
+                                            <img data-aos="zoom-in-up" src="./assets/images/cafe-image-7.jpg" alt="coffee-img-7" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <footer>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-5 p-3">
+                                    <h4>Giới thiệu</h4>
+                                    <br />
+                                    <div>
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#about">Về chúng tôi</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#menu">Menu</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#promotion">Khuyến mãi</a
                                     >
                                 </li>
                             </ul>
@@ -386,44 +256,39 @@
 
                     <div class="col-md-7 p-3">
                         <h4>Đặt hàng: <a href="tel:19001520">1900 5200</a></h4>
-                        <br />
-                        <div>
-                            <h5>Liên hệ:</h5>
-                            <p class="item">
-                                227 Nguyễn Văn Cừ, Phường 7, Quận 5, TP HCM
-                            </p>
-                        </div>
-                        <br />
-                        <div class="icon">
-                            <a href="#"
-                                ><i
+                                                <br />
+                                                <div>
+                                                    <h5>Liên hệ:</h5>
+                                                    <p class="item">
+                                                        227 Nguyễn Văn Cừ, Phường 7, Quận 5, TP HCM
+                                                    </p>
+                                                </div>
+                                                <br />
+                                                <div class="icon">
+                                                    <a href="#"><i
                                     class="fa-brands fa-facebook-square fa-xl"
                                 ></i
                             ></a>
-                            <a href="#"
-                                ><i class="fa-brands fa-instagram fa-xl"></i
+                                                    <a href="#"><i class="fa-brands fa-instagram fa-xl"></i
                             ></a>
-                            <a href="#"
-                                ><i class="fa-brands fa-twitter fa-xl"></i
+                                                    <a href="#"><i class="fa-brands fa-twitter fa-xl"></i
                             ></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-        <script
-            type="text/javascript"
-            src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="./js/index.js"></script>
-        <script>
-            $("#myModal").on("shown.bs.modal", function () {
-                $("#myInput").trigger("focus");
-            });
-        </script>
-    </body>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </footer>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+                    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    <script src="./js/index.js"></script>
+                    <script>
+                        $("#myModal").on("shown.bs.modal", function() {
+                            $("#myInput").trigger("focus");
+                        });
+                    </script>
+</body>
+
 </html>
