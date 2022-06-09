@@ -1,0 +1,144 @@
+<div id="admin_dashboard__content" class="col-lg-9">
+	<div id="filter_bar">
+		<h4 class="filter_heading">Danh sách khuyến mãi</h4>
+		<div class="row filter_row">
+			<div class="btn-group">
+				<button type="button" class="btn dropdown_placeholder">Trạng thái</button>
+				<button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div class="dropdown-menu filter_dropdown">
+					<a class="dropdown-item" href="#">Hoạt động</a>
+					<a class="dropdown-item" href="#">Hết hạn</a>
+				</div>
+			</div>
+			<input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
+			<button type="button" class="btn btn-outline filter_button" data-toggle="modal" data-target="#settingDiscount">+
+				Thêm khuyến mãi</button>
+		</div>
+	</div>
+
+	<div id="list_staff">
+		<table class="table  table-striped table-hover">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Mã</th>
+					<th scope="col">Còn lại</th>
+					<th scope="col">Ngày bắt đầu</th>
+					<th scope="col">Ngày hết hạn</th>
+					<th scope="col">Trạng thái</th>
+					<th scope="col">Loại</th>
+					<th scope="col">Chi tiết</th>
+				</tr>
+			</thead>
+			<tbody id="table_content">
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="modal fade" id="settingDiscount" tabindex="-1" role="dialog" aria-labelledby="settingDiscountTitle"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="settingDiscountTitle">Chỉnh sửa khuyến mãi</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body discount_modal">
+				<form class="form_edit" method="get">
+					<div class="form-group row">
+						<div class="col-4">
+							<label class="name_label" for="InputID">ID</label>
+							<input type="text" class="form-control" id="InputID" name="ID" placeholder="ID">
+						</div>
+						<div class="col-4">
+							<label class="name_label" for="InputName">Tên khuyến mãi</label>
+							<input type="text" class="form-control" id="InputName" name="name" placeholder="tên">
+						</div>
+						<div class="col-4">
+							<label class="name_label" for="InputCode">Mã</label>
+							<input type="text" class="form-control" id="InputCode" name="code" placeholder="mã">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-6">
+							<label class="name_label" for="InputExpired">Ngày hết hạn</label>
+							<input type="date" class="form-control" id="InputExpired" name="date_expired" placeholder="dd/m/yyyy">
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="dropdownStatus">Trạng thái</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="dropdownStatus" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="status_method">
+								<option>Hoạt động</a>
+								<option>Hết hạn</a>
+							</select>
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row type_group">
+						<div class="col-6">
+							<label class="name_label" for="dropdownType">Loại khuyến mãi</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="type_method">
+								<option>Tiền cố định</a>
+								<option>Phần trăm</a>
+							</select>
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="Inputtype">Giá trị (loại)</label>
+							<input type="text" class="form-control" id="Inputtype" name="type" placeholder="VND">
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row condition_group">
+						<div class="col-6">
+							<label class="name_label" for="dropdownCondition">Điều kiện</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="dropdownCondition" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="condition_method">
+								<option>Mua trên</a>
+								<option>Không có</a>
+							</select>
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="InputCondition">Giá trị (điều kiện)</label>
+							<input type="text" class="form-control" id="InputCondition" name="condition" placeholder="VND">
+						</div>
+					</div>
+					<br>
+
+					<div class="modal_footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Xóa</button>
+						<button type="submit" class="btn btn-primary">Xác nhận</button>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/khuyenmai.js"></script>
+</body>
+
+</html>

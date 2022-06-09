@@ -1,0 +1,163 @@
+<div id="admin_dashboard__content" class="col-lg-9">
+	<div class="order-container">
+		<div class="order-control">
+			<h4>Danh sách đơn hàng</h4>
+			<div class="order-filter ">
+				<input class="filter" type="text" placeholder="Tìm theo ID đơn hàng">
+				<input class="filter" type="text" placeholder="Tìm theo ID khách hàng">
+				<div class="dropdown filter p-0">
+					<button class="btn dropdown-toggle h-100 m-0 w-100 bg-white text-black" type="button" id="defaultDropdown"
+						data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+						Trạng thái
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+						<li><a class="dropdown-item" href="#">Chờ xác nhận</a></li>
+						<li><a class="dropdown-item" href="#">Đã xác nhận </a></li>
+						<li><a class="dropdown-item" href="#">Đang xử lý </a></li>
+						<li><a class="dropdown-item" href="#">Đang giao </a></li>
+						<li><a class="dropdown-item" href="#">Đã giao </a></li>
+						<li><a class="dropdown-item" href="#">Hoàn tất </a></li>
+						<li><a class="dropdown-item" href="#">Trả hàng </a></li>
+						<li><a class="dropdown-item" href="#">Đơn hủy </a></li>
+
+					</ul>
+				</div>
+
+
+
+			</div>
+			<div class="btn-list ">
+				<button class="btn-lighter ">Làm mới</button>
+				<button class="btn-purple ">Áp dụng</button>
+				<button class="btn-purple ">Xuất excel</button>
+			</div>
+		</div>
+		<div class="order-list ">
+			<table class="table table-striped order-table ">
+				<thead>
+					<tr>
+						<th scope="col " class="id">ID</th>
+						<th scope="col " class="id">ID_KH</th>
+						<th scope="col ">Thanh toán</th>
+						<th scope="col ">Tổng tiền</th>
+						<th scope="col ">Ngày mua</th>
+						<th scope="col ">Trạng thái</th>
+						<th scope="col ">Thao tác</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- Edit don hang modal -->
+	<div class="modal fade" id="editDonHangModal" tabindex="-1" role="dialog" aria-labelledby="editDonHangModalTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title" id="editDonHangModalTitle">Chỉnh sửa đơn hàng</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="editDonHang_body">
+						<div class="row editDonHang_topHalf pt-3">
+							<div class="col-12 col-md-6 editDonHang_topHalf_left px-0 px-md-2">
+								<h6>Thông tin liên hệ khách hàng</h6>
+								<div>
+									<div>
+										<p>Tên khách hàng</p>
+										<input type="text" name="client_name">
+									</div>
+									<div>
+										<p>Địa chỉ email</p>
+										<input type="email" name="email">
+									</div>
+									<div>
+										<p>Số điện thoại</p>
+										<input type="text" name="phone">
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12 col-md-6 editDonHang_topHalf_right px-0 pt-2 pt-md-0">
+								<div>
+									<h6>Hình thức thanh toán</h6>
+									<div>
+										<p>Hình thức thanh toán</p>
+										<div class="btn-group">
+											<select class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+												aria-haspopup="true" aria-expanded="false" name="payment_method">
+												<option>Tiền mặt</a>
+												<option>Chuyển tiền</a>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div>
+									<h6>Trạng thái đơn hàng</h6>
+									<div>
+										<p>Trạng thái</p>
+										<div class="btn-group">
+											<select class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+												aria-haspopup="true" aria-expanded="false" name="delivery_status">
+												<option>Mới</option>
+												<option>Đã xác nhận</option>
+												<option>Đang giao</option>
+												<option>Đã giao</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="editDonHang_bottomHalf">
+							<h6>Thông tin liên hệ khách hàng</h6>
+							<div>
+								<div class="row">
+									<p>Địa chỉ giao hàng</p>
+									<input type="text" name="address">
+								</div>
+								<div class="row">
+									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
+										<p>Tỉnh/Thành phố</p>
+										<input type="text" name="city">
+									</div>
+									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
+										<p>Quận/Huyện</p>
+										<input type="text" name="district">
+									</div>
+									<div class="col-12 col-md-4 px-0">
+										<p>Phường/Xã</p>
+										<input type="text" name="ward">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ đơn
+						hàng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Edit don hang modal -->
+</div>
+
+
+<script src="/js/admin_order_orderlist.js "></script>
+<script>
+	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+		return new bootstrap.Dropdown(dropdownToggleEl)
+	})
+</script>

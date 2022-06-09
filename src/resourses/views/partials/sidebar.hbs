@@ -1,0 +1,40 @@
+<ul class="sidebar">
+    <li class="sidebar-item">
+        <a href="/" class="row">
+            <i class="fa-solid fa-table-columns col-1"></i>
+            <h6 class="col-10">Dashboard</h6>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a href="/staffs" class="row">
+            <i class="fa-solid fa-user-group col-1"></i>
+            <h6 class="col-10">Nhân viên</h6>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a href="/orders" class="row">
+            <i class="fa-solid fa-cart-shopping col-1"></i>
+            <h6 class="col-10">Đơn hàng</h6>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a href="/products" class="row">
+            <i class="fa-solid fa-mug-saucer col-1"></i>
+            <h6 class="col-10">Sản phẩm</h6>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a href="/vouchers" class="row">
+            <i class="fa-solid fa-tag col-1"></i>
+            <h6 class="col-10">Khuyến mãi</h6>
+        </a>
+    </li>
+</ul>
+
+<script>
+    const sidebars = document.querySelectorAll('.sidebar-item'); const
+    currentUrl = window.location.pathname; sidebars.forEach(sidebar => { const
+    link = sidebar.querySelector('a'); if (link.getAttribute('href') ===
+    currentUrl) { sidebar.classList.add('active'); } else {
+    sidebar.classList.remove('active'); } });
+</script>

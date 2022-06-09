@@ -1,8 +1,0 @@
-@import "./sanpham_editsanpham.css";
-
-#list_product {
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  margin: 2rem 0;
-}
