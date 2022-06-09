@@ -1,8 +1,8 @@
-#editSanPham_body {
+#SanPham_body {
     padding: 30px;
 }
 
-#editSanPham_body input {
+#SanPham_body input {
     background-color: #e2e2e2;
     border: none;
     height: 3em;
@@ -10,23 +10,23 @@
     width: 100%;
 }
 
-#editSanPham_body > div {
+#SanPham_body > div {
     margin: 10px 0;
 }
 
-#editSanPham_body .giaca_soluong {
+#SanPham_body .giaca_soluong {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
-#editSanPham_body .dropzone {
+#SanPham_body .dropzone {
     border: 4px solid #c730b5;
     color: #c730b5;
 }
 
 @media screen and (max-width: 576px) {
-    #editSanPhamModalTitle {
+    #settingProductTitle {
         font-size: 1.4rem;
     }
 }

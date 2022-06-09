@@ -23,7 +23,11 @@
                 type="text"
                 placeholder="Nhập tên để tìm kiếm"
             />
-            <button type="button" class="btn btn-outline filter_button">
+            <button 
+                type="button" 
+                class="btn btn-outline filter_button" 
+                data-toggle="modal"
+                data-target="#modal_AddProduct">
                 + Thêm sản phẩm
             </button>
         </div>
@@ -41,23 +45,58 @@
                     <th scope="col">Thao tác</th>
                 </tr>
             </thead>
-            <tbody id="table_content"></tbody>
+            <tbody id="table_content">
+                {{#each products}}
+                <tr>
+                    <td scope="row">{{this._id}}</td>
+                    <td>
+                        <img src={{this.image}} width="40" height="40" class="rounded-circle" />
+                    </td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.number}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.description}}</td>
+                    <td>
+                        <span 
+                            data-toggle="modal"
+                            data-target="#settingProduct"
+                            data-id="{{this._id}}"
+                            data-name="{{this.name}}"
+                            data-description="{{this.description}}"
+                            data-price="{{this.price}}"
+                            data-number="{{this.number}}"
+                        >
+                                <i class="fa-solid fa-edit"></i>
+                          
+                        </span>
+
+                        <span
+                                data-toggle="modal"
+                                data-target="#confirmDeleteModal"
+                                data-id={{this._id}}
+                            ><i
+                                    class="fa-solid fa-trash ml-1 d-inline text-secondary"
+                                ></i></span>
+                    </td> 
+                </tr>
+                {{/each}}
+            </tbody>
         </table>
     </div>
-
-    <!-- Edit san pham modal -->
+</div>
+    <!-- Edit Product modal -->
     <div
         class="modal fade"
-        id="editSanPhamModal"
+        id="settingProduct"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="editSanPhamModalTitle"
+        aria-labelledby="settingProductTitle"
         aria-hidden="true"
     >
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="editSanPhamModalTitle">
+                    <h2 class="modal-title" id="settingProductTitle">
                         Chỉnh sửa sản phẩm
                     </h2>
                     <button
@@ -69,28 +108,28 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="editSanPham_body">
-                    <form id="edit_form" method="post">
+                <div class="modal-body" id="SanPham_body">
+                    <form id="updateProductForm" method="post">
                         <div>
                             <p>Tên sản phẩm</p>
-                            <input type="text" name="productName" />
+                            <input type="text" name="productName" id="inputUpdateName"/>
                         </div>
                         <div>
                             <p>Mô tả</p>
-                            <input type="text" name="description" />
+                            <input type="text" name="description" id="inputUpdateDescription"/>
                         </div>
                         <div class="giaca_soluong">
                             <div>
                                 <p>Giá cả</p>
-                                <input type="text" name="price" />
+                                <input type="text" name="price" id="inputUpdatePrice"/>
                             </div>
                             <div>
                                 <p>Số lượng</p>
-                                <input type="number" name="stock" />
+                                <input type="number" name="stock" id="inputUpdateNumber"/>
                             </div>
                         </div>
                     </form>
-                    <div>
+                    {{!-- <div>
                         <p>Hình ảnh</p>
                         <form
                             action="/"
@@ -98,22 +137,23 @@
                             id="my-dropzone"
                             method="post"
                         ></form>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="modal-footer">
                     <button
                         type="button"
-                        class="btn btn-danger"
+                        class="btn btn-secondary"
                         data-dismiss="modal"
                     >
-                        Xoá
+                        Hủy
                     </button>
                     <button
                         type="submit"
-                        form="edit_form"
+                        form="updateProductForm"
                         class="btn btn-success"
                         data-dismiss="modal"
+                        id="btnUpdateProduct"
                     >
                         Xác nhận
                     </button>
@@ -121,8 +161,132 @@
             </div>
         </div>
     </div>
-    <!-- Edit san pham modal -->
+
+
+    <!-- Add Product modal -->
+    <div
+    class="modal fade"
+    id="modal_AddProduct"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modal_AddProductTitle"
+    aria-hidden="true"
+>
+   <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal_AddProductTitle">
+                        Thêm sản phẩm
+                    </h2>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="SanPham_body">
+                    <form method="post" action="/products">
+                        <div>
+                            <label>Tên sản phẩm</label>
+                            <input type="text" name="name" id="InputName"/>
+                        </div>
+                        <div>
+                            <label>Mô tả</label>
+                            <input type="text" name="description" id="InputDescription"/>
+                        </div>
+                        <div class="giaca_soluong">
+                            <div>
+                                <label>Giá cả</label>
+                                <input type="text" name="price" id="InputPrice"/>
+                            </div>
+                            <div>
+                                <label>Số lượng</label>
+                                <input type="number" name="number" id="InputNumber"/>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-dismiss="modal"
+                            >
+                                Hủy
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn btn-success"
+                            >
+                                Xác nhận
+                            </button>
+                        </div>
+                    </form>
+                    {{!-- <div>
+                        <p>Hình ảnh</p>
+                        <form
+                            action="/"
+                            class="dropzone"
+                            id="my-dropzone"
+                            method="post"
+                        ></form>
+                    </div> --}}
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--Confirm Delete Modal -->
+<div
+    class="modal fade"
+    id="confirmDeleteModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modelTitleId"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa sản phẩm</h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Xác nhận xóa sản phẩm này?
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="btn-delete-product"
+                    type="button"
+                    class="btn btn-danger"
+                >Xóa</button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                >Hủy</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<form method="POST" name="delete-product-form"></form>
+
 
 <script src="/js/sanpham.js"></script>
 <script>

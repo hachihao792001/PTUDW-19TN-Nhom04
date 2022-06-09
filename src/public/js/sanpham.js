@@ -1,63 +1,37 @@
-const product_list = [
-    {
-        ID: 1,
-        image: "./assets/images/example_logo.jpeg",
-        name: "PhinDi Hạnh Nhân",
-        stock: 5,
-        price: 39000,
-        description: "Iced PHIN Coffee with Almond Milk",
-    },
-    {
-        ID: 2,
-        image: "./assets/images/example_logo.jpeg",
-        name: "PhinDi Hạnh Nhân",
-        stock: 5,
-        price: 39000,
-        description: "Iced PHIN Coffee with Almond Milk",
-    },
-    {
-        ID: 3,
-        image: "./assets/images/example_logo.jpeg",
-        name: "PhinDi Hạnh Nhân",
-        stock: 5,
-        price: 39000,
-        description: "Iced PHIN Coffee with Almond Milk",
-    },
-    {
-        ID: 4,
-        image: "./assets/images/example_logo.jpeg",
-        name: "PhinDi Hạnh Nhân",
-        stock: 5,
-        price: 39000,
-        description: "Iced PHIN Coffee with Almond Milk",
-    },
-];
+window.addEventListener('DOMContentLoaded', function () {
+  $('#settingProduct').on('show.bs.modal', function (event) {
+    const button = $(event.relatedTarget);
+    const id = button.data('id');
+    const name = button.data('name');
+    const description = button.data('description');
+    const price = button.data('price');
+    const number = button.data('number');
+    const inputName = $('#inputUpdateName');
+    const inputDescription = $('#inputUpdateDescription');
+    const inputPrice = $('#inputUpdatePrice');
+    const inputNumber = $('#inputUpdateNumber');
 
-console.log("hello");
+    inputName.val(name);
+    inputDescription.val(description);
+    inputPrice.val(price);
+    inputNumber.val(number);
 
-var app = document.querySelector("#table_content");
+    const btnUpdate = $('#btnUpdateProduct');
+    btnUpdate.click(function () {
+      const form = $('#updateProductForm');
+      form.attr('action', `/products/${id}?_method=PUT`);
+      form.submit();
+    });
+  });
 
-var items = product_list
-    .map(function (item) {
-        return `
-        <tr>
-            <td scope="row">${item.ID}</td>
-            <td>
-                <img src="${item.image}" width="40" height="40" class="rounded-circle" />
-            </td>
-            <td>${item.name}</td>
-            <td>${item.stock}</td>
-            <td>${item.price}</td>
-            <td>${item.description}</td>
-            <td>
-                <a href="#" type="button" data-toggle="modal" data-target="#editSanPhamModal">
-                    <i class="fa-solid fa-edit"></i>
-                </a>
-            </td>
-        </tr>
-        `;
-    })
-    .join("");
-
-console.log(items);
-app.innerHTML = items;
+  $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+    const button = $(event.relatedTarget);
+    const id = button.data('id');
+    const btnDeleteCourse = $('#btn-delete-product');
+    btnDeleteCourse.click(function () {
+      const deleteForm = document.forms['delete-product-form'];
+      deleteForm.action = '/products/' + id + '?_method=DELETE';
+      deleteForm.submit();
+    });
+  });
+});
