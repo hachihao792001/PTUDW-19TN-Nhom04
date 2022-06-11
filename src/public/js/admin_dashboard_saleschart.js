@@ -1,11 +1,11 @@
-async function loadSaleChart() {
+async function loadSaleChart(salesdata) {
     const labels = ["January", "February", "March", "April", "May", "June"];
     const data = {
         labels: labels,
         datasets: [
             {
-                label: "My First Dataset",
-                data: [65, 59, 80, 81, 56, 55, 40],
+                label: "Doanh thu",
+                data: salesdata,
                 backgroundColor: [
                     "rgba(255, 99, 132, 0.2)",
                     "rgba(255, 159, 64, 0.2)",

@@ -33,6 +33,7 @@ app.engine(
             },
             getClassByStatus: (status) => (status ? "status_on" : "status_off"),
             getStatusName: (status) => (status ? "Active" : "Inactive"),
+            json: (context) => JSON.stringify(context),
         },
     })
 );

@@ -19,7 +19,7 @@ const product_consumation_list = [
     },
 ];
 
-var app = document.querySelector("#consume_table > tbody");
+var consumeTableBody = document.querySelector("#consume_table > tbody");
 
 var items = product_consumation_list
     .map(function (item) {
@@ -43,4 +43,4 @@ var items = product_consumation_list
     .join("");
 
 console.log(items);
-app.innerHTML = items;
+consumeTableBody.innerHTML = items;

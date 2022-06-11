@@ -4,13 +4,8 @@
             <button type="button" class="btn dropdown-currentchoice">
                 7 ngày gần nhất
             </button>
-            <button
-                type="button"
-                class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-            >
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu">
@@ -25,13 +20,8 @@
             <button type="button" class="btn dropdown-currentchoice">
                 Mọi đồ uống
             </button>
-            <button
-                type="button"
-                class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-            >
+            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu">
@@ -75,10 +65,14 @@
     <button class="btn btn-primary">Xuất excel</button>
 </div>
 
+<script>
+    const dashboardData = JSON.parse(`{{{ json dashboardData }}}`);
+    window.onload = () => {
+        loadSaleChart(dashboardData.salesData);
+        loadAccessChart();
+    };
+</script>
+
 <script src="/js/admin_dashboard.js"></script>
 <script src="/js/admin_dashboard_saleschart.js"></script>
 <script src="/js/admin_dashboard_accesschart.js"></script>
-
-<script>
-    window.onload = () => { loadSaleChart(); loadAccessChart(); };
-</script>
