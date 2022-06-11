@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm">
-			<button type="button" class="btn btn-outline filter_button" data-toggle="modal" data-target="#settingDiscount">+
+			<button type="button" class="btn btn-outline filter_button" data-toggle="modal" data-target="#createDiscount">+
 				Thêm khuyến mãi</button>
 		</div>
 	</div>
@@ -34,12 +34,43 @@
 				</tr>
 			</thead>
 			<tbody id="table_content">
+				{{#each vouchers}}
+				<tr>
+					<td scope="row">{{this._id}}</td>
+					<td>{{this.code}}</td>
+					<td>{{this.remain}}</td>
+					<td class="startDate">{{timeToString this.startDate}}</td>
+					<td class="endDate">{{timeToString this.endDate}}</td>
+					<td class="statusTable">{{this.status}}</td>
+					<td class="type">{{this.type}}</td>
+					<td>
+                            <span
+                                data-toggle="modal"
+                                data-target="#settingDiscount"
+                                data-id="{{this._id}}"
+								data-startdate="{{this.startDate}}"
+                                data-enddate="{{this.endDate}}"
+								data-status="{{this.status}}"
+								data-type="{{this.type}}"
+								data-condition="{{this.condition}}"
+                            ><i class="fa-solid fa-edit"></i></span>
+                            <span
+                                data-toggle="modal"
+                                data-target="#confirmDeleteModal"
+                                data-id={{this._id}}
+                            ><i
+                                    class="fa-solid fa-trash ml-1 d-inline text-secondary"
+                                ></i></span>
 
+                        </td>
+        		</tr>
+				{{/each}}
 			</tbody>
 		</table>
 	</div>
 </div>
 
+<!-- Update Voucher -->
 <div class="modal fade" id="settingDiscount" tabindex="-1" role="dialog" aria-labelledby="settingDiscountTitle"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -51,35 +82,25 @@
 				</button>
 			</div>
 			<div class="modal-body discount_modal">
-				<form class="form_edit" method="get">
-					<div class="form-group row">
-						<div class="col-4">
-							<label class="name_label" for="InputID">ID</label>
-							<input type="text" class="form-control" id="InputID" name="ID" placeholder="ID">
-						</div>
-						<div class="col-4">
-							<label class="name_label" for="InputName">Tên khuyến mãi</label>
-							<input type="text" class="form-control" id="InputName" name="name" placeholder="tên">
-						</div>
-						<div class="col-4">
-							<label class="name_label" for="InputCode">Mã</label>
-							<input type="text" class="form-control" id="InputCode" name="code" placeholder="mã">
-						</div>
+				<form id="updateVoucherForm" method="post">
+					<div class="col">
+						<label class="name_label" for="dropdownStatus">Trạng thái</label>
+						<br>
+						<select class="btn dropdown-toggle" type="button" id="inputUpdateStatus" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false" name="status">
+							<option value="true">Hoạt động</a>
+							<option value="false">Hết hạn</a>
+						</select>
 					</div>
-
+						
 					<div class="form-group row">
+						<div class="col-6">
+							<label class="name_label" for="InputBegin">Ngày bắt đầu</label>
+							<input type="date" class="form-control" id="inputUpdateStartDate" name="startDate" placeholder="YYYY/mm/dd">
+						</div>
 						<div class="col-6">
 							<label class="name_label" for="InputExpired">Ngày hết hạn</label>
-							<input type="date" class="form-control" id="InputExpired" name="date_expired" placeholder="dd/m/yyyy">
-						</div>
-						<div class="col-6">
-							<label class="name_label" for="dropdownStatus">Trạng thái</label>
-							<br>
-							<select class="btn dropdown-toggle" type="button" id="dropdownStatus" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false" name="status_method">
-								<option>Hoạt động</a>
-								<option>Hết hạn</a>
-							</select>
+							<input type="date" class="form-control" id="inputUpdateEndDate" name="endDate" placeholder="YYYY/mm/dd">
 						</div>
 					</div>
 					<br>
@@ -89,14 +110,14 @@
 							<label class="name_label" for="dropdownType">Loại khuyến mãi</label>
 							<br>
 							<select class="btn dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false" name="type_method">
-								<option>Tiền cố định</a>
-								<option>Phần trăm</a>
+								aria-haspopup="true" aria-expanded="false" name="">
+								<option>Tiền cố định</option>
+								<option>Phần trăm</option>
 							</select>
 						</div>
 						<div class="col-6">
 							<label class="name_label" for="Inputtype">Giá trị (loại)</label>
-							<input type="text" class="form-control" id="Inputtype" name="type" placeholder="VND">
+							<input type="text" class="form-control" id="inputUpdateType" name="type" placeholder="VND">
 						</div>
 					</div>
 					<br>
@@ -106,20 +127,126 @@
 							<label class="name_label" for="dropdownCondition">Điều kiện</label>
 							<br>
 							<select class="btn dropdown-toggle" type="button" id="dropdownCondition" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false" name="condition_method">
+								aria-haspopup="true" aria-expanded="false" name="">
 								<option>Mua trên</a>
 								<option>Không có</a>
 							</select>
 						</div>
 						<div class="col-6">
 							<label class="name_label" for="InputCondition">Giá trị (điều kiện)</label>
-							<input type="text" class="form-control" id="InputCondition" name="condition" placeholder="VND">
+							<input type="text" class="form-control" id="inputUpdateCondition" name="condition" placeholder="VND">
 						</div>
 					</div>
 					<br>
 
 					<div class="modal_footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Xóa</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+						<button type="submit" class="btn btn-primary" id="updateVoucher">Xác nhận</button>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Create Voucher -->
+<div class="modal fade" id="createDiscount" tabindex="-1" role="dialog" aria-labelledby="createDiscountTitle"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createDiscounttTitle">Chỉnh sửa khuyến mãi</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body discount_modal">
+				<form  method="post" action="/vouchers">
+					<div class="form-group row">
+						<div class="col-6">
+							<label class="name_label" for="InputCode">Mã</label>
+							<input
+								type="text"
+								class="form-control"
+								id="InputCode"
+								name="code"
+								placeholder="Mã"
+							/>
+						</div>
+
+						<div class="col-6">
+							<label class="name_label" for="dropdownStatus">Trạng thái</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="Status" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="status">
+								<option value="true">Hoạt động</a>
+								<option value="false">Hết hạn</a>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col">
+							<label class="name_label" for="Remain">Số lượng</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="Remain"
+                            name="remain"
+                            placeholder="Số lượng"
+                        />
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-6">
+							<label class="name_label" for="InputBegin">Ngày bắt đầu</label>
+							<input type="date" class="form-control" id="StartDate" name="startDate" placeholder="YYYY/mm/dd">
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="InputExpired">Ngày hết hạn</label>
+							<input type="date" class="form-control" id="EndDate" name="endDate" placeholder="YYYY/mm/dd">
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row type_group">
+						<div class="col-6">
+							<label class="name_label" for="dropdownType">Loại khuyến mãi</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="dropdownType" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="">
+								<option>Tiền cố định</option>
+								<option>Phần trăm</option>
+							</select>
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="Inputtype">Giá trị (loại)</label>
+							<input type="text" class="form-control" id="Type" name="type" placeholder="VND">
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row condition_group">
+						<div class="col-6">
+							<label class="name_label" for="dropdownCondition">Điều kiện</label>
+							<br>
+							<select class="btn dropdown-toggle" type="button" id="dropdownCondition" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" name="">
+								<option>Mua trên</a>
+								<option>Không có</a>
+							</select>
+						</div>
+						<div class="col-6">
+							<label class="name_label" for="InputCondition">Giá trị (điều kiện)</label>
+							<input type="text" class="form-control" id="Condition" name="condition" placeholder="VND">
+						</div>
+					</div>
+					<br>
+
+					<div class="modal_footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
 						<button type="submit" class="btn btn-primary">Xác nhận</button>
 					</div>
 				</form>
@@ -131,6 +258,47 @@
 	</div>
 </div>
 
+<!--Confirm Delete Modal -->
+<div
+    class="modal fade"
+    id="confirmDeleteModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modelTitleId"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa khuyến mãi</h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Xác nhận xóa khuyến mãi này?
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="btn-delete-voucher"
+                    type="button"
+                    class="btn btn-danger"
+                >Xóa</button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                >Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form method="post" name="delete-voucher-form"></form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
