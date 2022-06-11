@@ -36,7 +36,7 @@ let typeList = document.querySelectorAll('#list_staff .type');
 let typeValue;
 for (let i = 0; i < typeList.length; i++) {
   typeValue = typeList[i].innerHTML;
-  typeList.innerHTML = typeValue.includes('%') ? 'Phần trăm' : 'Tiền';
+  typeList[i].innerHTML = typeValue.includes('%') ? 'Phần trăm' : 'Tiền';
 }
 
 // CRUD

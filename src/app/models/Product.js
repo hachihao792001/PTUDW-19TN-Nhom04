@@ -11,6 +11,7 @@ const Product = new Schema(
   {
     _id: { type: Number },
     image: { type: String },
+    cloudinaryId: { type: String },
     name: { type: String },
     number: { type: Number },
     price: { type: Number },
