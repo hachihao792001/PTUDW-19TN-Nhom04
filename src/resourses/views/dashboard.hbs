@@ -1,32 +1,26 @@
 <div id="admin_dashboard__content" class="col-lg-9">
     <section id="admin_dashboard__dropdowns">
         <div class="btn-group">
-            <button type="button" class="btn dropdown-currentchoice">
-                7 ngày gần nhất
+            <button type="button" class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{dropdown_placeholder}}
             </button>
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">7 ngày gần nhất</a>
-                <a class="dropdown-item" href="#">30 ngày gần nhất</a>
-                <a class="dropdown-item" href="#">90 ngày gần nhất</a>
-                <a class="dropdown-item" href="#">Toàn thời gian</a>
+            <div class="dropdown-menu filter_dropdown">
+                <a class="dropdown-item" href="/?duration=7">7 ngày gần nhất</a>
+                <a class="dropdown-item" href="/?duration=30">30 ngày gần nhất</a>
+                <a class="dropdown-item" href="/?duration=90">90 ngày gần nhất</a>
+                <a class="dropdown-item" href="/?duration=-1">Toàn thời gian</a>
             </div>
         </div>
 
         <div class="btn-group">
-            <button type="button" class="btn dropdown-currentchoice">
+            <button type="button" class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Mọi đồ uống
             </button>
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdown-togglebutton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Mọi đồ uống</a>
-                <a class="dropdown-item" href="#">Phindi hạnh nhân</a>
+            <div class="dropdown-menu filter_dropdown">
+                <a class="dropdown-item">Mọi đồ uống</a>
+                <a class="dropdown-item">Phindi hạnh nhân</a>
             </div>
         </div>
     </section>
@@ -68,7 +62,7 @@
 <script>
     const dashboardData = JSON.parse(`{{{ json dashboardData }}}`);
     window.onload = () => {
-        loadSaleChart(dashboardData.salesData);
+        loadSaleChart(dashboardData.labelsData, dashboardData.salesData);
         loadAccessChart();
     };
 </script>
