@@ -5,14 +5,11 @@ const path = require('path');
 const { engine } = require('express-handlebars');
 const methodOverride = require('method-override');
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
 
 const route = require('./routes');
-
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // DATABASE
 const db = require('./config/db');
