@@ -42,5 +42,4 @@ var items = product_consumation_list
     })
     .join("");
 
-console.log(items);
 consumeTableBody.innerHTML = items;

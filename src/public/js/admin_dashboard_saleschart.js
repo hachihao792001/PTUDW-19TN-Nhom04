@@ -1,11 +1,11 @@
-async function loadSaleChart(labelsData, salesdata) {
+async function loadSaleChart(productName, labelsData, salesNumber) {
     const labels = labelsData;
     const data = {
         labels: labels,
         datasets: [
             {
-                label: "Doanh thu",
-                data: salesdata,
+                label: productName,
+                data: salesNumber,
             },
         ],
     };
