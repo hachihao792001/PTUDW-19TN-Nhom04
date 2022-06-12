@@ -54,7 +54,7 @@
                         <td scope="row">{{this._id}}</td>
                         <td>
                             <img
-                                src={{this.avatar}}
+                                src={{this.image}}
                                 width="40"
                                 height="40"
                                 class="rounded-circle"
@@ -118,16 +118,30 @@
                 </button>
             </div>
             <div class="modal-body staff_modal">
-                <form id="updateStaffForm" method="post">
+                <form
+                    id="updateStaffForm"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
                     {{! <div class="form-group staff_avatar">
-						<div class="avatar-wrapper">
-							<img class="profile-pic" src="./assets/images/avatar_staff.jpg" />
-							<div class="upload-button">
-								<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-							</div>
-							<input class="file-upload" type="file" accept="image/*" name="img_url" />
-						</div>
-					</div> }}
+													<div class="avatar-wrapper">
+														<img class="profile-pic" src="./assets/images/avatar_staff.jpg" />
+														<div class="upload-button">
+															<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+														</div>
+														<input class="file-upload" type="file" accept="image/*" name="img_url" />
+													</div>
+												</div> }}
+                    <div class="form-group">
+                        <label class="name_label" for="InputName">Avatar</label>
+                        <input
+                            type="file"
+                            class="form-control"
+                            id="inputUpdateFile"
+                            name="image"
+                            accept=".jpg, .jpeg, .png, .jpg, .webp"
+                        />
+                    </div>
 
                     <div class="form-group">
                         <label class="name_label" for="InputName">Tên nhân viên</label>
@@ -225,16 +239,45 @@
                 </button>
             </div>
             <div class="modal-body staff_modal">
-                <form method="post" action="/staffs">
-                    {{! <div class="form-group staff_avatar">
-						<div class="avatar-wrapper">
-							<img class="profile-pic" src="./assets/images/avatar_staff.jpg" />
-							<div class="upload-button">
-								<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-							</div>
-							<input class="file-upload" type="file" accept="image/*" name="img_url" />
-						</div>
-					</div> }}
+                <form
+                    method="post"
+                    action="/staffs"
+                    enctype="multipart/form-data"
+                >
+                    <div class="form-group staff_avatar">
+                        {{! <div class="avatar-wrapper">
+                            <img
+                                class="profile-pic"
+                                src="/images/avatar_staff.jpg"
+                            />
+                            <div class="upload-button">
+                                <i
+                                    class="fa fa-arrow-circle-up"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+                            <input
+                                id="upload-staff-image"
+                                class="file-upload"
+                                type="file"
+                                accept="image/*"
+                                name="avatar"
+                            />
+                        </div> }}
+                        <div class="form-group">
+                            <label
+                                class="name_label"
+                                for="inputUpdateFile"
+                            >Avatar</label>
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="inputUpdateFile"
+                                name="image"
+                                accept=".jpg, .jpeg, .png, .jpg, .webp"
+                            />
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="name_label" for="InputName">Tên nhân viên</label>
@@ -293,11 +336,11 @@
                         <button type="submit" class="btn btn-success">
                             Thêm
                         </button>
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                >Hủy</button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >Hủy</button>
                     </div>
                 </form>
             </div>

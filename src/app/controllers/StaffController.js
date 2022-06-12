@@ -3,6 +3,7 @@ const {
     mongooseToObject,
     multipleMongooseToObject,
 } = require("../../utils/mongoose");
+const cloudinary = require("../../utils/cloudinary");
 
 class StaffController {
     //[GET] /staffs
@@ -18,17 +19,21 @@ class StaffController {
 
     // [POST] /staffs
     store(req, res, next) {
-        Staff.findOne({}, { upsert: true })
-            .sort({ _id: "desc" })
-            .then((latestCourse) => {
-                const formData = req.body;
-                formData._id = (latestCourse?._id || 0) + 1;
-                const staff = new Staff(formData);
-                staff
-                    .save()
-                    .then(() => res.redirect("/staffs"))
-                    .catch(next);
-            });
+        cloudinary.uploader.upload(req.file.path).then((result) => {
+            Staff.findOne({}, { upsert: true })
+                .sort({ _id: "desc" })
+                .then((latestStaff) => {
+                    const formData = req.body;
+                    formData._id = (latestStaff?._id || 0) + 1;
+                    formData.image = result.secure_url;
+                    formData.cloudinaryId = result.public_id;
+                    const staff = new Staff(formData);
+                    staff
+                        .save()
+                        .then(() => res.redirect("/staffs"))
+                        .catch(next);
+                });
+        });
     }
 
     // [GET] /staffs/:id
@@ -44,19 +49,37 @@ class StaffController {
     // }
 
     // [PUT] /staffs/:id
-    update(req, res, next) {
-        const { id } = req.params;
-        const formData = req.body;
-        Staff.findByIdAndUpdate(id, formData, { new: true })
-            .then(() => res.redirect(`/staffs`))
-            .catch(next);
+
+    async update(req, res, next) {
+        try {
+            const { id } = req.params;
+            let staff = await Staff.findById(id);
+            const formData = req.body;
+
+            if (req.file) {
+                const result = await cloudinary.uploader.upload(req.file.path);
+                await cloudinary.uploader.destroy(staff.cloudinaryId);
+                formData.image = result.secure_url;
+                formData.cloudinaryId = result.public_id;
+            } else {
+                formData.image = staff.secure_url;
+                formData.cloudinaryId = staff.public_id;
+            }
+            await Staff.findByIdAndUpdate(id, formData, { new: true });
+            res.redirect(`/staffs`);
+        } catch (error) {
+            next(error);
+        }
     }
 
     // [DELETE] /staffs/:id
     delete(req, res, next) {
         const { id } = req.params;
         Staff.findByIdAndDelete(id)
-            .then(() => res.redirect("/staffs"))
+            .then(async (staff) => {
+                await cloudinary.uploader.destroy(staff.cloudinaryId);
+                res.redirect("/staffs");
+            })
             .catch(next);
     }
 }
