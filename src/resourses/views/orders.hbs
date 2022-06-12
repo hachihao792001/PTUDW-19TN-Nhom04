@@ -45,9 +45,72 @@
 						<th scope="col ">Thao tác</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="table_content">
+                {{#each orders}}
 
-				</tbody>
+<tr>
+                        <td>{{this._id}}</th>
+                        <td>{{this.customer_id}}</td>
+                        <td>{{this.payment}}</td>
+                        <td>{{this.total}}</td>                    
+                        <td>{{timeToString this.date}}</td>
+                        <td>
+
+ 					<button  class="button {{getClassByOrderStatus this.status}}   status  rounded-pilled"
+                            >{{this.status}}</button>
+
+                        </td>
+                        <td>
+                            <a href="#" type="button" data-toggle="modal" data-target="#editDonHangModal">
+                                <i class="fa-solid fa-edit"></i>
+								<i class="fa-solid fa-trash ml-1 d-inline text-secondary"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+
+
+
+                    {{!-- <tr>
+                        <td scope="row">{{this._id}}</td>
+                        <td>
+                            <img
+                                src={{this.avatar}}
+                                width="40"
+                                height="40"
+                                class="rounded-circle"
+                            />
+                        </td>
+                        <td class="column_name">{{this.name}}</td>
+                        <td class="column_phone">{{this.phone}}</td>
+                        <td>{{timeToString this.updatedAt}}</td>
+                        <td>
+                            <button
+                                class="button
+                                    {{getClassByStatus this.status}}
+                                    rounded-pilled"
+                            >{{getStatusName this.status}}</button>
+                        </td>
+                        <td>
+                            <span
+                                data-toggle="modal"
+                                data-target="#settingStaff"
+                                data-id="{{this._id}}"
+                                data-name="{{this.name}}"
+                                data-phone="{{this.phone}}"
+                            ><i class="fa-solid fa-edit"></i></span>
+                            <span
+                                data-toggle="modal"
+                                data-target="#confirmDeleteModal"
+                                data-id={{this._id}}
+                            ><i
+                                    class="fa-solid fa-trash ml-1 d-inline text-secondary"
+                                ></i></span>
+
+                        </td>
+                    </tr> --}}
+                {{/each}}
+            </tbody>
 			</table>
 		</div>
 	</div>
@@ -154,7 +217,7 @@
 </div>
 
 
-<script src="/js/admin_order_orderlist.js "></script>
+{{!-- <script src="/js/admin_order_orderlist.js "></script> --}}
 <script>
 	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {

@@ -1,116 +1,124 @@
 @import "./donhang_editdonhang.css";
-
 #order-container {
-  position: relative;
+    position: relative;
 }
 
 .order-container .order-control h2 {
-  color: #c730b5;
-  margin-bottom: 1rem;
+    color: #c730b5;
+    margin-bottom: 1rem;
 }
 
 .order-container .order-control {
-  background-color: #f8f9fa;
-  padding: 2rem;
-  border-radius: 0.5rem;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
 }
 
 .order-container .order-filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
 }
 
 .order-container .order-filter .filter {
-  min-width: 130px;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: white;
+    min-width: 130px;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+}
+
+.order-container .order-filter .filter:hover {
+    background-color: #c730b5;
 }
 
 .order-container .order-filter .filter-dropdown button {
-  width: 100%;
-  border: none;
-  background-color: transparent;
-  height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+}
+
+.order-container .order-filter .filter-dropdown button:hover {
+    background-color: #c730b5;
 }
 
 .order-container .btn-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 1rem;
-  width: 100%;
-  flex-wrap: wrap;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .btn-purple {
-  padding: 0.5rem 1.5rem;
-  background-color: #c730b5;
-  border-radius: 0.6rem;
-  color: white;
-  border: none;
+    padding: 0.5rem 1.5rem;
+    background-color: #c730b5;
+    border-radius: 0.6rem;
+    color: white;
+    border: none;
 }
 
 .btn-lighter {
-  padding: 0.5rem 1.5rem;
-  background-color: #a3a3a3;
-  margin-left: 2rem;
-  border-radius: 0.5rem;
-  color: white;
-  border: none;
+    padding: 0.5rem 1.5rem;
+    background-color: #a3a3a3;
+    margin-left: 2rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: none;
 }
 
 .order-list {
-  margin: 2rem 0;
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  overflow-x: auto;
+    margin: 2rem 0;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    overflow-x: auto;
 }
 
 .edit-order-btn {
-  position: absolute;
-  left: 0;
-  bottom: 2rem;
-  margin-left: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+    margin-left: 1rem;
 }
+
 
 /* .order-list thead th {
     font-size: 1rem;
 } */
 
 .order-list .id {
-  width: 1rem;
+    width: 1rem;
 }
 
 .status {
-  border: 0;
-  border-radius: 1rem;
-  padding: 0 0.2rem;
-  color: white;
-  height: 2.2rem;
-  line-height: 2.2rem;
-  width: 100%;
-  font-size: 0.9rem;
+    border: 0;
+    border-radius: 1rem;
+    padding: 0 0.2rem;
+    color: white;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    width: 100%;
+    font-size: 0.9rem;
 }
 
 .new {
-  background-color: #e30000;
+    background-color: #e30000;
 }
 
 .confirmed {
-  background-color: #e3cc00;
+    background-color: #e3cc00;
 }
 
 .delivering {
-  background-color: #00cf2e;
+    background-color: #00cf2e;
 }
 
 .delivered {
-  background-color: #8c978e;
+    background-color: #8c978e;
 }

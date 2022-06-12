@@ -24,18 +24,31 @@ app.set('views', path.join(__dirname, 'resourses', 'views'));
 
 // TEMPLATE ENGINE
 app.engine(
-  'hbs',
-  engine({
-    extname: 'hbs',
-    helpers: {
-      timeToString: (time) => {
-        return time ? new Date(time).toLocaleString() : '';
-      },
-      getClassByStatus: (status) => (status ? 'status_on' : 'status_off'),
-      getStatusName: (status) => (status ? 'Active' : 'Inactive'),
-      json: (context) => JSON.stringify(context),
-    },
-  })
+    'hbs',
+    engine({
+        extname: 'hbs',
+        helpers: {
+            timeToString: (time) => {
+                return time ? new Date(time).toLocaleString() : '';
+            },
+            getClassByStatus: (status) => (status ? 'status_on' : 'status_off'),
+            getClassByOrderStatus: (status) => {
+                switch (status) {
+                    case "Mới":
+                        return "new";
+                    case "Đã xác nhận":
+                        return "confirmed";
+                    case "Đang giao":
+                        return "delivering";
+                    case "Đã giao":
+                        return "delivered";
+                }
+            },
+            getStatusName: (status) => (status ? 'Active' : 'Inactive'),
+
+            json: (context) => JSON.stringify(context),
+        },
+    })
 );
 app.set('view engine', 'hbs');
 
