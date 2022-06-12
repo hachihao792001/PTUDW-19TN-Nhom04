@@ -95,7 +95,7 @@ function makeFullDurationOrders(orders, duration, startDate) {
     fullDurationOrders.forEach((order, index) => {
         if (order === undefined) {
             thisOrderDate = new Date(startDate);
-            thisOrderDate.setDate(startDate.getDate() + index);
+            thisOrderDate.setDate(startDate.getDate() + index + 1);
 
             fullDurationOrders[index] = {
                 date: thisOrderDate,
@@ -114,5 +114,19 @@ function daysBetween(startDate, endDate) {
     );
     return diffDays;
 }
+
+// để sau
+// function makeConsumeData(products) {
+//     result = [];
+//     products.forEach((product) => {
+//         var thisProductConsumeData = {
+//             id: product.id,
+//             image: product.image,
+//             name: product.name,
+//         };
+
+//         Order.find({}).then((orders) => {});
+//     });
+// }
 
 module.exports = new DashboardController();
