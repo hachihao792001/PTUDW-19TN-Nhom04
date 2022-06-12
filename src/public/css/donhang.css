@@ -31,9 +31,10 @@
     background-color: white;
 }
 
-.order-container .order-filter .filter:hover {
+
+/* .order-container .order-filter .filter:hover {
     background-color: #c730b5;
-}
+} */
 
 .order-container .order-filter .filter-dropdown button {
     width: 100%;
@@ -43,7 +44,12 @@
 }
 
 .order-container .order-filter .filter-dropdown button:hover {
-    background-color: #c730b5;
+    background-color: #c730b5 !important;
+}
+
+.order-container .order-filter .btn-dropdown:hover {
+    background-color: #c730b5 !important;
+    color: white;
 }
 
 .order-container .btn-list {
