@@ -20,23 +20,30 @@ class OrdersController {
 
     // [POST] /orders
     store(req, res, next) {
-        cloudinary.uploader.upload(req.file.path).then((result) => {
-            Order.findOne({}, { upsert: true })
-                .sort({ _id: 'desc' })
-                .then((latestCourse) => {
-                    const formData = req.body;
-                    formData._id = (latestCourse._id || 0) + 1;
-                    formData.image = result.secure_url;
-                    formData.cloudinaryId = result.public_id;
-                    const order = new Order(formData);
-                    order
-                        .save()
-                        .then(() => res.redirect('/orders'))
-                        .catch(next);
-                });
-        });
+            cloudinary.uploader.upload(req.file.path).then((result) => {
+                Order.findOne({}, { upsert: true })
+                    .sort({ _id: 'desc' })
+                    .then((latestCourse) => {
+                        const formData = req.body;
+                        formData._id = (latestCourse._id || 0) + 1;
+                        formData.image = result.secure_url;
+                        formData.cloudinaryId = result.public_id;
+                        const order = new Order(formData);
+                        order
+                            .save()
+                            .then(() => res.redirect('/orders'))
+                            .catch(next);
+                    });
+            });
+        }
+        // [PUT] /staffs/:id
+    update(req, res, next) {
+        const { id } = req.params;
+        const formData = req.body;
+        Staff.findByIdAndUpdate(id, formData, { new: true })
+            .then(() => res.redirect(`/orders`))
+            .catch(next);
     }
-
 
     // [DELETE] /orders/:id
     async delete(req, res, next) {

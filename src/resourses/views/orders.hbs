@@ -50,7 +50,9 @@
                             >{{this.status}}</button>
                         </td>
                         <td>
-                            <a href="#" type="button" data-toggle="modal" data-target="#editDonHangModal">
+                            <a href="#" type="button" 
+							data-toggle="modal" 
+							data-target="#settingOrder">
                                 <i class="fa-solid fa-edit"></i>
                             </a>
 							<i class="fa-solid fa-trash ml-1 d-inline text-secondary"></i>
@@ -63,33 +65,59 @@
 	</div>
 
 	<!-- Edit don hang modal -->
-	<div class="modal fade" id="editDonHangModal" tabindex="-1" role="dialog" aria-labelledby="editDonHangModalTitle"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
+	<div 
+		class="modal fade" 
+		id="settingOrder" 
+		tabindex="-1" 
+		role="dialog" 
+		aria-labelledby="settingOrderTitle"
+		aria-hidden="true"
+	>
+		<div class="modal-dialog modal-lg" 	role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h2 class="modal-title" id="editDonHangModalTitle">Chỉnh sửa đơn hàng</h2>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<h2 class="modal-title" id="settingOrderTitle">
+						Chỉnh sửa đơn hàng
+					</h2>
+					<button 
+						type="button" 
+						class="close" 
+						data-dismiss="modal" 
+						aria-label="Close"
+					>
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<form id="editDonHang_body">
+				<div class="modal-body order_modal">
+					<form id="updateOrderForm" method="post">
 						<div class="row editDonHang_topHalf pt-3">
 							<div class="col-12 col-md-6 editDonHang_topHalf_left px-0 px-md-2">
 								<h6>Thông tin liên hệ khách hàng</h6>
 								<div>
 									<div>
 										<p>Tên khách hàng</p>
-										<input type="text" name="client_name">
+										<input 
+										type="text" 
+										name="name"
+										id="inputUpdateName"
+										placeholder="Name"
+										>
 									</div>
 									<div>
 										<p>Địa chỉ email</p>
-										<input type="email" name="email">
+										<input type="email" 
+										name="email"
+										id="inputUpdateEmail"
+										placeholder="Email"
+										>
 									</div>
 									<div>
 										<p>Số điện thoại</p>
-										<input type="text" name="phone">
+										<input type="text" 
+										name="phone"
+										id="inputUpdatePhone"
+										placeholder="Phone"
+										>
 									</div>
 								</div>
 							</div>
@@ -100,7 +128,12 @@
 									<div>
 										<p>Hình thức thanh toán</p>
 										<div class="btn-group">
-											<select class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+											<select 
+											class="btn dropdown-toggle" 
+											type="button" 
+											name="payment"
+											id="inputUpdatePayment" 
+											data-toggle="dropdown"
 												aria-haspopup="true" aria-expanded="false" name="payment_method">
 												<option>Tiền mặt</a>
 												<option>Chuyển tiền</a>
@@ -114,8 +147,15 @@
 									<div>
 										<p>Trạng thái</p>
 										<div class="btn-group">
-											<select class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-												aria-haspopup="true" aria-expanded="false" name="delivery_status">
+											<select 
+											class="btn dropdown-toggle"
+											type="button" 
+											id="inputUpdateStatus"
+											name="status" 
+											data-toggle="dropdown"
+												aria-haspopup="true" 
+												aria-expanded="false" 
+												name="delivery_status">
 												<option>Mới</option>
 												<option>Đã xác nhận</option>
 												<option>Đang giao</option>
@@ -132,31 +172,62 @@
 							<div>
 								<div class="row">
 									<p>Địa chỉ giao hàng</p>
-									<input type="text" name="address">
+									<input type="text" 
+									name="address"
+									id="inputUpdateAddress"
+									placeholder="Addres"
+									>
 								</div>
 								<div class="row">
 									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
 										<p>Tỉnh/Thành phố</p>
-										<input type="text" name="city">
+										<input 
+										type="text" 
+										name="city"
+										id="inputUpdateCity"
+										placeholder="City"
+										>
 									</div>
 									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
 										<p>Quận/Huyện</p>
-										<input type="text" name="district">
+										<input 
+										type="text" 
+										name="district"
+										id="inputUpdateDistrict"
+										placeholder="District"
+										>
 									</div>
 									<div class="col-12 col-md-4 px-0">
 										<p>Phường/Xã</p>
-										<input type="text" name="ward">
+										<input 
+										type="text" 
+										name="ward"
+										id="inputUpdateWard"
+										placeholder="Ward"
+										>
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> 
+					
+					<div class="modal-footer">
+						 <button
+                            type="submit"
+                            class="btn btn-success"
+                            id="btnUpdateOrder"
+                        >
+                            Cập nhật
+                        </button>
+						<button type="button" 
+						class="btn btn-danger" 
+						data-dismiss="modal">
+						Huỷ đơn	hàng
+						</button>
+					</div>
 					</form>
 				</div>
 
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ đơn
-						hàng</button>
-				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -164,10 +235,12 @@
 </div>
 
 
-<script>
+{{!-- <script>
 	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
 		return new bootstrap.Dropdown(dropdownToggleEl)
 	})
-</script>
+</script> --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<script src="/js/donhang.js"></script>
