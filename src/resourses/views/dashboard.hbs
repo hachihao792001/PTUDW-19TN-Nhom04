@@ -3,26 +3,33 @@
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                {{dropdown_placeholder}}
+                {{queryDurationString}}
             </button>
             <div class="dropdown-menu filter_dropdown">
-                <a class="dropdown-item" href="/?duration=7">7 ngày gần nhất</a>
-                <a class="dropdown-item" href="/?duration=30">30 ngày gần nhất</a>
-                <a class="dropdown-item" href="/?duration=90">90 ngày gần nhất</a>
-                <a class="dropdown-item" href="/?duration=-1">Toàn thời gian</a>
+                <a class="dropdown-item" onclick="updateDuration(7)">7 ngày gần nhất</a>
+                <a class="dropdown-item" onclick="updateDuration(30)">30 ngày gần nhất</a>
+                <a class="dropdown-item" onclick="updateDuration(90)">90 ngày gần nhất</a>
+                <a class="dropdown-item" onclick="updateDuration(0)">Toàn thời gian</a>
             </div>
         </div>
 
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Mọi đồ uống
+                {{queryProductString}}
             </button>
             <div class="dropdown-menu filter_dropdown">
-                <a class="dropdown-item">Mọi đồ uống</a>
-                <a class="dropdown-item">Phindi hạnh nhân</a>
+                <a class="dropdown-item" onclick="updateProduct({id: 0, name:'Mọi đồ uống'})">Mọi đồ uống</a>
+                {{#each products}}
+                <a class="dropdown-item"
+                    onclick="updateProduct({id: {{this._id}}, name: '{{this.name}}'})">{{this.name}}</a>
+                {{/each}}
             </div>
         </div>
+
+        <button type='button' class='btn btn-outline filter_button' onclick="updateSalesChart()">
+            Xem dữ liệu
+        </button>
     </section>
 
     <section id="admin_dashboard__sales">
@@ -60,11 +67,38 @@
 </div>
 
 <script>
-    const dashboardData = JSON.parse(`{{{ json dashboardData }}}`);
+
+    var duration = 7;
+    var product = 0;
+
     window.onload = () => {
-        loadSaleChart(dashboardData.labelsData, dashboardData.salesData);
+        const salesData = JSON.parse(`{{{ json salesData }}}`);
+        loadSaleChart('{{ queryProductString }}', salesData.labelsData, salesData.salesNumber);
         loadAccessChart();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        duration = urlParams.get('duration') || 7;
+        product = urlParams.get('product') || 0;
     };
+
+    const updateDuration = (newDuration) => {
+        duration = newDuration;
+        const durationDropdownPlaceholder = document.querySelector('.btn-group:first-child .dropdown_placeholder');
+
+        if (duration == 0)
+            durationDropdownPlaceholder.innerHTML = 'Toàn thời gian';
+        else
+            durationDropdownPlaceholder.innerHTML = `${duration} ngày gần nhất`;
+    }
+    const updateProduct = (newProduct) => {
+        product = newProduct.id;
+        const productDropdownPlaceholder = document.querySelector('.btn-group:nth-child(2) .dropdown_placeholder');
+
+        productDropdownPlaceholder.innerHTML = newProduct.name;
+    }
+    const updateSalesChart = () => {
+        window.location.href = `/?duration=${duration}&product=${product}`;
+    }
 </script>
 
 <script src="/js/admin_dashboard.js"></script>

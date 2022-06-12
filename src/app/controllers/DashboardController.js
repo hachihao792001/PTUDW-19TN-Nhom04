@@ -1,4 +1,5 @@
 const Order = require("../models/Order");
+const Product = require("../models/Product");
 const {
     mongooseToObject,
     multipleMongooseToObject,
@@ -11,12 +12,16 @@ class DashboardController {
         var duration = req.query.duration || 7;
         const product = req.query.product || 0;
 
-        if (duration == -1) {
-            //SHOP_START_DATE
+        var isFullDuration = 0;
+
+        if (duration == 0) {
+            isFullDuration = 1;
             duration = daysBetween(new Date(SHOP_START_DATE), new Date());
+        } else if (duration < 0) {
+            duration = 7;
         }
 
-        const { startDate, query } = createDurationQuery(duration);
+        const { startDate, query } = createSalesQuery(duration, product);
 
         Order.find(query)
             .then((orders) => {
@@ -28,23 +33,38 @@ class DashboardController {
                     startDate
                 );
 
-                res.render("dashboard", {
-                    dropdown_placeholder: `${duration} ngày gần nhất`,
-                    dashboardData: {
-                        labelsData: fullDurationOrders.map((order) =>
-                            new Date(order.date).toLocaleDateString("vi-VN")
-                        ),
-                        salesData: fullDurationOrders.map(
-                            (order) => order.total
-                        ),
-                    },
-                });
+                Product.find({})
+                    .then((products) => {
+                        res.render("dashboard", {
+                            queryDurationString:
+                                isFullDuration == 1
+                                    ? "Toàn thời gian"
+                                    : `${duration} ngày gần nhất`,
+                            queryProductString:
+                                product == 0
+                                    ? "Mọi đồ uống"
+                                    : products.find((p) => p.id == product)
+                                          .name,
+                            salesData: {
+                                labelsData: fullDurationOrders.map((order) =>
+                                    new Date(order.date).toLocaleDateString(
+                                        "vi-VN"
+                                    )
+                                ),
+                                salesNumber: fullDurationOrders.map(
+                                    (order) => order.total
+                                ),
+                            },
+                            products: multipleMongooseToObject(products),
+                        });
+                    })
+                    .catch(next);
             })
             .catch(next);
     }
 }
 
-function createDurationQuery(duration) {
+function createSalesQuery(duration, product) {
     const today = new Date();
     const startDate = new Date();
     startDate.setDate(today.getDate() - duration);
@@ -56,6 +76,8 @@ function createDurationQuery(duration) {
             $lt: endDate,
         },
     };
+
+    if (product > 0) query.product = product;
 
     return { startDate, query };
 }
