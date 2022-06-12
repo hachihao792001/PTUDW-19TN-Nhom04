@@ -4,10 +4,10 @@ window.addEventListener("DOMContentLoaded", function() {
 
         const button = $(event.relatedTarget);
         const id = button.data("id");
-        const name = button.data("name");
-        const email = button.data("email");
         const payment = button.data("payment");
-        const status = button.data("status");
+        const total = button.data("total");
+        // const payment = button.data("payment");
+        // const status = button.data("status");
 
         const inputName = $("#inputUpdateName");
         const inputEmail = $("#inputUpdateEmail");
@@ -16,8 +16,8 @@ window.addEventListener("DOMContentLoaded", function() {
         const inputStatus = $("#inputUpdateStatus");
         console.log("name".name);
 
-        inputName.val(name);
-        inputEmail.val(email);
+        inputName.val(id);
+        // inputPayment.val(email);
 
         const btnUpdate = $("#btnUpdateOrder");
         btnUpdate.click(function() {

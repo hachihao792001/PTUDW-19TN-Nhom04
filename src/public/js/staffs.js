@@ -22,16 +22,11 @@ window.addEventListener("DOMContentLoaded", function() {
     $("#confirmDeleteModal").on("show.bs.modal", function(event) {
         const button = $(event.relatedTarget);
         const id = button.data("id");
-        const btnDeleteCourse = $("#btn-delete-staff");
-        btnDeleteCourse.click(function() {
+        const btnDeleteStaff = $("#btn-delete-staff");
+        btnDeleteStaff.click(function() {
             const deleteForm = document.forms["delete-staff-form"];
             deleteForm.action = "/staffs/" + id + "?_method=DELETE";
             deleteForm.submit();
         });
     });
-
-    // Dropzone.options.myDropzone = {
-    // 	paramName: "file", maxFilesize: 10, method:
-    // 		"post", acceptedFiles: "image/*", uploadMultiple: true,
-    // };
 });

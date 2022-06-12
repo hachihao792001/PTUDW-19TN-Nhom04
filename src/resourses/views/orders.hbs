@@ -50,9 +50,15 @@
                             >{{this.status}}</button>
                         </td>
                         <td>
-                            <a href="#" type="button" 
+                            <a href="#" 
+							type="button" 
 							data-toggle="modal" 
-							data-target="#settingOrder">
+							data-target="#settingOrder"
+							data-id="{{this.customer_id}}"
+							data-payment="{{this.payment}}"
+							data-total="{{this.total}}"
+
+							>
                                 <i class="fa-solid fa-edit"></i>
                             </a>
 							<i class="fa-solid fa-trash ml-1 d-inline text-secondary"></i>
