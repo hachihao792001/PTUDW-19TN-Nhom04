@@ -49,6 +49,7 @@
 .menu-list__group__items h3 {
   font-size: 1.5rem;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .menu-list__group__items li {
@@ -127,6 +128,7 @@
   font-weight: 700;
   position: relative;
   display: inline-block;
+  text-transform: capitalize;
 }
 
 .menu-nav ul li.active::before {

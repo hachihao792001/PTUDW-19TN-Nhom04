@@ -15,9 +15,10 @@ Sign in, sign up: Hào\
 Footer: Thời\
 Trang chủ user: Đình\
 User đặt hàng: Tín\
+About us: Đình\
 Admin - Dashboard: Hào\
-Admin - Nhân viên: Thời\
-Admin - Đồ uống: Đình\
+Admin - Nhân viên, Popup chỉnh sửa nhân viên: Thời\
 Admin - Đơn hàng: Tín\
-Admin - Đơn hàng - Chỉnh sửa đơn hàng: Hào\
-Admin - Khuyến mãi: Thời
+Admin - Popup chỉnh sửa đơn hàng: Hào\
+Admin - Sản phẩm, Popup chỉnh sửa sản phẩm: Hào\
+Admin - Khuyến mãi, Popup chỉnh sửa khuyến mãi: Thời

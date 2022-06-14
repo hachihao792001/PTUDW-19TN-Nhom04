@@ -1,0 +1,210 @@
+<header>
+    <div class="header-top d-flex justify-content-between">
+        <ul class="header-top__contact">
+            <li>
+                <a href="tel:+84949996310"><i
+                        class="fa-solid fa-phone-flip"
+                    ></i>+84949996310</a>
+            </li>
+            <li>
+                <a href="mailto: fournationscoffee@gmail.com"><i
+                        class="fa-solid fa-envelope"
+                    ></i>fournationscoffee@gmail.com</a>
+            </li>
+        </ul>
+        <ul class="header-top__social">
+            <li>
+                <a href="#"><img
+                        src="/images/icon-instagram.png"
+                        alt="Fb"
+                    /></a>
+            </li>
+            <li>
+                <a href="#"><img src="/images/icon-facebook.png" alt="Fb" /></a>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img
+                src="/images/logo.png"
+                alt="Logo"
+            /></a><button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#promotion">Khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#images">Hình ảnh</a>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button
+                    class="btn-default btn-outline"
+                    data-toggle="modal"
+                    data-target="#signInModal"
+                >
+                    Đăng nhập
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Sign in Modal -->
+<div
+    class="modal fade"
+    id="signInModal"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Đăng nhập
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body sign_in_main">
+                <div class="sign_in_box">
+                    <form class="sign_in_form" action="index.html">
+                        <h2>ĐĂNG NHẬP</h2>
+
+                        <div>
+                            <h5>Email</h5>
+                            <input type="email" />
+                        </div>
+                        <div>
+                            <h5>Mật khẩu</h5>
+                            <input type="password" />
+                        </div>
+                        <button type="submit" class="btn-default btn-outline">
+                            Đăng nhập
+                        </button>
+                    </form>
+
+                    <p>
+                        Bạn chưa có tài khoản?
+                        <a
+                            href="#"
+                            data-toggle="modal"
+                            data-target="#signUpModal"
+                        >Đăng ký ngay!</a>
+                    </p>
+                    <a href="#" class="button">Quên mật khẩu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sign in Modal -->
+
+<!-- Sign up Modal -->
+<div
+    class="modal fade"
+    id="signUpModal"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Đăng ký
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body sign_up_main">
+                <div class="sign_up_box">
+                    <form class="sign_up_form" action="index.html">
+                        <h2>ĐĂNG KÝ</h2>
+                        <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+                        <div class="sign_up__client_info">
+                            <div class="separator">
+                                <span>Thông tin khách hàng</span>
+                            </div>
+                            <div>
+                                <h5>Tên đầy đủ</h5>
+                                <input type="text" />
+                            </div>
+                            <div>
+                                <h5>Số điện thoại</h5>
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                        <div class="sign_up__sign_in_info">
+                            <div class="separator">
+                                <span>Thông tin đăng nhập</span>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <input type="email" />
+                            </div>
+                            <div>
+                                <h5>Mật khẩu</h5>
+                                <input type="password" />
+                            </div>
+                            <div>
+                                <h5>Xác nhận mật khẩu</h5>
+                                <input type="password" />
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-default btn-outline">
+                            Đăng ký
+                        </button>
+                    </form>
+
+                    <p>
+                        Bạn đã có tài khoản?
+                        <a
+                            href="#"
+                            data-dismiss="modal"
+                            aria-label="Sign in"
+                        >Đăng nhập</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sign up Modal -->

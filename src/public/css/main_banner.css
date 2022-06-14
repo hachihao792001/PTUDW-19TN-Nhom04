@@ -1,5 +1,5 @@
 #banner {
-  background: url(../assets/images/banner.webp) center no-repeat;
+  background: url(/images/banner.webp) center no-repeat;
   background-size: cover;
   position: relative;
 }
