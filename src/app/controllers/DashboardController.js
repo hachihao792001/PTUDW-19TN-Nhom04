@@ -21,14 +21,16 @@ class DashboardController {
             duration = 7;
         }
 
-        const { startDate, query } = createDurationQuery(duration);
+        const { startDate, query } = makeDurationQuery(duration);
 
         Order.find(query)
             .then((ordersInDurationRange) => {
                 ordersInDurationRange = multipleMongooseToObject(ordersInDurationRange);
 
                 Product.find({})
-                    .then((products) => {
+                    .then(async (products) => {
+                        products = multipleMongooseToObject(products);
+
                         res.render("dashboard", {
                             queryDurationString:
                                 isFullDuration == 1
@@ -37,7 +39,7 @@ class DashboardController {
                             queryProductString:
                                 productID == 0
                                     ? "Mọi đồ uống"
-                                    : products.find((p) => p.id == productID)
+                                    : products.find((p) => p._id == productID)
                                         .name,
                             salesData: {
                                 labelsData:
@@ -46,7 +48,7 @@ class DashboardController {
                                         new Date()
                                     ),
                                 salesNumber:
-                                    createSalesNumber(
+                                    makeSalesNumber(
                                         ordersInDurationRange,
                                         products,
                                         productID,
@@ -54,7 +56,8 @@ class DashboardController {
                                         startDate
                                     ),
                             },
-                            products: multipleMongooseToObject(products),
+                            products: products,
+                            consumeData: await makeConsumeData(products),
                         });
                     })
                     .catch(next);
@@ -63,7 +66,7 @@ class DashboardController {
     }
 }
 
-function createDurationQuery(duration) {
+function makeDurationQuery(duration) {
     const today = new Date();
     const startDate = new Date();
     startDate.setDate(today.getDate() - duration + 1);
@@ -79,7 +82,7 @@ function createDurationQuery(duration) {
     return { startDate, query };
 }
 
-function createSalesNumber(orders, products, productID, duration, startDate) {
+function makeSalesNumber(orders, products, productID, duration, startDate) {
     const salesNumber = [];
     for (let i = 0; i < duration; i++) {
         salesNumber.push(0);
@@ -96,7 +99,7 @@ function createSalesNumber(orders, products, productID, duration, startDate) {
             else {
                 order.products.find((product) => {
                     if (product.id == productID) {
-                        salesNumber[i] += product.quantity * products.find((p) => p.id == productID).price;
+                        salesNumber[i] += product.quantity * products.find((p) => p._id == productID).price;
                     }
                 });
             }
@@ -137,18 +140,36 @@ function isSameDate(date1, date2) {
     );
 }
 
-// để sau
-// function makeConsumeData(products) {
-//     result = [];
-//     products.forEach((product) => {
-//         var thisProductConsumeData = {
-//             id: product.id,
-//             image: product.image,
-//             name: product.name,
-//         };
+async function makeProductsSoldData(products) {
+    const productsSoldData = [];
+    for (let i = 0; i < products.length; i++) {
+        productsSoldData.push(0);
+    }
 
-//         Order.find({}).then((orders) => {});
-//     });
-// }
+    await Order.find({}).
+        then((orders) => {
+            orders = multipleMongooseToObject(orders);
+
+            for (let i = 0; i < orders.length; i++) {
+                const order = orders[i];
+                for (let j = 0; j < order.products.length; j++) {
+                    productsSoldData[order.products[j].id - 1] += order.products[j].quantity;
+                }
+            }
+        });
+
+    return productsSoldData;
+}
+
+async function makeConsumeData(products) {
+    productsSoldData = await makeProductsSoldData(products);
+
+    products.map((product, index) => {
+        product.sold = productsSoldData[index];
+        product.percent = (productsSoldData[index] / product.number) * 100;
+    });
+
+    return products;
+}
 
 module.exports = new DashboardController();
