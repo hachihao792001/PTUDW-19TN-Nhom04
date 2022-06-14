@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
 
-    background: url(../assets/images/banner.webp) center no-repeat;
+    background: url('https://res.cloudinary.com/dcdd7mhoh/image/upload/v1655217337/banner_t3rodh.webp') center no-repeat;
     background-size: cover;
     position: relative;
 }
@@ -28,8 +28,8 @@
     justify-content: center;
 }
 
-.sign_in_form h2 {
-    color: #c730b5;
+.sign_in_form h2, .sign_in_form h5 {
+    color: #d71515;
 }
 
 .sign_in_form div {
@@ -46,7 +46,7 @@
 .sign_in_form button {
     margin-top: 20px;
     border-radius: 20px;
-    background-color: #c730b5;
+    background-color: #d71515;
     color: white;
     width: 350px;
     height: 35px;
@@ -54,17 +54,19 @@
 }
 
 .sign_in_box p a {
-    color: #c730b5;
+    color: #d71515;
 }
 
 .sign_in_box > a {
-    color: #c730b5;
+    color: #d71515;
     background-color: transparent;
     border-style: solid none none none;
-    border-color: #c730b5 0 0 0;
+    border-color: #d71515 0 0 0;
     border: 1 0 0 0;
     width: 100%;
     padding-top: 7px;
     margin-top: 20px;
     text-align: center;
 }
+
+
