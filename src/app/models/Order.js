@@ -12,6 +12,7 @@ const Order = new Schema(
         total: { type: Number },
         date: { type: Date },
         status: { type: String },
+        products: { type: Array },
     },
     { timestamps: true, _id: false }
 );

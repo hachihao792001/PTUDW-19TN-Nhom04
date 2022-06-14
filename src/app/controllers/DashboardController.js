@@ -10,7 +10,7 @@ const SHOP_START_DATE = "01-01-2022";
 class DashboardController {
     index(req, res, next) {
         var duration = req.query.duration || 7;
-        const product = req.query.product || 0;
+        const productID = req.query.product || 0;
 
         var isFullDuration = 0;
 
@@ -21,17 +21,11 @@ class DashboardController {
             duration = 7;
         }
 
-        const { startDate, query } = createSalesQuery(duration, product);
+        const { startDate, query } = createDurationQuery(duration);
 
         Order.find(query)
-            .then((orders) => {
-                orders = multipleMongooseToObject(orders);
-
-                const fullDurationOrders = makeFullDurationOrders(
-                    orders,
-                    duration,
-                    startDate
-                );
+            .then((ordersInDurationRange) => {
+                ordersInDurationRange = multipleMongooseToObject(ordersInDurationRange);
 
                 Product.find({})
                     .then((products) => {
@@ -41,19 +35,24 @@ class DashboardController {
                                     ? "Toàn thời gian"
                                     : `${duration} ngày gần nhất`,
                             queryProductString:
-                                product == 0
+                                productID == 0
                                     ? "Mọi đồ uống"
-                                    : products.find((p) => p.id == product)
+                                    : products.find((p) => p.id == productID)
                                         .name,
                             salesData: {
-                                labelsData: fullDurationOrders.map((order) =>
-                                    new Date(order.date).toLocaleDateString(
-                                        "vi-VN"
-                                    )
-                                ),
-                                salesNumber: fullDurationOrders.map(
-                                    (order) => order.total
-                                ),
+                                labelsData:
+                                    makeArrayOfDateStrings(
+                                        startDate,
+                                        new Date()
+                                    ),
+                                salesNumber:
+                                    createSalesNumber(
+                                        ordersInDurationRange,
+                                        products,
+                                        productID,
+                                        duration,
+                                        startDate
+                                    ),
                             },
                             products: multipleMongooseToObject(products),
                         });
@@ -64,7 +63,7 @@ class DashboardController {
     }
 }
 
-function createSalesQuery(duration, product) {
+function createDurationQuery(duration) {
     const today = new Date();
     const startDate = new Date();
     startDate.setDate(today.getDate() - duration + 1);
@@ -77,37 +76,34 @@ function createSalesQuery(duration, product) {
         },
     };
 
-    if (product > 0) query.product = product;
-
     return { startDate, query };
 }
 
-// Make an array with length=duration, each element is either an existing order or an placeholder order (total=0)
-// Index 0 is the order at startDate, index duration-1 is the order at endDate
-function makeFullDurationOrders(orders, duration, startDate) {
-    const fullDurationOrders = [];
+function createSalesNumber(orders, products, productID, duration, startDate) {
+    const salesNumber = [];
     for (let i = 0; i < duration; i++) {
-        fullDurationOrders.push(undefined);
+        salesNumber.push(0);
     }
 
-    for (let i = 0; i < orders.length; i++) {
-        const dateIndex = daysBetween(startDate, orders[i].date);
-        fullDurationOrders[dateIndex] = orders[i];
+    var curentDate = new Date(startDate);
+    for (let i = 0; i < duration; i++) {
+        const ordersThisDate = orders.filter((order) =>
+            isSameDate(order.date, curentDate)
+        );
+        ordersThisDate.forEach((order) => {
+            if (productID == 0)
+                salesNumber[i] += order.total;
+            else {
+                order.products.find((product) => {
+                    if (product.id == productID) {
+                        salesNumber[i] += product.quantity * products.find((p) => p.id == productID).price;
+                    }
+                });
+            }
+        });
+        curentDate.setDate(curentDate.getDate() + 1);
     }
-
-    fullDurationOrders.forEach((order, index) => {
-        if (order === undefined) {
-            thisOrderDate = new Date(startDate);
-            thisOrderDate.setDate(startDate.getDate() + index);
-
-            fullDurationOrders[index] = {
-                date: thisOrderDate,
-                total: 0,
-            };
-        }
-    });
-
-    return fullDurationOrders;
+    return salesNumber;
 }
 
 function daysBetween(startDate, endDate) {
@@ -116,6 +112,29 @@ function daysBetween(startDate, endDate) {
         Math.abs((startDate.getTime() - endDate.getTime()) / oneDay)
     );
     return diffDays;
+}
+
+function makeArrayOfDateStrings(startDate, endDate) {
+    const arrayOfDateStrings = [];
+    const count = daysBetween(startDate, endDate) + 1;
+
+    for (let i = 0; i < count; i++) {
+        const thisDate = new Date(startDate);
+        thisDate.setDate(startDate.getDate() + i);
+        arrayOfDateStrings.push(thisDate.toLocaleDateString(
+            "vi-VN"
+        ));
+    }
+
+    return arrayOfDateStrings;
+}
+
+function isSameDate(date1, date2) {
+    return (
+        date1.getFullYear() == date2.getFullYear() &&
+        date1.getMonth() == date2.getMonth() &&
+        date1.getDate() == date2.getDate()
+    );
 }
 
 // để sau
