@@ -44,7 +44,7 @@ class DashboardController {
                                 product == 0
                                     ? "Mọi đồ uống"
                                     : products.find((p) => p.id == product)
-                                          .name,
+                                        .name,
                             salesData: {
                                 labelsData: fullDurationOrders.map((order) =>
                                     new Date(order.date).toLocaleDateString(
@@ -67,7 +67,7 @@ class DashboardController {
 function createSalesQuery(duration, product) {
     const today = new Date();
     const startDate = new Date();
-    startDate.setDate(today.getDate() - duration);
+    startDate.setDate(today.getDate() - duration + 1);
     const endDate = today;
 
     const query = {
@@ -85,7 +85,10 @@ function createSalesQuery(duration, product) {
 // Make an array with length=duration, each element is either an existing order or an placeholder order (total=0)
 // Index 0 is the order at startDate, index duration-1 is the order at endDate
 function makeFullDurationOrders(orders, duration, startDate) {
-    const fullDurationOrders = new Array(duration).fill(undefined);
+    const fullDurationOrders = [];
+    for (let i = 0; i < duration; i++) {
+        fullDurationOrders.push(undefined);
+    }
 
     for (let i = 0; i < orders.length; i++) {
         const dateIndex = daysBetween(startDate, orders[i].date);
@@ -95,7 +98,7 @@ function makeFullDurationOrders(orders, duration, startDate) {
     fullDurationOrders.forEach((order, index) => {
         if (order === undefined) {
             thisOrderDate = new Date(startDate);
-            thisOrderDate.setDate(startDate.getDate() + index + 1);
+            thisOrderDate.setDate(startDate.getDate() + index);
 
             fullDurationOrders[index] = {
                 date: thisOrderDate,
