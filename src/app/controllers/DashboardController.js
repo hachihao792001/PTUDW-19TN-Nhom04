@@ -1,5 +1,7 @@
 const Order = require("../models/Order");
 const Product = require("../models/Product");
+const User = require("../models/User");
+const DateUtils = require("../../utils/DateUtils");
 const {
     mongooseToObject,
     multipleMongooseToObject,
@@ -16,7 +18,10 @@ class DashboardController {
 
         if (duration == 0) {
             isFullDuration = 1;
-            duration = daysBetween(new Date(SHOP_START_DATE), new Date());
+            duration = DateUtils.daysBetween(
+                new Date(SHOP_START_DATE),
+                new Date()
+            );
         } else if (duration < 0) {
             duration = 7;
         }
@@ -25,7 +30,9 @@ class DashboardController {
 
         Order.find(query)
             .then((ordersInDurationRange) => {
-                ordersInDurationRange = multipleMongooseToObject(ordersInDurationRange);
+                ordersInDurationRange = multipleMongooseToObject(
+                    ordersInDurationRange
+                );
 
                 Product.find({})
                     .then(async (products) => {
@@ -40,23 +47,28 @@ class DashboardController {
                                 productID == 0
                                     ? "Mọi đồ uống"
                                     : products.find((p) => p._id == productID)
-                                        .name,
+                                          .name,
                             salesData: {
-                                labelsData:
-                                    makeArrayOfDateStrings(
-                                        startDate,
-                                        new Date()
-                                    ),
-                                salesNumber:
-                                    makeSalesNumber(
-                                        ordersInDurationRange,
-                                        products,
-                                        productID,
-                                        duration,
-                                        startDate
-                                    ),
+                                labelsData: DateUtils.makeArrayOfDateStrings(
+                                    startDate,
+                                    new Date()
+                                ),
+                                salesNumber: makeSalesNumber(
+                                    ordersInDurationRange,
+                                    products,
+                                    productID,
+                                    duration,
+                                    startDate
+                                ),
                             },
                             products: products,
+                            accessesData: {
+                                labelsData: DateUtils.makeArrayOfDateStrings(
+                                    new Date(SHOP_START_DATE),
+                                    new Date()
+                                ),
+                                accessesNumber: await makeAccessesNumber(),
+                            },
                             consumeData: await makeConsumeData(products),
                         });
                     })
@@ -91,15 +103,16 @@ function makeSalesNumber(orders, products, productID, duration, startDate) {
     var curentDate = new Date(startDate);
     for (let i = 0; i < duration; i++) {
         const ordersThisDate = orders.filter((order) =>
-            isSameDate(order.date, curentDate)
+            DateUtils.isSameDate(order.date, curentDate)
         );
         ordersThisDate.forEach((order) => {
-            if (productID == 0)
-                salesNumber[i] += order.total;
+            if (productID == 0) salesNumber[i] += order.total;
             else {
                 order.products.find((product) => {
                     if (product.id == productID) {
-                        salesNumber[i] += product.quantity * products.find((p) => p._id == productID).price;
+                        salesNumber[i] +=
+                            product.quantity *
+                            products.find((p) => p._id == productID).price;
                     }
                 });
             }
@@ -109,35 +122,32 @@ function makeSalesNumber(orders, products, productID, duration, startDate) {
     return salesNumber;
 }
 
-function daysBetween(startDate, endDate) {
-    const oneDay = 24 * 60 * 60 * 1000;
-    const diffDays = Math.round(
-        Math.abs((startDate.getTime() - endDate.getTime()) / oneDay)
+async function makeAccessesNumber() {
+    const daysCount = DateUtils.daysBetween(
+        new Date(SHOP_START_DATE),
+        new Date()
     );
-    return diffDays;
-}
-
-function makeArrayOfDateStrings(startDate, endDate) {
-    const arrayOfDateStrings = [];
-    const count = daysBetween(startDate, endDate) + 1;
-
-    for (let i = 0; i < count; i++) {
-        const thisDate = new Date(startDate);
-        thisDate.setDate(startDate.getDate() + i);
-        arrayOfDateStrings.push(thisDate.toLocaleDateString(
-            "vi-VN"
-        ));
+    const accessesNumber = [];
+    for (let i = 0; i < daysCount; i++) {
+        accessesNumber.push(0);
     }
 
-    return arrayOfDateStrings;
-}
+    await User.find({}).then((users) => {
+        users = multipleMongooseToObject(users);
 
-function isSameDate(date1, date2) {
-    return (
-        date1.getFullYear() == date2.getFullYear() &&
-        date1.getMonth() == date2.getMonth() &&
-        date1.getDate() == date2.getDate()
-    );
+        for (let i = 0; i < users.length; i++) {
+            for (let j = 0; j < users[i].accessDays.length; j++) {
+                accessesNumber[
+                    DateUtils.daysBetween(
+                        new Date(SHOP_START_DATE),
+                        users[i].accessDays[j]
+                    ) - 1
+                ] += 1;
+            }
+        }
+    });
+
+    return accessesNumber;
 }
 
 async function makeProductsSoldData(products) {
@@ -146,17 +156,17 @@ async function makeProductsSoldData(products) {
         productsSoldData.push(0);
     }
 
-    await Order.find({}).
-        then((orders) => {
-            orders = multipleMongooseToObject(orders);
+    await Order.find({}).then((orders) => {
+        orders = multipleMongooseToObject(orders);
 
-            for (let i = 0; i < orders.length; i++) {
-                const order = orders[i];
-                for (let j = 0; j < order.products.length; j++) {
-                    productsSoldData[order.products[j].id - 1] += order.products[j].quantity;
-                }
+        for (let i = 0; i < orders.length; i++) {
+            const order = orders[i];
+            for (let j = 0; j < order.products.length; j++) {
+                productsSoldData[order.products[j].id - 1] +=
+                    order.products[j].quantity;
             }
-        });
+        }
+    });
 
     return productsSoldData;
 }

@@ -13,7 +13,7 @@ const User = new Schema(
         address: { type: String },
         phone: { type: String },
         balance: { type: Number },
-        accessDays: { type: Number },
+        accessDays: { type: Array },
     },
     { timestamps: true, _id: false }
 );

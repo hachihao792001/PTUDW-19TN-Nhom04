@@ -90,8 +90,10 @@
 
     window.onload = () => {
         const salesData = JSON.parse(`{{{ json salesData }}}`);
+        const accessesData = JSON.parse(`{{{ json accessesData }}}`);
+
         loadSaleChart('{{ queryProductString }}', salesData.labelsData, salesData.salesNumber);
-        loadAccessChart();
+        loadAccessChart(accessesData.labelsData, accessesData.accessesNumber);
 
         const urlParams = new URLSearchParams(window.location.search);
         duration = urlParams.get('duration') || 7;

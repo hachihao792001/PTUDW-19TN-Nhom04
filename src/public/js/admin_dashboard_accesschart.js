@@ -1,14 +1,15 @@
-async function loadAccessChart() {
-    const labels = ["January", "February", "March", "April", "May", "June"];
+async function loadAccessChart(labelsData, accessesNumber) {
+    const labels = labelsData;
     const data = {
         labels: labels,
         datasets: [
             {
                 label: "Số lượt truy cập",
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: accessesNumber,
                 fill: false,
-                borderColor: "rgb(75, 192, 192)",
                 tension: 0.1,
+                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: "rgba(75,192,192,0.4)",
             },
         ],
     };

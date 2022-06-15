@@ -6,6 +6,7 @@ async function loadSaleChart(productName, labelsData, salesNumber) {
             {
                 label: productName,
                 data: salesNumber,
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
             },
         ],
     };
