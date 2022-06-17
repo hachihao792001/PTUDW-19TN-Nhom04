@@ -80,8 +80,11 @@ class DashboardController {
 
 function makeDurationQuery(duration) {
     const today = new Date();
+
     const startDate = new Date();
     startDate.setDate(today.getDate() - duration + 1);
+    startDate.setHours(0, 0, 0, 0);
+
     const endDate = today;
 
     const query = {
@@ -100,10 +103,10 @@ function makeSalesNumber(orders, products, productID, duration, startDate) {
         salesNumber.push(0);
     }
 
-    var curentDate = new Date(startDate);
+    var currentDate = new Date(startDate);
     for (let i = 0; i < duration; i++) {
         const ordersThisDate = orders.filter((order) =>
-            DateUtils.isSameDate(order.date, curentDate)
+            DateUtils.isSameDate(order.date, currentDate)
         );
         ordersThisDate.forEach((order) => {
             if (productID == 0) salesNumber[i] += order.total;
@@ -117,7 +120,7 @@ function makeSalesNumber(orders, products, productID, duration, startDate) {
                 });
             }
         });
-        curentDate.setDate(curentDate.getDate() + 1);
+        currentDate.setDate(currentDate.getDate() + 1);
     }
     return salesNumber;
 }

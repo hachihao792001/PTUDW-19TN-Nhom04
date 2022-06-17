@@ -2,7 +2,7 @@ class DateUtils {
     // both inclusive
     daysBetween(startDate, endDate) {
         const oneDay = 24 * 60 * 60 * 1000;
-        const diffDays = Math.round(
+        const diffDays = Math.floor(
             Math.abs((startDate.getTime() - endDate.getTime()) / oneDay)
         );
         return diffDays + 1;
@@ -15,9 +15,7 @@ class DateUtils {
         for (let i = 0; i < count; i++) {
             const thisDate = new Date(startDate);
             thisDate.setDate(startDate.getDate() + i);
-            arrayOfDateStrings.push(thisDate.toLocaleDateString(
-                "vi-VN"
-            ));
+            arrayOfDateStrings.push(thisDate.toLocaleDateString("vi-VN"));
         }
 
         return arrayOfDateStrings;
