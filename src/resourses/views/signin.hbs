@@ -16,16 +16,21 @@
   <body>
     <main class='sign_in_main'>
       <div class='sign_in_box'>
-        <form class='sign_in_form' action='/'>
+        <form
+          class='sign_in_form'
+          method='post'
+          action='/login'
+          enctype='multipart/form-data'
+        >
           <h2>ĐĂNG NHẬP</h2>
 
           <div>
             <h5>Email</h5>
-            <input type='email' />
+            <input type='email' name='email' />
           </div>
           <div>
             <h5>Mật khẩu</h5>
-            <input type='password' />
+            <input type='password' name='password' />
           </div>
           <button type='submit' class='btn-default btn-outline'>Đăng nhập</button>
 

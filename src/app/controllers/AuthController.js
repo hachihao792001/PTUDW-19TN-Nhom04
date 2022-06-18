@@ -73,6 +73,48 @@ class SignInController {
       token: token,
     });
   }
+
+  async signIn(req, res, next) {
+    const formData = req.body;
+
+    let existingAdmin;
+    let email = formData.email;
+    try {
+      existingAdmin = await Admin.findOne({ email });
+    } catch (err) {
+      return next(error);
+    }
+
+    if (!existingAdmin) {
+      res.json({ message: 'Admin Account Not Found' });
+      return;
+    }
+
+    let isValidPassword = false;
+
+    isValidPassword = bcrypt.compareSync(
+      formData.password,
+      existingAdmin.password
+    );
+
+    if (!isValidPassword) {
+      return next(error);
+    }
+
+    let token;
+    try {
+      token = jwt.sign(
+        { adminId: existingAdmin._id, email: existingAdmin.email },
+        process.env.JWT_KEY,
+        { expiresIn: '1h' }
+      );
+    } catch (err) {
+      return next(error);
+    }
+
+    res.cookie('token', token);
+    res.redirect('/dashboard');
+  }
 }
 
 module.exports = new SignInController();

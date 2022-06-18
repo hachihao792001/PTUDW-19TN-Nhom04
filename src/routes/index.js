@@ -6,12 +6,12 @@ const vouchersRouter = require('./vouchers');
 const authRouter = require('./auth');
 
 const route = (app) => {
-  app.use('/', dashboardRouter);
+  app.use('/', authRouter);
+  app.use('/dashboard', dashboardRouter);
   app.use('/staffs', staffsRouter);
   app.use('/orders', ordersRouter);
   app.use('/products', productsRouter);
   app.use('/vouchers', vouchersRouter);
-  app.use('/auth', authRouter);
 };
 
 module.exports = route;
