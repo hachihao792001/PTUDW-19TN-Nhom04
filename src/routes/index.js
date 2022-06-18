@@ -3,7 +3,7 @@ const staffsRouter = require('./staffs');
 const ordersRouter = require('./orders');
 const productsRouter = require('./products');
 const vouchersRouter = require('./vouchers');
-const signInRouter = require('./signin');
+const authRouter = require('./auth');
 
 const route = (app) => {
   app.use('/', dashboardRouter);
@@ -11,7 +11,7 @@ const route = (app) => {
   app.use('/orders', ordersRouter);
   app.use('/products', productsRouter);
   app.use('/vouchers', vouchersRouter);
-  app.use('/signin', signInRouter);
+  app.use('/auth', authRouter);
 };
 
 module.exports = route;
