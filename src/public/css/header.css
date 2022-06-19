@@ -88,6 +88,28 @@ header .navbar-toggler {
     font-size: 0.9rem;
 }
 
+.cart-btn {
+    border: none;
+}
+
+.cart-btn i {
+    font-size: 32px;
+    color: var(--purple);
+    margin: 0 30px;
+}
+
+#cartModal .quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#cartModal .quantity input {
+    max-width: 50px;
+    margin: 0 10px;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     header .navbar {
         padding: 0;
