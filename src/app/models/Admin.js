@@ -22,7 +22,8 @@ const Admin = new Schema(
         },
         name: { type: String },
         phone: { type: String },
-        status: { type: Number },
+        image: { type: String, default: "/images/admin_avatar.jpg" },
+        status: { type: Number, default: 1 },
     },
     { timestamps: true, _id: false }
 );

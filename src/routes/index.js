@@ -5,9 +5,11 @@ const productsRouter = require("./products");
 const vouchersRouter = require("./vouchers");
 const authRouter = require("./auth");
 
-const { auth } = require("../middlewares/authMiddleware");
+const { auth, assignAdminAvatar } = require("../middlewares/authMiddleware");
 
 const route = (app) => {
+    app.get("*", assignAdminAvatar);
+
     app.use("/", authRouter);
     app.use("/dashboard", auth, dashboardRouter);
     app.use("/staffs", auth, staffsRouter);
