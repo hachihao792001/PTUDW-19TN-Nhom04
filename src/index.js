@@ -6,6 +6,7 @@ const { engine } = require("express-handlebars");
 const methodOverride = require("method-override");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 3000;
@@ -67,6 +68,7 @@ app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+app.use(cookieParser());
 
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "public")));
