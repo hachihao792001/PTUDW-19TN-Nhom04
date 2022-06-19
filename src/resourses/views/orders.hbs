@@ -42,22 +42,24 @@
 					<tr>
                         <td>{{this._id}}</th>
                         <td>{{this.customer_id}}</td>
-                        <td>{{this.payment}}</td>
-                        <td>{{this.total}}</td>                    
+                        <td>{{booleanToPayment this.payment}}</td>
+                        <td>{{intToMoney this.total}}</td>                    
                         <td>{{timeToString this.date}}</td>
                         <td>
- 							<button  class="button {{getClassByOrderStatus this.status}}   status "
-                            >{{this.status}}</button>
+ 							<button  class="button {{ this.status}}   status "
+                            >{{stringToStatus this.status}}</button>
                         </td>
                         <td>
                             <a href="#" 
 							type="button" 
 							data-toggle="modal" 
 							data-target="#settingOrder"
-							data-id="{{this.customer_id}}"
-							data-payment="{{this.payment}}"
-							data-total="{{this.total}}"
-
+							data-name="{{this.customer_name}}"
+							data-email="{{this.customer_email}}"
+							data-phone="{{this.customer_phone}}"
+							data-address="{{this.customer_address}}"
+							data-payment ="{{this.payment}}"
+							data-status="{{this.status}}"
 							>
                                 <i class="fa-solid fa-edit"></i>
                             </a>
@@ -141,8 +143,8 @@
 											id="inputUpdatePayment" 
 											data-toggle="dropdown"
 												aria-haspopup="true" aria-expanded="false" name="payment_method">
-												<option>Tiền mặt</a>
-												<option>Chuyển tiền</a>
+												<option value="true">Tiền mặt</a>
+												<option value="false">Chuyển khoản</a>
 											</select>
 										</div>
 									</div>
@@ -162,10 +164,10 @@
 												aria-haspopup="true" 
 												aria-expanded="false" 
 												name="delivery_status">
-												<option>Mới</option>
-												<option>Đã xác nhận</option>
-												<option>Đang giao</option>
-												<option>Đã giao</option>
+												<option value="new">Mới</option>
+												<option value="confirmed">Đã xác nhận</option>
+												<option value="delivering">Đang giao</option>
+												<option value="delivered">Đã giao</option>
 											</select>
 										</div>
 									</div>
@@ -183,35 +185,6 @@
 									id="inputUpdateAddress"
 									placeholder="Addres"
 									>
-								</div>
-								<div class="row">
-									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
-										<p>Tỉnh/Thành phố</p>
-										<input 
-										type="text" 
-										name="city"
-										id="inputUpdateCity"
-										placeholder="City"
-										>
-									</div>
-									<div class="col-12 col-md-4 pl-0 pr-0 pr-md-3">
-										<p>Quận/Huyện</p>
-										<input 
-										type="text" 
-										name="district"
-										id="inputUpdateDistrict"
-										placeholder="District"
-										>
-									</div>
-									<div class="col-12 col-md-4 px-0">
-										<p>Phường/Xã</p>
-										<input 
-										type="text" 
-										name="ward"
-										id="inputUpdateWard"
-										placeholder="Ward"
-										>
-									</div>
 								</div>
 							</div>
 						</div> 
@@ -241,12 +214,7 @@
 </div>
 
 
-{{!-- <script>
-	var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-	var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-		return new bootstrap.Dropdown(dropdownToggleEl)
-	})
-</script> --}}
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 <script src="/js/donhang.js"></script>

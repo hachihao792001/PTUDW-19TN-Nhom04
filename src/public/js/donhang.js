@@ -3,20 +3,33 @@ window.addEventListener("DOMContentLoaded", function() {
         console.log("update order");
 
         const button = $(event.relatedTarget);
-        const id = button.data("id");
+        const name = button.data("name");
+        const email = button.data("email");
+        const phone = button.data("phone");
+        const address = button.data("address");
         const payment = button.data("payment");
-        const total = button.data("total");
-        // const payment = button.data("payment");
-        // const status = button.data("status");
+        const status = button.data("status");
 
         const inputName = $("#inputUpdateName");
         const inputEmail = $("#inputUpdateEmail");
-        const inputPayment = $("#inputUpdatePayment");
         const inputPhone = $("#inputUpdatePhone");
-        const inputStatus = $("#inputUpdateStatus");
-        console.log("name".name);
+        const inputAddress = $("#inputUpdateAddress");
 
-        inputName.val(id);
+        const inputPayment = $("#inputUpdatePayment option")
+            .removeAttr("selected")
+            .filter(`[value='${payment}']`)
+            .attr("selected", true);
+        const inputStatus = $("#inputUpdateStatus option")
+            .removeAttr("selected")
+            .filter(`[value='${status}']`)
+            .attr("selected", true);
+        console.log(status);
+
+        inputName.val(name);
+        inputEmail.val(email);
+        inputPhone.val(phone);
+        inputAddress.val(address);
+        // inputPayment.val(payment).change();
         // inputPayment.val(email);
 
         const btnUpdate = $("#btnUpdateOrder");
@@ -26,6 +39,4 @@ window.addEventListener("DOMContentLoaded", function() {
             form.submit();
         });
     });
-
-
 });
