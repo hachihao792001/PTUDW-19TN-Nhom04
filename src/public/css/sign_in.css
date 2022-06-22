@@ -1,72 +1,92 @@
 ﻿.sign_in_main {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('https://res.cloudinary.com/dcdd7mhoh/image/upload/v1655217337/banner_t3rodh.webp') center no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
-    background: url('https://res.cloudinary.com/dcdd7mhoh/image/upload/v1655217337/banner_t3rodh.webp') center no-repeat;
-    background-size: cover;
-    position: relative;
+.sign_in_main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: rgba(0, 0, 0, .4);
 }
 
 .sign_in_box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    border: black 1px solid;
-    box-shadow: 5px 5px 5px;
-    padding: 25px;
-    background-color: white;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: black 1px solid;
+  box-shadow: 5px 5px 5px;
+  padding: 25px;
+  background-color: white;
+  width: calc(100% - 20px);
+  max-width: 450px;
+  border-radius: 10px;
 }
 
 .sign_in_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.sign_in_form h2, .sign_in_form h5 {
-    color: #c730b5;
+.sign_in_form h2,
+.sign_in_form h5 {
+  color: #c730b5;
+}
+
+.sign_in_form h5 {
+  font-size: 1.1rem;
 }
 
 .sign_in_form div {
-    margin-top: 20px;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .sign_in_form div input {
-    width: 350px;
-    height: 40px;
-    background-color: #f6f6f6;
-    border: none;
+  width: 100%;
+  height: 40px;
+  background-color: #f6f6f6;
+  border: none;
+  padding: 5px 10px;
 }
 
 .sign_in_form button {
-    margin-top: 20px;
-    border-radius: 20px;
-    background-color: #c730b5;
-    color: white;
-    width: 350px;
-    height: 35px;
-    border: none;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #c730b5;
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 10px 5px;
 }
 
 .sign_in_box p a {
-    color: #c730b5;
+  color: #c730b5;
 }
 
-.sign_in_box > a {
-    color: #c730b5;
-    background-color: transparent;
-    border-style: solid none none none;
-    border-color: #c730b5 0 0 0;
-    border: 1 0 0 0;
-    width: 100%;
-    padding-top: 7px;
-    margin-top: 20px;
-    text-align: center;
+.sign_in_box>a {
+  color: #c730b5;
+  background-color: transparent;
+  border-style: solid none none none;
+  border-color: #c730b5 0 0 0;
+  border: 1 0 0 0;
+  width: 100%;
+  padding-top: 7px;
+  margin-top: 20px;
+  text-align: center;
 }
-
-

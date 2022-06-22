@@ -4,6 +4,9 @@ const jwt = require("jsonwebtoken");
 
 class SignInController {
     index(req, res, next) {
+        if (req.cookies.token) {
+            res.redirect("/dashboard");
+        }
         res.render("signin", { layout: false });
     }
 
@@ -82,11 +85,16 @@ class SignInController {
         try {
             existingAdmin = await Admin.findOne({ email });
         } catch (err) {
-            return next(error);
+            res.render("signin", {
+                layout: false,
+            });
+            return next(err);
         }
 
         if (!existingAdmin) {
-            res.json({ message: "Admin Account Not Found" });
+            res.render("signin", {
+                layout: false,
+            });
             return;
         }
 
@@ -98,7 +106,10 @@ class SignInController {
         );
 
         if (!isValidPassword) {
-            return next(error);
+            res.render("signin", {
+                layout: false,
+            });
+            return;
         }
 
         let token;
