@@ -1,9 +1,9 @@
-window.addEventListener("load", function () {
-    $("#myModal").on("shown.bs.modal", function () {
+window.addEventListener("load", function() {
+    $("#myModal").on("shown.bs.modal", function() {
         $("#myInput").trigger("focus");
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         AOS.init({ duration: 1000 });
         $(".promotion-slider").slick({
             infinite: true,
@@ -15,8 +15,7 @@ window.addEventListener("load", function () {
             nextArrow: $(".slider-next"),
             autoplay: true,
             autoplaySpeed: 1500,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1200,
                     settings: {
                         slidesToShow: 2,
@@ -36,8 +35,7 @@ window.addEventListener("load", function () {
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1200,
                     settings: {
                         slidesToShow: 2,
@@ -53,3 +51,10 @@ window.addEventListener("load", function () {
         });
     });
 });
+
+const openCart = function() {
+    console.log("chay vo open cart roi");
+    document.getElementById("cart").click();
+};
+
+document.querySelector("#btnOrderNow").addEventListener("click", openCart);
