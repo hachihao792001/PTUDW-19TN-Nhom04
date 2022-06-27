@@ -106,7 +106,7 @@ class SignInController {
     let token;
     try {
       token = jwt.sign(
-        { adminId: existingUser._id, email: existingUser.email },
+        { userId: existingUser._id, email: existingUser.email },
         process.env.JWT_KEY,
         { expiresIn: '1h' }
       );
