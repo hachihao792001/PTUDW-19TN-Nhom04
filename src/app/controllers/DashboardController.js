@@ -143,7 +143,7 @@ async function makeAccessesNumber() {
                 accessesNumber[
                     DateUtils.daysBetween(
                         new Date(SHOP_START_DATE),
-                        users[i].accessDays[j]
+                        new Date(users[i].accessDays[j])
                     ) - 1
                 ] += 1;
             }

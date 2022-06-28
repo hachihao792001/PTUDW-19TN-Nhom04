@@ -4,8 +4,11 @@ const jwt = require("jsonwebtoken");
 
 class SignInController {
     index(req, res, next) {
-        if (req.cookies.token) {
-            res.redirect("/dashboard");
+        const token = req.cookies.token;
+        if (token) {
+            jwt.verify(token, process.env.JWT_KEY, (err, decodedToken) => {
+                if (!err) res.redirect("/dashboard");
+            });
         }
         res.render("signin", { layout: false });
     }
