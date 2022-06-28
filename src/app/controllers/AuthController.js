@@ -90,6 +90,7 @@ class SignInController {
         } catch (err) {
             res.render("signin", {
                 layout: false,
+                error: true,
             });
             return next(err);
         }
@@ -97,6 +98,7 @@ class SignInController {
         if (!existingAdmin) {
             res.render("signin", {
                 layout: false,
+                error: true,
             });
             return;
         }
@@ -111,6 +113,7 @@ class SignInController {
         if (!isValidPassword) {
             res.render("signin", {
                 layout: false,
+                error: true,
             });
             return;
         }

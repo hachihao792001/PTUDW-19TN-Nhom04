@@ -90,3 +90,9 @@
   margin-top: 20px;
   text-align: center;
 }
+
+.error {
+  color: #ff1010;
+  font-size: 0.9rem;
+  padding-top: 15px;
+}
