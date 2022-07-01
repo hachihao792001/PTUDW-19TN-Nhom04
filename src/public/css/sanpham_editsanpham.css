@@ -10,14 +10,30 @@
     width: 100%;
 }
 
-#SanPham_body > div {
-    margin: 10px 0;
+#SanPham_body .name_category {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#Sanpham_body .category-dropdown {
+    margin: 0px;
+    height: 3em;
+}
+
+#Sanpham_body .category-dropdown > button {
+    height: 3em;
 }
 
 #SanPham_body .giaca_soluong {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+
+#SanPham_body .name_category > div,
+#SanPham_body .giaca_soluong > div {
+    width: 100%;
 }
 
 #SanPham_body .dropzone {
