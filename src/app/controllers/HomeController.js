@@ -1,6 +1,10 @@
 const Product = require('../models/Product');
 const Category = require('../models/Category');
-const { multipleMongooseToObject } = require('../../utils/mongoose');
+const {
+  multipleMongooseToObject,
+  mongooseToObject,
+} = require('../../utils/mongoose');
+const Cart = require('../models/Cart');
 
 class HomeController {
   //[GET] /
@@ -18,9 +22,25 @@ class HomeController {
           ),
         };
       });
+      const userId = req.userId;
+
+      let AllCarts = await Cart.findOne({ userId });
+
+      let UserCarts = [];
+
+      if (AllCarts) {
+        products.forEach((p) => {
+          AllCarts.products.forEach((q) => {
+            if (p._id == q.productId) {
+              UserCarts.push({ ...p, quantity: q.quantity });
+            }
+          });
+        });
+      }
 
       res.render('index', {
         categories,
+        cart: UserCarts,
       });
     } catch (e) {
       next(e);

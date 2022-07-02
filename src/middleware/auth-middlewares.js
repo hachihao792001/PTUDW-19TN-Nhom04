@@ -30,6 +30,7 @@ const assignUserAvatar = (req, res, next) => {
       } else {
         let user = await User.findById(decodedToken.userId);
         res.locals.avatar = user.image;
+        req.userId = user._id;
         next();
       }
     });
