@@ -27,6 +27,24 @@
                 </tr>
             )
            }) }} --}}
+
+           {{#each mappedCart}}
+<tr>
+                    <td>{{this.name}}</td>
+                    <td>
+
+                        <img src={{this.image}}width="60px" alt={{this.name}}
+                    </td>
+                    <td>{{this.price}}</td>
+                    <td> 
+                        <button class="btn btn-light" onclick="changeQuantity(-1)">-</button>
+                    {{this.quantity}}
+                       <button class="btn btn-light" onclick="changeQuantity(1)">+</button>
+                       </td>
+                    <td>{{this.total}}
+                    </td>
+                </tr>
+           {{/each}}
           <tr>
             <td>Tra sua</td>
             <td><img width="60px" src="https://th.bing.com/th/id/R.622b2c014604059b7400f70015b14dab?rik=qCSLowXdFCobMA&riu=http%3a%2f%2fgongcha.com.vn%2fwp-content%2fuploads%2f2018%2f10%2fHinh-Web-OKINAWA-TR%c3%80-S%e1%bb%aeA.png&ehk=9VchqGPxMfW7nx8OMlT2VD2YONBvW4QDcu8tUMDi%2bek%3d&risl=&pid=ImgRaw&r=0" alt=""/></td>
@@ -42,14 +60,17 @@
         </tbody>
       </table>
     </div>
-    <div class="voucher mt-4">
+    <div class="voucher mt-4  ">
       <h3>Voucher</h3>
-      <div class="form-group row">
-        <input
-          class="form-control col-sm-9"
+      <div class="form-group row flex-nowrap " >
+        <div class="col-sm-9"> <input
+          class="form-control  "
           placeholder="Nhập voucher để áp dụng"
-        />
-        <button class="btn-default btn-outline col-sm-3 ml-0">Áp dụng voucher</button></div>
+        /></div>
+       <div class="col-sm-3">        
+        <button class="btn-default btn-outline w-100">Áp dụng voucher</button>
+        </div>
+</div>
 
     </div>
     <div class="deliver-info mt-4">
@@ -89,7 +110,7 @@
         <div class="row">
             <span class="font-weight-bold col-sm-6" style="font-size: 24px">Tổng tiền: 121.000</span>
             <div class="control-btn col-sm-6 d-flex justify-content-end">           
-                 <button class="btn-default btn-outline m-3">Hủy</button>
+                 <button class="btn-default btn-outline mr-3">Hủy</button>
                 <button class="btn-default">Thanh toán</button>
             </div>
 
