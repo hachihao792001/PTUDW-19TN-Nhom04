@@ -14,7 +14,7 @@
             </div>
             <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm" />
             <button type="button" class="btn btn-outline filter_button" data-toggle="modal"
-                data-target="#modal_AddProduct" onClick="onOpenAddModal()">
+                data-target="#modal_AddProduct">
                 + Thêm sản phẩm
             </button>
         </div>
@@ -49,7 +49,7 @@
                         <span data-toggle="modal" data-target="#settingProduct" data-id="{{this._id}}"
                             data-name="{{this.name}}" data-description="{{this.description}}"
                             data-price="{{this.price}}" data-number="{{this.number}}"
-                            onClick="onOpenEditModal({{this._id}})">
+                            data-categoryId="{{this.categoryId}}">
                             <i class="fa-solid fa-edit"></i>
 
                         </span>
@@ -81,19 +81,20 @@
                     <div class="name_category">
                         <div>
                             <p>Tên sản phẩm</p>
-                            <input type="text" name="name" id="inputUpdateName" />
+                            <input type="text" name="name" id="inputUpdateName" required />
                         </div>
                         <div>
                             <p>Danh mục</p>
                             <div class="btn-group category-dropdown w-100">
-                                <button type="button" class="btn dropdown-toggle dropdown_placeholder"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button id="editCategoryDropdownButton" type="button"
+                                    class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     PhinDi
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
                                     {{#each categories}}
                                     <a class="dropdown-item"
-                                        onclick="onChangeCategoryDropdownContent('settingProduct', {id: {{this._id}}, name: '{{this.name}}'})">
+                                        onclick="changeCategoryDropdownContent('settingProduct', {id: {{this._id}}, name: '{{this.name}}'})">
                                         {{this.name}}
                                     </a>
                                     {{/each}}
@@ -108,16 +109,16 @@
                     <div class="giaca_soluong">
                         <div>
                             <p>Giá cả</p>
-                            <input type="text" name="price" id="inputUpdatePrice" />
+                            <input type="text" name="price" id="inputUpdatePrice" required />
                         </div>
                         <div>
                             <p>Số lượng</p>
-                            <input type="number" name="number" id="inputUpdateNumber" />
+                            <input type="number" name="number" id="inputUpdateNumber" required />
                         </div>
                     </div>
                     <div>
                         <label>Hình ảnh</label>
-                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" />
+                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
                     </div>
                 </form>
                 {{! <div>
@@ -153,23 +154,24 @@
                 </button>
             </div>
             <div class="modal-body" id="SanPham_body">
-                <form method="post" action="/products" enctype="multipart/form-data">
+                <form id="addProductForm" method="post" action="/products" enctype="multipart/form-data">
                     <div class="name_category">
                         <div>
                             <p>Tên sản phẩm</p>
-                            <input type="text" name="name" id="inputUpdateName" />
+                            <input type="text" name="name" id="inputUpdateName" required />
                         </div>
                         <div>
                             <p>Danh mục</p>
                             <div class="btn-group category-dropdown w-100">
-                                <button type="button" class="btn dropdown-toggle dropdown_placeholder"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button id="addCategoryDropdownButton" type="button"
+                                    class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     PhinDi
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
                                     {{#each categories}}
                                     <a class="dropdown-item"
-                                        onclick="onChangeCategoryDropdownContent('modal_AddProduct',{id: {{this._id}}, name: '{{this.name}}'})">
+                                        onclick="changeCategoryDropdownContent('modal_AddProduct',{id: {{this._id}}, name: '{{this.name}}'})">
                                         {{this.name}}
                                     </a>
                                     {{/each}}
@@ -184,30 +186,30 @@
                     <div class="giaca_soluong">
                         <div>
                             <label>Giá cả</label>
-                            <input type="text" name="price" id="InputPrice" />
+                            <input type="text" name="price" id="InputPrice" required />
                         </div>
                         <div>
                             <label>Số lượng</label>
-                            <input type="number" name="number" id="InputNumber" />
+                            <input type="number" name="number" id="InputNumber" required />
                         </div>
                     </div>
                     <div>
                         <label>Hình ảnh</label>
-                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" />
+                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Hủy
-                        </button>
 
-                        <button type="submit" class="btn btn-success">
-                            Xác nhận
-                        </button>
-                    </div>
                 </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Hủy
+                </button>
 
+                <button type="submit" class="btn btn-success" form="addProductForm" id="btnAddProduct">
+                    Xác nhận
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -243,21 +245,7 @@
     var editingProductID = -1;
     var editingProductCategoryID = -1;
 
-    const onOpenAddModal = () => {
-        const categoryButton = document.querySelector('#modal_AddProduct .category-dropdown > button');
-        categoryButton.innerHTML = categories[0].name;
-    }
-
-    const onOpenEditModal = (productID) => {
-        editingProductID = productID;
-        editingProductCategoryID = products.filter(product => product._id == productID)[0].categoryId;
-
-        const categoryButton = document.querySelector('#settingProduct .category-dropdown > button');
-        const editingProductCategory = categories.filter(category => category._id == editingProductCategoryID)[0]
-        categoryButton.innerHTML = editingProductCategory.name;
-    }
-
-    const onChangeCategoryDropdownContent = (whichModal, categoryInfo) => {
+    const changeCategoryDropdownContent = (whichModal, categoryInfo) => {
         editingProductCategoryID = categoryInfo.id;
         const categoryButton = document.querySelector(`#${whichModal} .category-dropdown > button`);
         categoryButton.innerHTML = categoryInfo.name;
