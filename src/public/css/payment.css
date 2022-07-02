@@ -1,0 +1,20 @@
+@media (max-width: 992px) {
+    #payment .voucher button {
+        padding: 8px 16px !important;
+    }
+    #payment .product-list button {
+        padding: 6px !important;
+    }
+}
+
+@media (max-width:768px) {
+    #payment .voucher button {
+        padding: 8px 2px !important;
+    }
+    #payment .checkout button {
+        font-size: 14px !important;
+    }
+    #payment .product-list button {
+        padding: 2px !important;
+    }
+}
