@@ -20,8 +20,13 @@ class ProductsController {
                     product.categoryName = foundCategory.name;
                 }
 
+                const allCategories = multipleMongooseToObject(
+                    await Category.find({})
+                );
+
                 res.render("products", {
                     products: allProducts,
+                    categories: allCategories,
                 });
             })
             .catch(next);

@@ -14,7 +14,7 @@
             </div>
             <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm" />
             <button type="button" class="btn btn-outline filter_button" data-toggle="modal"
-                data-target="#modal_AddProduct">
+                data-target="#modal_AddProduct" onClick="onOpenAddModal()">
                 + Thêm sản phẩm
             </button>
         </div>
@@ -48,7 +48,8 @@
                     <td>
                         <span data-toggle="modal" data-target="#settingProduct" data-id="{{this._id}}"
                             data-name="{{this.name}}" data-description="{{this.description}}"
-                            data-price="{{this.price}}" data-number="{{this.number}}">
+                            data-price="{{this.price}}" data-number="{{this.number}}"
+                            onClick="onOpenEditModal({{this._id}})">
                             <i class="fa-solid fa-edit"></i>
 
                         </span>
@@ -89,13 +90,10 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     PhinDi
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right filter_dropdown">
-                                    <a class="dropdown-item" onclick="updateProduct({id: 0, name:'Mọi đồ uống'})">
-                                        Mọi đồ uống
-                                    </a>
-                                    {{#each products}}
+                                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
+                                    {{#each categories}}
                                     <a class="dropdown-item"
-                                        onclick="updateProduct({id: {{this._id}}, name: '{{this.name}}'})">
+                                        onclick="onChangeCategoryDropdownContent('settingProduct', {id: {{this._id}}, name: '{{this.name}}'})">
                                         {{this.name}}
                                     </a>
                                     {{/each}}
@@ -156,9 +154,28 @@
             </div>
             <div class="modal-body" id="SanPham_body">
                 <form method="post" action="/products" enctype="multipart/form-data">
-                    <div>
-                        <label>Tên sản phẩm</label>
-                        <input type="text" name="name" id="InputName" />
+                    <div class="name_category">
+                        <div>
+                            <p>Tên sản phẩm</p>
+                            <input type="text" name="name" id="inputUpdateName" />
+                        </div>
+                        <div>
+                            <p>Danh mục</p>
+                            <div class="btn-group category-dropdown w-100">
+                                <button type="button" class="btn dropdown-toggle dropdown_placeholder"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    PhinDi
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
+                                    {{#each categories}}
+                                    <a class="dropdown-item"
+                                        onclick="onChangeCategoryDropdownContent('modal_AddProduct',{id: {{this._id}}, name: '{{this.name}}'})">
+                                        {{this.name}}
+                                    </a>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <label>Mô tả</label>
@@ -219,4 +236,32 @@
 
 <form method="POST" name="delete-product-form"></form>
 
+<script>
+    const products = JSON.parse(`{{{ json products }}}`);
+    const categories = JSON.parse(`{{{ json categories }}}`);
+
+    var editingProductID = -1;
+    var editingProductCategoryID = -1;
+
+    const onOpenAddModal = () => {
+        const categoryButton = document.querySelector('#modal_AddProduct .category-dropdown > button');
+        categoryButton.innerHTML = categories[0].name;
+    }
+
+    const onOpenEditModal = (productID) => {
+        editingProductID = productID;
+        editingProductCategoryID = products.filter(product => product._id == productID)[0].categoryId;
+
+        const categoryButton = document.querySelector('#settingProduct .category-dropdown > button');
+        const editingProductCategory = categories.filter(category => category._id == editingProductCategoryID)[0]
+        categoryButton.innerHTML = editingProductCategory.name;
+    }
+
+    const onChangeCategoryDropdownContent = (whichModal, categoryInfo) => {
+        editingProductCategoryID = categoryInfo.id;
+        const categoryButton = document.querySelector(`#${whichModal} .category-dropdown > button`);
+        categoryButton.innerHTML = categoryInfo.name;
+    }
+
+</script>
 <script src="/js/sanpham.js"></script>
