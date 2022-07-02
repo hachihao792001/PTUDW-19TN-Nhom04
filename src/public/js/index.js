@@ -58,3 +58,5 @@ const openCart = function() {
 };
 
 document.querySelector("#btnOrderNow").addEventListener("click", openCart);
+
+const changeQuantity = function(value) {};

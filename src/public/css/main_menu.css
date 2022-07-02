@@ -227,14 +227,15 @@
     align-items: center;
 }
 
-.btn {
+
+/* .btn {
     padding: 0.5rem 1.5rem;
     background-color: var(--purple);
     margin-left: 2rem;
     border-radius: 2rem;
     color: white;
     border: none;
-}
+} */
 
 .btn-close {
     padding: 0.5rem 1.5rem;
