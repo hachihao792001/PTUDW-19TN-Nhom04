@@ -136,6 +136,26 @@
 							</div>
 						</div>
 
+						<div class="editDonHang_middle col-12 mx-2 px-md-2">
+							<h6 class="mb-3">Sản phẩm</h6>
+							<div class="overflow-auto">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr>
+											<th scope="col">Mã</th>
+											<th scope="col">Hình ảnh</th>
+											<th scope="col">Tên sản phẩm</th>
+											<th scope="col">Giá</th>
+											<th scope="col">Danh mục</th>
+										</tr>
+									</thead>
+									<tbody id="orderProductTableBody">
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+
 						<div class="editDonHang_bottomHalf">
 							<h6>Thông tin liên hệ khách hàng</h6>
 							<div>
@@ -165,7 +185,11 @@
 	<!-- Edit don hang modal -->
 </div>
 
-
+<script>
+	const orders_products = JSON.parse(`{{{ json orders_products }}}`);
+	const products = JSON.parse(`{{{ json products }}}`);
+	const categories = JSON.parse(`{{{ json categories }}}`);
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

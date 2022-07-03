@@ -2,6 +2,7 @@ const Order = require("../models/Order");
 const Product = require("../models/Product");
 const User = require("../models/User");
 const Cart = require("../models/Cart");
+const { getOrderProducts } = require("../../utils/OrderUtils");
 const DateUtils = require("../../utils/DateUtils");
 const {
     mongooseToObject,
@@ -109,10 +110,11 @@ function makeSalesNumber(orders, products, productID, duration, startDate) {
         const ordersThisDate = orders.filter((order) =>
             DateUtils.isSameDate(order.date, currentDate)
         );
-        ordersThisDate.forEach((order) => {
+        ordersThisDate.forEach(async (order) => {
             if (productID == 0) salesNumber[i] += order.total;
             else {
-                order.products.find((product) => {
+                var orderProducts = await getOrderProducts(order);
+                orderProducts.find((product) => {
                     if (product.id == productID) {
                         salesNumber[i] +=
                             product.quantity *
@@ -161,16 +163,9 @@ async function makeProductsSoldData(products) {
     }
 
     await Order.find({}).then(async (orders) => {
-        orders = multipleMongooseToObject(orders);
-
         for (let i = 0; i < orders.length; i++) {
             const order = orders[i];
-
-            var orderCart = await Cart.findOne({ _id: order.cartId });
-            if (orderCart === null) continue;
-            orderCart = mongooseToObject(orderCart);
-
-            const orderProducts = orderCart.products;
+            const orderProducts = getOrderProducts(order);
 
             for (let j = 0; j < orderProducts.length; j++) {
                 productsSoldData[orderProducts[j].productId - 1] +=

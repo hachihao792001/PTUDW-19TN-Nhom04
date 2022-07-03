@@ -1,17 +1,38 @@
-//
 const Order = require("../models/Order");
+const Product = require("../models/Product");
+const Category = require("../models/Category");
 const {
     mongooseToObject,
     multipleMongooseToObject,
 } = require("../../utils/mongoose");
+const { getOrderProducts } = require("../../utils/OrderUtils");
 
 class OrdersController {
     //[GET] /Orders
     index(req, res, next) {
         Order.find({})
-            .then((orders) => {
+            .then(async (orders) => {
+                orders = multipleMongooseToObject(orders);
+
+                const orders_products = await Promise.all(
+                    orders.map(async (order) => {
+                        return {
+                            orderId: order._id,
+                            products: await getOrderProducts(order),
+                        };
+                    })
+                );
+
+                var products = await Product.find({});
+                products = multipleMongooseToObject(products);
+                var categories = await Category.find({});
+                categories = multipleMongooseToObject(categories);
+
                 res.render("orders", {
-                    orders: multipleMongooseToObject(orders),
+                    orders: orders,
+                    products: products,
+                    categories: categories,
+                    orders_products: orders_products,
                 });
             })
             .catch(next);
