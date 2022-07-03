@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt');
-const User = require('../models/User');
-const Cart = require('../models/Cart');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
+const User = require("../models/User");
+const Cart = require("../models/Cart");
+const jwt = require("jsonwebtoken");
 
 class SignInController {
   async signUp(req, res, next) {
@@ -17,17 +17,17 @@ class SignInController {
     }
 
     if (existingUser) {
-      const error = new Error('User exists already', 422);
+      const error = new Error("User exists already", 422);
       return next(error);
     }
     if (password != confirmPassword) {
-      const error = new Error('Confirm password does not match');
+      const error = new Error("Confirm password does not match");
       return next(error);
     }
 
     // Get ID
     const latestUser = await User.findOne({}, { upsert: true }).sort({
-      _id: 'desc',
+      _id: "desc",
     });
     _id = (latestUser?._id || 0) + 1;
 
@@ -46,10 +46,10 @@ class SignInController {
       phone,
       password: hashPassword,
       image:
-        'https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/514b72b37695a35b1c0feab9e3ba63fd~c5_720x720.jpeg?x-expires=1656367200&x-signature=T%2BlCbPyCwj12piFwJJWFdG5yH3s%3D',
+        "https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/514b72b37695a35b1c0feab9e3ba63fd~c5_720x720.jpeg?x-expires=1656367200&x-signature=T%2BlCbPyCwj12piFwJJWFdG5yH3s%3D",
       _id,
       balance: 0,
-      address: 'TP HCM',
+      address: "TP HCM",
       accessDays: new Date().toDateString(),
     });
 
@@ -77,13 +77,13 @@ class SignInController {
       token = jwt.sign(
         { adminId: createUser._id, email: createUser.email },
         process.env.JWT_KEY,
-        { expiresIn: '1h' }
+        { expiresIn: "1h" }
       );
     } catch (error) {
       next(error);
     }
 
-    res.redirect('/');
+    res.redirect("/");
 
     // res.status(201).json({
     //   userId: createUser._id,
@@ -94,46 +94,50 @@ class SignInController {
   }
 
   async signIn(req, res, next) {
-    const { email, password } = req.body;
-
-    let existingUser;
     try {
-      existingUser = await User.findOne({ email });
-    } catch (err) {
-      return next(err);
+      const { email, password } = req.body;
+
+      let existingUser;
+      try {
+        existingUser = await User.findOne({ email });
+      } catch (err) {
+        res.render("error", { message: "Lỗi không xác định" });
+      }
+
+      if (!existingUser) {
+        const error = new Error("User not found");
+        res.render("error", { message: "Không tìm thấy tài khoản" });
+      }
+
+      let isValidPassword = false;
+
+      isValidPassword = bcrypt.compareSync(password, existingUser.password);
+
+      if (!isValidPassword) {
+        const error = new Error("Password is incorrect");
+        res.render("error", { message: "Sai mật khẩu" });
+      }
+
+      let token;
+      try {
+        token = jwt.sign(
+          { userId: existingUser._id, email: existingUser.email },
+          process.env.JWT_KEY,
+          { expiresIn: "1h" }
+        );
+        res.cookie("token", token);
+        res.redirect("/");
+      } catch (err) {
+        res.render("error", { message: "Lỗi không xác định" });
+      }
+    } catch {
+      res.render("error", { message: "Lỗi không xác định" });
     }
-
-    if (!existingUser) {
-      const error = new Error('User not found');
-      return next(error);
-    }
-
-    let isValidPassword = false;
-
-    isValidPassword = bcrypt.compareSync(password, existingUser.password);
-
-    if (!isValidPassword) {
-      const error = new Error('Password is incorrect');
-      return next(error);
-    }
-
-    let token;
-    try {
-      token = jwt.sign(
-        { userId: existingUser._id, email: existingUser.email },
-        process.env.JWT_KEY,
-        { expiresIn: '1h' }
-      );
-    } catch (err) {
-      return next(error);
-    }
-    res.cookie('token', token);
-    res.redirect('/');
   }
 
   logOut = (req, res) => {
-    res.cookie('token', '', { maxAge: 1 });
-    res.redirect('/');
+    res.cookie("token", "", { maxAge: 1 });
+    res.redirect("/");
   };
 }
 
