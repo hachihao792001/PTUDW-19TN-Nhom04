@@ -8,7 +8,7 @@ const express = require("express");
 var cookieParser = require("cookie-parser");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 
 const route = require("./routes");
 
@@ -64,7 +64,7 @@ app.use(methodOverride("_method"));
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(PORT || process.env.PORT);
+app.listen(PORT);
 
 // ROUTING
 route(app);
