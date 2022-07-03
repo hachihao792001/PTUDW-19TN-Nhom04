@@ -25,7 +25,7 @@
 				<tr>
 					<th scope="col">ID</th>
 					<th scope="col">Mã</th>
-					<th scope="col">Còn lại</th>
+					<th scope="col">Tiêu đề</th>
 					<th scope="col">Ngày bắt đầu</th>
 					<th scope="col">Ngày hết hạn</th>
 					<th scope="col">Trạng thái</th>
@@ -38,7 +38,7 @@
 				<tr>
 					<td scope="row">{{this._id}}</td>
 					<td>{{this.code}}</td>
-					<td>{{this.remain}}</td>
+					<td>{{this.title}}</td>
 					<td class="startDate">{{timeToString this.startDate}}</td>
 					<td class="endDate">{{timeToString this.endDate}}</td>
 					<td class="statusTable">{{this.status}}</td>
@@ -189,13 +189,25 @@
 					</div>
 					<div class="form-group row">
 						<div class="col">
-							<label class="name_label" for="Remain">Số lượng</label>
+							<label class="name_label" for="Title">Tiêu đề</label>
                         <input
-                            type="number"
+                            type="text"
                             class="form-control"
-                            id="Remain"
-                            name="remain"
-                            placeholder="Số lượng"
+                            id="Title"
+                            name="title"
+                            placeholder="Tiêu đề"
+                        />
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col">
+							<label class="name_label" for="Content">Nội dung</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="Content"
+                            name="content"
+                            placeholder="Nội dung"
                         />
 						</div>
 					</div>

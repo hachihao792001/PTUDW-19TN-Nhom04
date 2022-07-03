@@ -11,7 +11,8 @@ const Voucher = new Schema(
   {
     _id: { type: Number },
     code: { type: String },
-    remain: { type: Number },
+    title: { type: String },
+    content: { type: String },
     status: { type: String }, // True: Hoạt động, False: Hết hạn
     type: { type: String },
     condition: { type: Number }, //  Trên condition tiền để được khuyến mãi
