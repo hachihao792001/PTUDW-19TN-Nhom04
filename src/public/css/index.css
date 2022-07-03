@@ -9,6 +9,7 @@
 @import "./sanpham.css";
 @import "./sign_in.css";
 @import "./footer.css";
+@import "./profile.css";
 * {
     margin: 0;
     padding: 0;
