@@ -46,6 +46,7 @@
   height: 40px;
   background-color: #f6f6f6;
   border: none;
+  padding: 5px 10px;
 }
 
 .sign_up_form button {
