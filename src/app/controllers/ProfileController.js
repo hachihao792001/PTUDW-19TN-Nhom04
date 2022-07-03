@@ -1,22 +1,19 @@
-const User = require("../models/User");
+const { mongooseToObject } = require('../../utils/mongoose');
+const User = require('../models/User');
 
 class ProfileController {
-    //[GET] /profile
-    async index(req, res, next) {
-        const { userId } = req.body;
-        const user = await User.findOne({ userId });
+  //[GET] /profile
+  async index(req, res, next) {
+    const { userId } = req.params;
 
-        res.render("profile", {
-            user: {
-                name: user.name,
-                email: user.email,
-                phone: user.phone,
-                address: user.address,
-                balance: user.balance,
-                image: user.image,
-            },
-        });
-    }
+    let user = await User.findById(userId);
+
+    user = mongooseToObject(user);
+
+    res.render('profile', {
+      user,
+    });
+  }
 }
 
 module.exports = new ProfileController();

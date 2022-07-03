@@ -6,7 +6,6 @@ const cloudinary = require('../../utils/cloudinary');
 
 class SignInController {
   async signUp(req, res, next) {
-    console.log(req.file);
     try {
       // const formData = req.body;
       // const email = formData.email;
