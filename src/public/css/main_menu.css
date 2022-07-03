@@ -46,13 +46,14 @@
 }
 
 .item-logo img {
-    max-width: 75px;
+    width: 75px;
     height: 75px
 }
 
 .item-quantity {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-direction: r;
     align-items: center;
     cursor: pointer;
 }

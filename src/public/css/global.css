@@ -63,3 +63,26 @@ a:hover {
     font-size: 2.5rem;
   }
 }
+
+.input-number {
+  margin: 0 15px !important;
+  width: 50px !important;
+  border: none !important;
+}
+
+.input-number:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 50px;
+  background-color: #fff;
+  left: 50% - 50px;
+}
+
+.btn-change-value {
+  height: 20px;
+  border: none;
+  width: 50px;
+  border-radius: 50%;
+}
