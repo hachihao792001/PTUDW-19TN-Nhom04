@@ -2,12 +2,15 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const Cart = require('../models/Cart');
 const jwt = require('jsonwebtoken');
+const cloudinary = require('../../utils/cloudinary');
 
 class SignInController {
   async signUp(req, res, next) {
+    console.log(req.file);
     try {
       // const formData = req.body;
       // const email = formData.email;
+      const imageResult = await cloudinary.uploader.upload(req.file.path);
       const { name, phone, email, password, confirmPassword } = req.body;
       let existingUser, _id;
 
@@ -40,8 +43,8 @@ class SignInController {
         name,
         phone,
         password: hashPassword,
-        image:
-          'https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/514b72b37695a35b1c0feab9e3ba63fd~c5_720x720.jpeg?x-expires=1656367200&x-signature=T%2BlCbPyCwj12piFwJJWFdG5yH3s%3D',
+        image: imageResult.secure_url,
+        cloudinaryId: imageResult.public_id,
         _id,
         balance: 0,
         address: 'TP HCM',
@@ -72,7 +75,8 @@ class SignInController {
       //   password: createUser.password,
       //   token: token,
       // });
-    } catch {
+    } catch (error) {
+      console.log(error);
       res.render('error', { message: 'Lỗi không xác định' });
     }
   }
@@ -106,7 +110,8 @@ class SignInController {
       );
       res.cookie('token', token);
       res.redirect('/');
-    } catch {
+    } catch (error) {
+      console.log(error);
       res.render('error', { message: 'Lỗi không xác định' });
     }
   }
