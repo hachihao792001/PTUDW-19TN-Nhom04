@@ -120,7 +120,7 @@
 <section id="menu">
 	<div class="container-fluid position-relative">
 		<div class="row">
-			<div class="col-12 col-lg-3 p-0">
+			<div class="col-12 col-xl-3 p-0">
 				<nav class="menu-nav">
 					<ul>
 						{{#each categories}}
@@ -129,71 +129,66 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="row col-12 col-lg-9 p-0">
-				<div class="col-12 col-md-8 p-0">
-					<div class="menu-list">
-						<div class="menu-list__search">
-							<input type="text" placeholder="Tìm món" />
-							<img src="/images/icon-search.png" alt="search" />
-						</div>
-						<div class="menu-list__group">
-							{{#each categories}}
-							<div class="menu-list__group__items" id="{{this.slug}}">
-								<h3>{{this.name}}</h3>
-								<ul>
-									{{#each products}}
-									<li>
-										<div class="row">
-											<div class="col-6  col-md-2">
-												<div class="item-logo">
-													<img src="{{this.image}}" alt="{{this.name}}" />
-												</div>
-											</div>
-											<div class="col-6 col-md-6">
-												<div class="item-description">
-													<h3>
-														{{this.name}}
-													</h3>
-													<h4>
-														{{this.description}}
-													</h4>
-												</div>
-											</div>
-											<div class="col-6 col-md-2">
-												<div class="item-price">
-													{{this.price}}đ
-												</div>
-											</div>
-											<div class="col-6 col-md-2">
-												<div class="item-quantity">
-													<button class="btn-change-value">
-														<i class="fa-solid fa-minus"></i>
-													</button>
-													<input type="number" value="1" min="0"  class="input-number"/>
-													<button class="btn-change-value">
-														<i class="fa-solid fa-plus"></i>
-													</button>												</div>
+			<div class="row col-12 col-xl-6 p-0 menu-list-wrapper">
+				<div class="menu-list">
+					<div class="menu-list__search">
+						<input type="text" placeholder="Tìm món" />
+						<img src="/images/icon-search.png" alt="search" />
+					</div>
+					<div class="menu-list__group">
+						{{#each categories}}
+						<div class="menu-list__group__items" id="{{this.slug}}">
+							<h3>{{this.name}}</h3>
+							<ul>
+								{{#each products}}
+								<li>
+									<div class="row">
+										<div class="col-6  col-md-2">
+											<div class="item-logo">
+												<img src="{{this.image}}" alt="{{this.name}}" />
 											</div>
 										</div>
-									</li>
-									{{/each}}
-								</ul>
-							</div>
-							{{/each}}
+										<div class="col-6 col-md-6">
+											<div class="item-description">
+												<h3>
+													{{this.name}}
+												</h3>
+												<h4>
+													{{this.description}}
+												</h4>
+											</div>
+										</div>
+										<div class="col-6 col-md-2">
+											<div class="item-price">
+												{{this.price}}đ
+											</div>
+										</div>
+										<div class="col-6 col-md-2">
+											<div class="item-add">
+												<button class="btn-default btn-outline btn-add">Thêm</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								{{/each}}
+							</ul>
 						</div>
-					</div>
-					<div class="total-order">
-						<div class="menu-book">
-							<span>15 phần -
-								<span class="menu-book-btn" data-toggle="modal" data-target="#paymentDetailModal">Chi tiết</span></span>
-							<span>Tổng cộng: 199.000đ</span>
-							<button class="btn-default" id="btnOrderNow">
-								Đặt ngay
-							</button>
-						</div>
+						{{/each}}
 					</div>
 				</div>
 			</div>
+			<div class="row col-12 col-xl-3 p-0 total-order-wrapper">
+				<div class="total-order">
+					<div class="menu-book">
+						<span>Số lượng món: <span class="total-products-quantity">15</span> phần</span>
+						<span>Tổng cộng: <span class="total-products-price">199000</span> đ</span>
+						<button class="btn-default" id="btnOrderNow" data-toggle="modal" data-target="#cartModal"> 
+							Đặt ngay
+						</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	</div>
@@ -223,7 +218,7 @@
 						điện
 						thoại nhưng mãi không thấy được gì cả. Anh là gì với em, có chút ý nghĩa nào với em không.
 					</p>
-					<a href="./about.html"><button class="btn-default">XEM THÊM</button></a>
+					<a href="./about"><button class="btn-default">XEM THÊM</button></a>
 				</div>
 			</div>
 			<div class="col-md-5">

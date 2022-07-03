@@ -76,7 +76,6 @@ class SignInController {
       res.render('error', { message: 'Lỗi không xác định' });
     }
   }
-
   async signIn(req, res, next) {
     try {
       const { email, password } = req.body;
@@ -111,11 +110,9 @@ class SignInController {
       res.render('error', { message: 'Lỗi không xác định' });
     }
   }
-
   logOut = (req, res) => {
     res.cookie('token', '', { maxAge: 1 });
     res.redirect('/');
   };
 }
-
 module.exports = new SignInController();
