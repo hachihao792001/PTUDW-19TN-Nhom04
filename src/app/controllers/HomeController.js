@@ -5,6 +5,7 @@ const {
   mongooseToObject,
 } = require('../../utils/mongoose');
 const Cart = require('../models/Cart');
+const Voucher = require('../models/Voucher');
 
 class HomeController {
   //[GET] /
@@ -12,8 +13,11 @@ class HomeController {
     try {
       let products = await Product.find({});
       let categories = await Category.find({});
+      let vouchers = await Voucher.find({});
 
       products = multipleMongooseToObject(products);
+      vouchers = multipleMongooseToObject(vouchers);
+
       categories = multipleMongooseToObject(categories).map((category) => {
         return {
           ...category,
@@ -38,9 +42,9 @@ class HomeController {
         });
       }
 
-      console.log(UserCarts);
       res.render('index', {
         categories,
+        vouchers,
         cart: UserCarts,
       });
     } catch (e) {

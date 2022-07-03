@@ -67,7 +67,7 @@ class CartController {
   }
 
   async Delete(req, res, next) {
-    const { userId, productId, quantity } = req.body;
+    const { userId, productId } = req.body;
     let currentCart;
     let product;
     let currentProduct;

@@ -98,7 +98,12 @@
 		<div class="slider-prev"></div>
 		<div class="slider-next"></div>
 		<div class="promotion-slider">
+			{{#each vouchers}}
 			<div class="image-box">
+				<h3>{{this.title}}</h3>
+				<span>{{this.content}}</span>
+			</div>
+			{{!-- <div class="image-box">
 				<h3>BUA TRUA VUI VE</h3>
 				<span>Discount 50%</span>
 			</div>
@@ -113,7 +118,8 @@
 			<div class="image-box">
 				<h3>MUNG 8/3</h3>
 				<span>Discount 20% cho khách hàng nữ</span>
-			</div>
+			</div> --}}
+			{{/each}}
 		</div>
 	</div>
 </section>
