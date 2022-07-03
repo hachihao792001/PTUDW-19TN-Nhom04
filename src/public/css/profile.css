@@ -1,0 +1,14 @@
+#profile .avatar {
+    display: flex;
+    justify-content: center;
+}
+
+#profile .avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.form-control[readonly] {
+    background-color: white !important;
+}

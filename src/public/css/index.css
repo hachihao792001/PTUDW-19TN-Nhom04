@@ -16,6 +16,7 @@
 @import "sign_up.css";
 @import "about.css";
 @import "payment.css";
+@import "profile.css";
 * {
     margin: 0;
     padding: 0;
