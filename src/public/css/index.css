@@ -9,21 +9,20 @@
 @import "./sanpham.css";
 @import "./sign_in.css";
 @import "./footer.css";
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
 ul {
-  list-style: none;
-  list-style-type: none;
+    list-style: none;
+    list-style-type: none;
 }
 
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h1,
@@ -32,96 +31,123 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  color: #c730b5;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #c730b5;
 }
 
 main {
-  padding: 50px 0;
-  min-height: calc(100vh - 150px)
+    padding: 50px 0;
+    min-height: calc(100vh - 150px)
 }
 
 .sidebar {
-  padding-top: 5%;
+    padding-top: 5%;
 }
 
 .active a {
-  background-color: #f8f9fa !important;
-  border-radius: 0.5rem;
+    background-color: #f8f9fa !important;
+    border-radius: 0.5rem;
 }
 
 .sidebar .sidebar-item a:hover {
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  cursor: pointer;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .sidebar .sidebar-item a {
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar .sidebar-item h6 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .sidebar .sidebar-item.active h6 {
-  color: #c730b5;
+    color: #c730b5;
 }
 
 a.row {
-  /* padding-bottom: 30px; */
-  border: none;
-  background-color: transparent;
-  /* display: flex;
+    /* padding-bottom: 30px; */
+    border: none;
+    background-color: transparent;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap; */
 }
 
+.btn-default {
+    background-color: #c730b5 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 6px 12px !important;
+}
+
+.btn-default:hover {
+    background-color: #fff !important;
+    color: #c730b5 !important;
+    border: 1px solid #c730b5 !important;
+}
+
+.btn-outline {
+    background-color: #fff !important;
+    color: #c730b5 !important;
+    border: 1px solid #c730b5 !important;
+    border-radius: 5px !important;
+    padding: 6px 12px !important;
+}
+
+.btn-outline:hover {
+    background-color: #c730b5 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
 .fa-solid {
-  color: #c730b5;
-  margin: 0;
+    color: #c730b5;
+    margin: 0;
 }
 
 .sidebar h6 {
-  font-size: 1.1rem;
-  color: gray;
-  display: block;
+    font-size: 1.1rem;
+    color: gray;
+    display: block;
 }
 
 .Log-out {
-  margin-top: 500px;
+    margin-top: 500px;
 }
 
 .Log-out h5 {
-  font-weight: bold;
-  color: gray;
+    font-weight: bold;
+    color: gray;
 }
 
 #admin_dashboard__content {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .Log-out {
-  position: fixed;
+    position: fixed;
 }
 
 @media (max-width: 992px) {
-  main {
-    padding: 20px 0;
-  }
+    main {
+        padding: 20px 0;
+    }
 }
 
 @media (max-width: 576px) {
-  .sidebar .sidebar-item a {
-    padding: 0.75rem 0;
-  }
-
-  #admin_dashboard__content {
-    margin-top: 10px;
-  }
+    .sidebar .sidebar-item a {
+        padding: 0.75rem 0;
+    }
+    #admin_dashboard__content {
+        margin-top: 10px;
+    }
 }
