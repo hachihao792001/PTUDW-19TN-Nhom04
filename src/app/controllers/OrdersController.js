@@ -4,7 +4,6 @@ const {
     mongooseToObject,
     multipleMongooseToObject,
 } = require("../../utils/mongoose");
-const cloudinary = require("../../utils/cloudinary");
 
 class OrdersController {
     //[GET] /Orders
@@ -20,21 +19,32 @@ class OrdersController {
 
     // [POST] /orders
     store(req, res, next) {
-        cloudinary.uploader.upload(req.file.path).then((result) => {
-            Order.findOne({}, { upsert: true })
-                .sort({ _id: "desc" })
-                .then((latestOrder) => {
-                    const formData = req.body;
-                    formData._id = (latestOrder._id || 0) + 1;
-                    formData.image = result.secure_url;
-                    formData.cloudinaryId = result.public_id;
-                    const order = new Order(formData);
-                    order
-                        .save()
-                        .then(() => res.redirect("/orders"))
-                        .catch(next);
-                });
-        });
+        Order.findOne({}, { upsert: true })
+            .sort({ _id: "desc" })
+            .then((latestOrder) => {
+                const formData = req.body;
+                formData._id = (latestOrder._id || 0) + 1;
+                const order = new Order(formData);
+                order
+                    .save()
+                    .then(() => res.redirect("/orders"))
+                    .catch(next);
+            });
+    }
+
+    // [PUT] /orders/:id
+    async update(req, res, next) {
+        try {
+            const { id } = req.params;
+            const formData = req.body;
+
+            console.log(formData);
+
+            await Order.findByIdAndUpdate(id, formData, { new: true });
+            res.redirect(`/orders`);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // [DELETE] /orders/:id

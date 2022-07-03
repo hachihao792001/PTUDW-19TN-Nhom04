@@ -38,7 +38,7 @@ app.engine(
                 return time ? new Date(time).toLocaleString() : "";
             },
             booleanToPayment: (value) =>
-                value == "true" ? "Tiền mặt" : "Chuyển khoản",
+                value == true ? "Tiền mặt" : "Chuyển khoản",
             intToMoney: (total) => {
                 return total + ".000";
             },
