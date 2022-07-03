@@ -38,7 +38,6 @@ class HomeController {
         });
       }
 
-      console.log(UserCarts);
       res.render('index', {
         categories,
         cart: UserCarts,
