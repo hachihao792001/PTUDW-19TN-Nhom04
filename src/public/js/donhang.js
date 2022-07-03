@@ -39,7 +39,11 @@ window.addEventListener("DOMContentLoaded", function () {
         ).products;
 
         const thisOrderProducts = thisOrderProductTuples.map((productTuple) => {
-            return products.find((product) => product._id == productTuple.id);
+            const product = products.find(
+                (product) => product._id == productTuple.id
+            );
+            product.quantity = productTuple.quantity;
+            return product;
         });
 
         $("#orderProductTableBody").empty();
@@ -57,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 <td>${product.name}</td>
                 <td>${product.price}</td>
                 <td>${categoryName}</td>
+                <td>${product.quantity}</td>
             </tr>`);
         });
 
