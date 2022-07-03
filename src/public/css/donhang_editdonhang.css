@@ -10,17 +10,26 @@
     margin: 15px;
 }
 
-.editDonHang_topHalf_left>div {
+.editDonHang_topHalf_left > div {
     background-color: white;
     padding: 15px;
 }
 
-.editDonHang_topHalf_right>div>div {
+.editDonHang_topHalf_right > div > div {
     background-color: white;
     padding: 15px;
 }
 
-.editDonHang_bottomHalf>div {
+.editDonHang_middle {
+    margin: 30px;
+}
+
+.editDonHang_middle > div {
+    border: solid black 1px;
+    height: 250px;
+}
+
+.editDonHang_bottomHalf > div {
     background-color: white;
     padding: 15px;
 }
@@ -30,7 +39,7 @@
     width: 100%;
 }
 
-#updateOrderForm>div>div .dropdown-toggle {
+#updateOrderForm > div > div .dropdown-toggle {
     background-color: #f8f9fa;
     border-radius: 0.5rem;
 }

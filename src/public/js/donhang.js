@@ -33,6 +33,33 @@ window.addEventListener("DOMContentLoaded", function () {
         // inputPayment.val(payment).change();
         // inputPayment.val(email);
 
+        //ra mảng các {id, quantity}
+        const thisOrderProductTuples = orders_products.find(
+            (orderProduct) => orderProduct.orderId == id
+        ).products;
+
+        const thisOrderProducts = thisOrderProductTuples.map((productTuple) => {
+            return products.find((product) => product._id == productTuple.id);
+        });
+
+        $("#orderProductTableBody").empty();
+        thisOrderProducts.forEach((product, index) => {
+            const categoryName = categories.find(
+                (cate) => cate._id == thisOrderProducts[index].categoryId
+            ).name;
+
+            $("#orderProductTableBody").append(`<tr>
+                <td scope="row">${product._id}</td>
+                <td>
+                    <img src="${product.image}"
+                        width="40" height="40" class="rounded-circle" />
+                </td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${categoryName}</td>
+            </tr>`);
+        });
+
         const btnUpdate = $("#btnUpdateOrder");
         btnUpdate.click(function () {
             const form = $("#updateOrderForm");
