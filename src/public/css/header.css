@@ -93,6 +93,7 @@ header .navbar-toggler {
 
 .cart-btn {
     border: none;
+		background: none;
 }
 
 .cart-btn i {
