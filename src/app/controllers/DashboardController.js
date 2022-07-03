@@ -1,6 +1,7 @@
 const Order = require("../models/Order");
 const Product = require("../models/Product");
 const User = require("../models/User");
+const Cart = require("../models/Cart");
 const DateUtils = require("../../utils/DateUtils");
 const {
     mongooseToObject,
@@ -159,14 +160,21 @@ async function makeProductsSoldData(products) {
         productsSoldData.push(0);
     }
 
-    await Order.find({}).then((orders) => {
+    await Order.find({}).then(async (orders) => {
         orders = multipleMongooseToObject(orders);
 
         for (let i = 0; i < orders.length; i++) {
             const order = orders[i];
-            for (let j = 0; j < order.products.length; j++) {
-                productsSoldData[order.products[j].id - 1] +=
-                    order.products[j].quantity;
+
+            var orderCart = await Cart.findOne({ _id: order.cartId });
+            if (orderCart === null) continue;
+            orderCart = mongooseToObject(orderCart);
+
+            const orderProducts = orderCart.products;
+
+            for (let j = 0; j < orderProducts.length; j++) {
+                productsSoldData[orderProducts[j].productId - 1] +=
+                    orderProducts[j].quantity;
             }
         }
     });
