@@ -106,8 +106,16 @@
 }
 
 .menu-nav ul li {
-    margin: 20px 0 20px 20px;
+    cursor: pointer;
+    padding: 10px !important;
     position: relative;
+    border-radius: 10px;
+    border-bottom: 1px solid #fefefe;
+}
+
+.menu-nav ul li:hover {
+    background-color: #fefefe !important;
+    transition: all 0.3s;
 }
 
 .menu-nav ul li a {
