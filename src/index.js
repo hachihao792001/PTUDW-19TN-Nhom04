@@ -32,6 +32,9 @@ app.engine(
             timeToString: (time) => {
                 return time ? new Date(time).toLocaleString() : "";
             },
+            numberWithCommas: (x) => {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            },
             getClassByStatus: (status) => (status ? "status_on" : "status_off"),
             getClassByOrderStatus: (status) => {
                 switch (status) {
