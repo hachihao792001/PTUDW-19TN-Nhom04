@@ -1,7 +1,7 @@
-const bcrypt = require("bcrypt");
-const User = require("../models/User");
-const Cart = require("../models/Cart");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+const User = require('../models/User');
+const Cart = require('../models/Cart');
+const jwt = require('jsonwebtoken');
 
 class SignInController {
   async signUp(req, res, next) {
@@ -14,17 +14,17 @@ class SignInController {
       existingUser = await User.findOne({ email });
 
       if (existingUser) {
-        const error = new Error("User exists already", 422);
-        res.render("error", { message: "Tài khoản đã tồn tại" });
+        const error = new Error('User exists already', 422);
+        res.render('error', { message: 'Tài khoản đã tồn tại' });
       }
       if (password != confirmPassword) {
-        const error = new Error("Confirm password does not match");
-        res.render("error", { message: "Xác nhận mật khẩu không đúng" });
+        const error = new Error('Confirm password does not match');
+        res.render('error', { message: 'Xác nhận mật khẩu không đúng' });
       }
 
       // Get ID
       const latestUser = await User.findOne({}, { upsert: true }).sort({
-        _id: "desc",
+        _id: 'desc',
       });
       _id = (latestUser?._id || 0) + 1;
 
@@ -41,32 +41,30 @@ class SignInController {
         phone,
         password: hashPassword,
         image:
-          "https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/514b72b37695a35b1c0feab9e3ba63fd~c5_720x720.jpeg?x-expires=1656367200&x-signature=T%2BlCbPyCwj12piFwJJWFdG5yH3s%3D",
+          'https://p16-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/514b72b37695a35b1c0feab9e3ba63fd~c5_720x720.jpeg?x-expires=1656367200&x-signature=T%2BlCbPyCwj12piFwJJWFdG5yH3s%3D',
         _id,
         balance: 0,
-        address: "TP HCM",
+        address: 'TP HCM',
         accessDays: new Date().toDateString(),
       });
 
       await createUser.save();
+      console.log('create User successfully');
 
-      //create a new Cart with that user
       const createCart = new Cart({
-        _id: _id,
+        _id,
         userId: _id,
         products: [],
       });
 
-      await createCart.save();
+      try {
+        await createCart.save();
+      } catch (error) {
+        console.log(error);
+        return next(error);
+      }
 
-      let token;
-      token = jwt.sign(
-        { adminId: createUser._id, email: createUser.email },
-        process.env.JWT_KEY,
-        { expiresIn: "1h" }
-      );
-
-      res.redirect("/");
+      res.redirect('/');
 
       // res.status(201).json({
       //   userId: createUser._id,
@@ -75,7 +73,7 @@ class SignInController {
       //   token: token,
       // });
     } catch {
-      res.render("error", { message: "Lỗi không xác định" });
+      res.render('error', { message: 'Lỗi không xác định' });
     }
   }
 
@@ -87,8 +85,8 @@ class SignInController {
       existingUser = await User.findOne({ email });
 
       if (!existingUser) {
-        const error = new Error("User not found");
-        res.render("error", { message: "Không tìm thấy tài khoản" });
+        const error = new Error('User not found');
+        res.render('error', { message: 'Không tìm thấy tài khoản' });
       }
 
       let isValidPassword = false;
@@ -96,8 +94,8 @@ class SignInController {
       isValidPassword = bcrypt.compareSync(password, existingUser.password);
 
       if (!isValidPassword) {
-        const error = new Error("Password is incorrect");
-        res.render("error", { message: "Sai mật khẩu" });
+        const error = new Error('Password is incorrect');
+        res.render('error', { message: 'Sai mật khẩu' });
       }
 
       let token;
@@ -105,18 +103,18 @@ class SignInController {
       token = jwt.sign(
         { userId: existingUser._id, email: existingUser.email },
         process.env.JWT_KEY,
-        { expiresIn: "1h" }
+        { expiresIn: '1h' }
       );
-      res.cookie("token", token);
-      res.redirect("/");
+      res.cookie('token', token);
+      res.redirect('/');
     } catch {
-      res.render("error", { message: "Lỗi không xác định" });
+      res.render('error', { message: 'Lỗi không xác định' });
     }
   }
 
   logOut = (req, res) => {
-    res.cookie("token", "", { maxAge: 1 });
-    res.redirect("/");
+    res.cookie('token', '', { maxAge: 1 });
+    res.redirect('/');
   };
 }
 

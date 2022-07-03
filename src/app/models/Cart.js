@@ -17,7 +17,6 @@ const Cart = new Schema(
         quantity: { type: Number },
       },
     ],
-    slug: { type: String, slug: 'name', unique: true },
   },
   { timestamps: true, _id: false }
 );
