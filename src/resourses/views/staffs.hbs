@@ -1,123 +1,129 @@
 <div id="admin_dashboard__content" class="col-lg-9">
-  <div id="filter_bar">
-    <h4 class="filter_heading">Danh sách nhân viên</h4>
-    <div class="filter_row">
-      <div class="btn-group">
-        <button
-          type="button"
-          class="btn dropdown-toggle dropdown_placeholder"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Sắp xếp theo ID
-        </button>
-        <div class="dropdown-menu dropdown-menu-right filter_dropdown">
-          <a class="dropdown-item">Sắp xếp theo tên</a>
-          <a class="dropdown-item">Sắp xếp theo ID</a>
-          <a class="dropdown-item">Sắp xếp theo ngày tạo</a>
-          <a class="dropdown-item">Sắp xếp theo trạng thái</a>
+    <div id="filter_bar">
+        <h4 class="filter_heading">Danh sách nhân viên</h4>
+        <div class="filter_row">
+            <div class="btn-group">
+                <button
+                    type="button"
+                    class="btn dropdown-toggle dropdown_placeholder"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Sắp xếp theo ID
+                </button>
+                <div class="dropdown-menu dropdown-menu-right filter_dropdown">
+                    <a class="dropdown-item">Sắp xếp theo tên</a>
+                    <a class="dropdown-item">Sắp xếp theo ID</a>
+                    <a class="dropdown-item">Sắp xếp theo ngày tạo</a>
+                    <a class="dropdown-item">Sắp xếp theo trạng thái</a>
+                </div>
+            </div>
+            <input
+                class="filter_input btn"
+                type="text"
+                placeholder="Nhập tên để tìm kiếm"
+            />
+            <button
+                type="button"
+                class="btn btn-outline filter_button"
+                data-toggle="modal"
+                data-target="#modal_AddStaff"
+            >
+                + Thêm nhân viên
+            </button>
         </div>
-      </div>
-      <input
-        class="filter_input btn"
-        type="text"
-        placeholder="Nhập tên để tìm kiếm"
-      />
-      <button
-        type="button"
-        class="btn btn-outline filter_button"
-        data-toggle="modal"
-        data-target="#modal_AddStaff"
-      >
-        + Thêm nhân viên
-      </button>
     </div>
-  </div>
 
-  <div id="list_staff">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Avatar</th>
-          <th scope="col">Tên nhân viên</th>
-          <th scope="col">Điện thoại</th>
-          <th scope="col">Ngày tạo</th>
-          <th scope="col">Trạng thái</th>
-          <th scope="col">Thao tác</th>
-        </tr>
-      </thead>
-      <tbody id="table_content">
-        {{#each staffs}}
-          <tr>
-            <td scope="row">{{this._id}}</td>
-            <td>
-              <img
-                src={{this.image}}
-                width="40"
-                height="40"
-                class="rounded-circle"
-              />
-            </td>
-            <td class="column_name">{{this.name}}</td>
-            <td class="column_phone">{{this.phone}}</td>
-            <td>{{timeToString this.updatedAt}}</td>
-            <td>
-              <button
-                class="button {{getClassByStatus this.status}} rounded-pilled"
-              >{{getStatusName this.status}}</button>
-            </td>
-            <td>
-              <span
-                data-toggle="modal"
-                data-target="#settingStaff"
-                data-id="{{this._id}}"
-                data-name="{{this.name}}"
-                data-phone="{{this.phone}}"
-              ><i class="fa-solid fa-edit"></i></span>
-              <span
-                data-toggle="modal"
-                data-target="#confirmDeleteModal"
-                data-id={{this._id}}
-              ><i
-                  class="fa-solid fa-trash ml-1 d-inline text-secondary"
-                ></i></span>
+    <div id="list_staff">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Tên nhân viên</th>
+                    <th scope="col">Điện thoại</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="table_content">
+                {{#each staffs}}
+                    <tr>
+                        <td scope="row">{{this._id}}</td>
+                        <td>
+                            <img
+                                src={{this.image}}
+                                width="40"
+                                height="40"
+                                class="rounded-circle"
+                            />
+                        </td>
+                        <td class="column_name">{{this.name}}</td>
+                        <td class="column_phone">{{this.phone}}</td>
+                        <td>{{timeToString this.updatedAt}}</td>
+                        <td>
+                            <button
+                                class="button
+                                    {{getClassByStatus this.status}}
+                                    rounded-pilled"
+                            >{{getStatusName this.status}}</button>
+                        </td>
+                        <td>
+                            <span
+                                data-toggle="modal"
+                                data-target="#settingStaff"
+                                data-id="{{this._id}}"
+                                data-name="{{this.name}}"
+                                data-phone="{{this.phone}}"
+                            ><i class="fa-solid fa-edit"></i></span>
+                            <span
+                                data-toggle="modal"
+                                data-target="#confirmDeleteModal"
+                                data-id={{this._id}}
+                            ><i
+                                    class="fa-solid fa-trash ml-1 d-inline text-secondary"
+                                ></i></span>
 
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div
-  class="modal fade"
-  id="settingStaff"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="settingStaffTitle"
-  aria-hidden="true"
+    class="modal fade"
+    id="settingStaff"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="settingStaffTitle"
+    aria-hidden="true"
 >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="settingStaffTitle">
-          Chỉnh sửa nhân viên
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body staff_modal">
-        <form id="updateStaffForm" method="post" enctype="multipart/form-data">
-          {{! <div class="form-group staff_avatar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="settingStaffTitle">
+                    Chỉnh sửa nhân viên
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body staff_modal">
+                <form
+                    id="updateStaffForm"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    {{! <div class="form-group staff_avatar">
 													<div class="avatar-wrapper">
 														<img class="profile-pic" src="./assets/images/avatar_staff.jpg" />
 														<div class="upload-button">
@@ -126,112 +132,120 @@
 														<input class="file-upload" type="file" accept="image/*" name="img_url" />
 													</div>
 												</div> }}
-          <div class="form-group">
-            <label class="name_label" for="InputName">Avatar</label>
-            <input
-              type="file"
-              class="form-control"
-              id="inputUpdateFile"
-              name="image"
-              accept=".jpg, .jpeg, .png, .jpg, .webp"
-            />
-          </div>
+                    <div class="form-group">
+                        <label class="name_label" for="InputName">Avatar</label>
+                        <input
+                            type="file"
+                            class="form-control"
+                            id="inputUpdateFile"
+                            name="image"
+                            accept=".jpg, .jpeg, .png, .jpg, .webp"
+                        />
+                    </div>
 
-          <div class="form-group">
-            <label class="name_label" for="InputName">Tên nhân viên</label>
-            <input
-              type="text"
-              class="form-control"
-              id="inputUpdateName"
-              name="name"
-              placeholder="Name"
-            />
-          </div>
-          <br />
+                    <div class="form-group">
+                        <label class="name_label" for="InputName">Tên nhân viên</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="inputUpdateName"
+                            name="name"
+                            placeholder="Name"
+                        />
+                    </div>
+                    <br />
 
-          <div class="form-group">
-            <label class="name_label" for="InputTel">Số điện thoại</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="inputUpdatePhone"
-              name="phone"
-              placeholder="Telephone"
-            />
-          </div>
-          <br />
+                    <div class="form-group">
+                        <label class="name_label" for="InputTel">Số điện thoại</label>
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="inputUpdatePhone"
+                            name="phone"
+                            placeholder="Telephone"
+                        />
+                    </div>
+                    <br />
 
-          <div class="form-group">
-            <label for="InputStatus">Trạng thái</label>
-            <br />
-            <div
-              class="btn-group btn-group-toggle btn_status"
-              data-toggle="buttons"
-            >
-              <label class="btn btn-outline-success">
-                <input
-                  type="radio"
-                  name="status"
-                  id="inputUpdateStatusOn"
-                  value="1"
-                />
-                Active
-              </label>
-              <label class="btn btn-outline-secondary">
-                <input
-                  type="radio"
-                  name="status"
-                  id="inputUpdateStatusOff"
-                  value="0"
-                />
-                Offline
-              </label>
+                    <div class="form-group">
+                        <label for="InputStatus">Trạng thái</label>
+                        <br />
+                        <div
+                            class="btn-group btn-group-toggle btn_status"
+                            data-toggle="buttons"
+                        >
+                            <label class="btn btn-outline-success">
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    id="inputUpdateStatusOn"
+                                    value="1"
+                                />
+                                Active
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    id="inputUpdateStatusOff"
+                                    value="0"
+                                />
+                                Offline
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="modal_footer">
+                        <button
+                            type="submit"
+                            class="btn btn-success"
+                            id="btnUpdateStaff"
+                        >
+                            Cập nhật
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >Hủy</button>
+                    </div>
+                </form>
             </div>
-          </div>
-          <br />
-          <div class="modal_footer">
-            <button type="submit" class="btn-default" id="btnUpdateStaff">
-              Cập nhật
-            </button>
-            <button
-              type="button"
-              class="btn-outline"
-              data-dismiss="modal"
-            >Hủy</button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div
-  class="modal fade"
-  id="modal_AddStaff"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="modal_AddStaffTitle"
-  aria-hidden="true"
+    class="modal fade"
+    id="modal_AddStaff"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modal_AddStaffTitle"
+    aria-hidden="true"
 >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal_AddStaffTitle">
-          Thêm nhân viên
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body staff_modal">
-        <form method="post" action="/staffs" enctype="multipart/form-data">
-          <div class="form-group staff_avatar">
-            {{! <div class="avatar-wrapper">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_AddStaffTitle">
+                    Thêm nhân viên
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body staff_modal">
+                <form
+                    method="post"
+                    action="/staffs"
+                    enctype="multipart/form-data"
+                >
+                    <div class="form-group staff_avatar">
+                        {{! <div class="avatar-wrapper">
                             <img
                                 class="profile-pic"
                                 src="/images/avatar_staff.jpg"
@@ -250,121 +264,129 @@
                                 name="avatar"
                             />
                         </div> }}
-            <div class="form-group">
-              <label class="name_label" for="inputUpdateFile">Avatar</label>
-              <input
-                type="file"
-                class="form-control"
-                id="inputUpdateFile"
-                name="image"
-                accept=".jpg, .jpeg, .png, .jpg, .webp"
-              />
+                        <div class="form-group">
+                            <label
+                                class="name_label"
+                                for="inputUpdateFile"
+                            >Avatar</label>
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="inputUpdateFile"
+                                name="image"
+                                accept=".jpg, .jpeg, .png, .jpg, .webp"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="name_label" for="InputName">Tên nhân viên</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="InputName"
+                            name="name"
+                            placeholder="Name"
+                        />
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="name_label" for="InputTel">Số điện thoại</label>
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="InputTel"
+                            name="phone"
+                            placeholder="Telephone"
+                        />
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="InputStatus">Trạng thái</label>
+                        <br />
+                        <div
+                            class="btn-group btn-group-toggle btn_status"
+                            data-toggle="buttons"
+                        >
+                            <label class="btn btn-outline-success active">
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    id="Active"
+                                    value="1"
+                                    checked
+                                />
+                                Active
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input
+                                    type="radio"
+                                    name="status"
+                                    id="Offline"
+                                    value="0"
+                                />
+                                Offline
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="modal_footer">
+                        <button type="submit" class="btn btn-success">
+                            Thêm
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >Hủy</button>
+                    </div>
+                </form>
             </div>
-          </div>
-
-          <div class="form-group">
-            <label class="name_label" for="InputName">Tên nhân viên</label>
-            <input
-              type="text"
-              class="form-control"
-              id="InputName"
-              name="name"
-              placeholder="Name"
-            />
-          </div>
-          <br />
-
-          <div class="form-group">
-            <label class="name_label" for="InputTel">Số điện thoại</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="InputTel"
-              name="phone"
-              placeholder="Telephone"
-            />
-          </div>
-          <br />
-
-          <div class="form-group">
-            <label for="InputStatus">Trạng thái</label>
-            <br />
-            <div
-              class="btn-group btn-group-toggle btn_status"
-              data-toggle="buttons"
-            >
-              <label class="btn btn-outline-success active">
-                <input
-                  type="radio"
-                  name="status"
-                  id="Active"
-                  value="1"
-                  checked
-                />
-                Active
-              </label>
-              <label class="btn btn-outline-secondary">
-                <input type="radio" name="status" id="Offline" value="0" />
-                Offline
-              </label>
-            </div>
-          </div>
-          <br />
-          <div class="modal_footer">
-            <button type="submit" class="btn-default">
-              Thêm
-            </button>
-            <button
-              type="button"
-              class="btn-outline"
-              data-dismiss="modal"
-            >Hủy</button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!--Confirm Delete Modal -->
 <div
-  class="modal fade"
-  id="confirmDeleteModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="modelTitleId"
-  aria-hidden="true"
+    class="modal fade"
+    id="confirmDeleteModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="modelTitleId"
+    aria-hidden="true"
 >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Xóa nhân viên</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Xác nhận xóa nhân viên này?
-      </div>
-      <div class="modal-footer">
-        <button
-          id="btn-delete-staff"
-          type="button"
-          class="btn btn-danger"
-        >Xóa</button>
-        <button
-          type="button"
-          class="btn-outline"
-          data-dismiss="modal"
-        >Hủy</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa nhân viên</h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Xác nhận xóa nhân viên này?
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="btn-delete-staff"
+                    type="button"
+                    class="btn btn-danger"
+                >Xóa</button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                >Hủy</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <form method="post" name="delete-staff-form"></form>
