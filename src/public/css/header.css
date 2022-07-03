@@ -1,6 +1,8 @@
 .header-top {
-    padding: .5rem 1rem;
-    border-bottom: 1px solid #000;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(257deg, rgba(255, 255, 255, 1) 9%, rgba(255, 230, 248, 1) 26%, rgba(224, 233, 255, 1) 47%, rgba(216, 242, 255, 1) 67%, rgba(255, 255, 255, 1) 94%);
+    padding: .2rem 1rem;
+    border-bottom: 1px solid black;
     flex-wrap: wrap;
 }
 
@@ -64,13 +66,14 @@ header .navbar-nav .nav-item {
 }
 
 header .nav-link {
+    color: var(--purple) !important;
     text-transform: uppercase;
     font-weight: 700;
     transition: .2s ease-in-out;
 }
 
 header .nav-link:hover {
-    color: var(--purple) !important;
+    color: var(--purple-dark) !important;
 }
 
 header .btn-group {
@@ -108,6 +111,10 @@ header .navbar-toggler {
     max-width: 50px;
     margin: 0 10px;
     text-align: center;
+}
+
+.navbar {
+    padding: 0 20px !important;
 }
 
 @media (max-width: 768px) {

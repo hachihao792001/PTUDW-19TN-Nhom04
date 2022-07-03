@@ -1,5 +1,5 @@
 footer {
-    background-color: #C730B5;
+    background-color: var(--purple);
     color: white;
     padding: 50px 100px;
 }
@@ -10,7 +10,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #F28CFA;
+    color: #ffdaf3;
 }
 
 footer .icon {

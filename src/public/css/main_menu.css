@@ -111,12 +111,16 @@
 }
 
 .menu-nav ul li a {
-    color: #000;
+    color: var(--purple);
     font-size: 1.1rem;
     font-weight: 700;
     position: relative;
     display: inline-block;
     text-transform: capitalize;
+}
+
+.menu-nav ul li a:hover {
+    color: var(--purple-dark) !important;
 }
 
 .menu-nav ul li.active::before {
