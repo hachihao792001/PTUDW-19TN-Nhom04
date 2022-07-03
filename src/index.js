@@ -64,7 +64,7 @@ app.use(methodOverride("_method"));
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(PORT || process.env.PORT, () => console.log(`The fournations app listening on port ${PORT || process.env.PORT}!`));
+app.listen(PORT || process.env.PORT);
 
 // ROUTING
 route(app);
