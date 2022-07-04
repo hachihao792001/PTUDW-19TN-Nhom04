@@ -45,7 +45,8 @@ class HomeController {
       res.render('index', {
         categories,
         vouchers,
-        cart: UserCarts,
+        cart: UserCarts || [],
+				products
       });
     } catch (e) {
       next(e);
