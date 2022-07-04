@@ -62,9 +62,15 @@ window.addEventListener("load", function () {
   const userId = document.querySelector("#userId").innerHTML;
   const UpdateDBCart = async (product) => {
     let formData = new FormData();
+<<<<<<< HEAD
     formData.append("userId", userId);
     formData.append("productId", product.id);
     formData.append("quantity", product.quantity);
+=======
+    formData.append('userId', parseInt(userId));
+    formData.append('productId', parseInt(product._id));
+    formData.append('quantity', parseInt(product.quantity));
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
 
     try {
       await fetch(`${API_URL}/cart`, {
@@ -78,8 +84,13 @@ window.addEventListener("load", function () {
 
   const DeleteDBCart = async (product) => {
     let formData = new FormData();
+<<<<<<< HEAD
     formData.append("userId", userId);
     formData.append("productId", product.id);
+=======
+    formData.append('userId', parseInt(userId));
+    formData.append('productId', parseInt(product._id));
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
 
     try {
       await fetch(`${API_URL}/cart`, {
@@ -131,14 +142,14 @@ window.addEventListener("load", function () {
                             </div>
                             <div class='select'>
                                 <div class='quantity'>
-                                    <i data-product-id="${product.id}" 
+                                    <i data-product-id="${product._id}" 
                                         class='fa-solid fa-minus minus-cart-button'></i>
 
-                                    <input data-product-id="${product.id}" 
+                                    <input data-product-id="${product._id}" 
                                         type='number' class="quantity-cart-input" 
                                         value="${product.quantity}" />
 
-                                    <i data-product-id="${product.id}" 
+                                    <i data-product-id="${product._id}" 
                                         class='fa-solid fa-plus plus-cart-button'></i>
                                 </div>
                             </div>
@@ -154,13 +165,13 @@ window.addEventListener("load", function () {
           const quantity = parseInt(quantityInput.val());
           if (quantity > 1) {
             quantityInput.val(quantity - 1);
-            UpdateDBCart({ id: productItem._id, quantity: quantity - 1 });
+            UpdateDBCart({ _id: productItem._id, quantity: quantity - 1 });
           }
         });
         plusButton.on("click", function () {
           const quantity = parseInt(quantityInput.val());
           quantityInput.val(quantity + 1);
-          UpdateDBCart({ id: productItem._id, quantity: quantity + 1 });
+          UpdateDBCart({ _id: productItem._id, quantity: quantity + 1 });
         });
 
         popUpContent.append(productItemElements);
@@ -192,22 +203,39 @@ window.addEventListener("load", function () {
 
       let hasProduct = false;
 
+<<<<<<< HEAD
       if (cart["products"]) {
         cart["products"].forEach(function (product) {
           if (product.id == productId) {
+=======
+      if (cart['products']) {
+        cart['products'].forEach(function (product) {
+          if (product._id === parseInt(productId)) {
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
             hasProduct = true;
           }
         });
       } else {
+<<<<<<< HEAD
         cart["products"] = [];
         cart["products"].push({
           id: productId,
+=======
+        cart['products'] = [];
+        cart['products'].push({
+          _id: parseInt(productId),
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
           quantity: 1,
         });
       }
 
+<<<<<<< HEAD
       if (hasProduct === true) {
         this.innerText = "Xóa khỏi giỏ hàng";
+=======
+      if (hasProduct) {
+        this.innerText = 'Xóa khỏi giỏ hàng';
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -220,9 +248,15 @@ window.addEventListener("load", function () {
     const productId = btn.getAttribute("data-product-id");
     let hasProduct = false;
 
+<<<<<<< HEAD
     if (cart["products"]) {
       cart["products"].forEach(function (product) {
         if (product.id === productId) {
+=======
+    if (cart['products']) {
+      cart['products'].forEach(function (product) {
+        if (product._id === parseInt(productId)) {
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
           hasProduct = true;
           btn.innerText = "Xóa khỏi giỏ hàng";
         }
@@ -237,13 +271,20 @@ window.addEventListener("load", function () {
       const productId = btn.getAttribute("data-product-id");
       let hasProduct = false;
 
+<<<<<<< HEAD
       if (cart["products"]) {
         cart["products"].forEach(function (product) {
           if (product.id === productId) {
+=======
+      if (cart['products']) {
+        cart['products'].forEach(function (product) {
+          if (product._id === parseInt(productId)) {
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
             hasProduct = true;
           }
         });
       }
+<<<<<<< HEAD
       console.log("Cart", cart);
       if (hasProduct) {
         cart["products"].forEach(function (product, index) {
@@ -253,9 +294,22 @@ window.addEventListener("load", function () {
         });
         DeleteDBCart({ id: productId });
         this.innerText = "Thêm";
+=======
+
+      console.log('Cart', cart);
+
+      if (hasProduct) {
+        cart['products'].forEach(function (product, index) {
+          if (product._id == productId) {
+            cart['products'].splice(index, 1);
+          }
+        });
+        DeleteDBCart({ _id: productId });
+        this.innerText = 'Thêm';
+>>>>>>> 21e020ee05f247e921cddd71ca9a04ad0dd74a95
       } else {
         let newProduct = {
-          id: productId,
+          _id: parseInt(productId),
           quantity: 1,
         };
         cart["products"].push(newProduct);
