@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const route = require("./routes");
 // parse application/x-www-form-urlencoded
@@ -73,7 +73,7 @@ app.use(cookieParser());
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT);
 
 // ROUTING
 route(app);
