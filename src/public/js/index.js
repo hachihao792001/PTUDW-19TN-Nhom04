@@ -1,9 +1,39 @@
+function stringToSlug(str) {
+  // remove accents
+  var from = "àáãảạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệđùúủũụưừứửữựòóỏõọôồốổỗộơờớởỡợìíỉĩịäëïîöüûñçýỳỹỵỷ",
+      to   = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeduuuuuuuuuuuoooooooooooooooooiiiiiaeiiouuncyyyyy";
+  for (var i=0, l=from.length ; i < l ; i++) {
+    str = str.replace(RegExp(from[i], "gi"), to[i]);
+  }
+
+  str = str.toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\-]/g, '-')
+        .replace(/-+/g, '-');
+
+  return str;
+}
+
 window.addEventListener("load", function () {
     const API_URL = "http://localhost:3000";
 
     $("#myModal").on("shown.bs.modal", function () {
         $("#myInput").trigger("focus");
     });
+
+		$("#searchBar").on("keyup", function () {
+			var value = stringToSlug($(this).val().toLowerCase());
+			const productItems = document.querySelectorAll(".productItem");
+			const productNames = document.querySelectorAll(".productName"); 
+			productItems.forEach(function (productItem, index) {
+				const productName = stringToSlug(productNames[index].innerText.toLowerCase() );
+				if (productName.indexOf(value) != -1) {
+					productItem.style.display = "block";
+				} else {
+					productItem.style.display = "none";
+				}
+			});
+		})
 
     $(document).ready(function () {
         AOS.init({ duration: 1000 });

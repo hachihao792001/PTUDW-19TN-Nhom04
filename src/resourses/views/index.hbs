@@ -39,7 +39,7 @@
 			<div class="row col-12 col-xl-6 p-0 menu-list-wrapper">
 				<div class="menu-list">
 					<div class="menu-list__search">
-						<input type="text" placeholder="Tìm món" />
+						<input type="text" placeholder="Tìm món" id="searchBar"/>
 						<img src="/images/icon-search.png" alt="search" />
 					</div>
 					<div class="menu-list__group">
@@ -48,7 +48,7 @@
 							<h3>{{this.name}}</h3>
 							<ul>
 								{{#each products}}
-								<li>
+								<li class="productItem">
 									<div class="row">
 										<div class="col-6  col-md-2">
 											<div class="item-logo">
@@ -57,7 +57,7 @@
 										</div>
 										<div class="col-6 col-md-6">
 											<div class="item-description">
-												<h3>
+												<h3 class="productName">
 													{{this.name}}
 												</h3>
 												<h4>
