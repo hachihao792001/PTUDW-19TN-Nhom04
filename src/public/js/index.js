@@ -82,31 +82,58 @@ window.addEventListener("load", function () {
             cart?.products.forEach(function (product) {
                 const productItem = productsMap[product.id];
                 total += product.quantity * productItem.price;
-                popUpContent.append(`
-					<div class='item'>
-					<div class='img'>
-						<img src="${productItem.image}" alt="${productItem.image}" />
-					</div>
-					<div class='info'>
-						<h3>${productItem.name}</h3>
-						<p>${productItem.description}</p>
-						<span>Giá: ${numberWithCommas(productItem.price)}</span>
-					</div>
-					<div class='select'>
-						<div class='quantity'>
-							<i data-product-id="${
-                                product.id
-                            }" class='fa-solid fa-minus minus-cart-button'></i>
-							<input data-product-id="${
-								product.id
-						}" type='number' class="quantity-cart-input" value="${product.quantity}" />
-							<i data-product-id="${
-                                product.id
-                            }" class='fa-solid fa-plus plus-cart-button'></i>
-						</div>
-					</div>
-				</div>
-					`);
+
+                const productItemElements = $(
+                    $.parseHTML(`
+                        <div class='item'>
+                            <div class='img'>
+                                <img src="${productItem.image}" 
+                                    alt="${productItem.image}" />
+                            </div>
+                            <div class='info'>
+                                <h3>${productItem.name}</h3>
+                                <p>${productItem.description}</p>
+                                <span>Giá: ${numberWithCommas(
+                                    productItem.price
+                                )}</span>
+                            </div>
+                            <div class='select'>
+                                <div class='quantity'>
+                                    <i data-product-id="${product.id}" 
+                                        class='fa-solid fa-minus minus-cart-button'></i>
+
+                                    <input data-product-id="${product.id}" 
+                                        type='number' class="quantity-cart-input" 
+                                        value="${product.quantity}" />
+
+                                    <i data-product-id="${product.id}" 
+                                        class='fa-solid fa-plus plus-cart-button'></i>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+                );
+
+                const minusButton =
+                    productItemElements.find(".minus-cart-button");
+                const plusButton =
+                    productItemElements.find(".plus-cart-button");
+                const quantityInput = productItemElements.find(
+                    ".quantity-cart-input"
+                );
+
+                minusButton.on("click", function () {
+                    const quantity = parseInt(quantityInput.val());
+                    if (quantity > 1) {
+                        quantityInput.val(quantity - 1);
+                    }
+                });
+                plusButton.on("click", function () {
+                    const quantity = parseInt(quantityInput.val());
+                    quantityInput.val(quantity + 1);
+                });
+
+                popUpContent.append(productItemElements);
             });
 
             popUpContent.append(`
@@ -123,7 +150,7 @@ window.addEventListener("load", function () {
         }
     };
 
-		updatePopupCart();
+    updatePopupCart();
 
     const btnAddProducts = document.querySelectorAll(".btn-add");
 
