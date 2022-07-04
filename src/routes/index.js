@@ -4,7 +4,7 @@ const ordersRouter = require("./orders");
 const productsRouter = require("./products");
 const vouchersRouter = require("./vouchers");
 const authRouter = require("./auth");
-
+const profileRouter = require("./profile");
 const { auth, assignAdminAvatar } = require("../middlewares/authMiddleware");
 
 const route = (app) => {
@@ -16,6 +16,7 @@ const route = (app) => {
     app.use("/orders", auth, ordersRouter);
     app.use("/products", auth, productsRouter);
     app.use("/vouchers", auth, vouchersRouter);
+    app.use("/profile", auth, profileRouter);
 };
 
 module.exports = route;

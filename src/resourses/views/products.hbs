@@ -1,255 +1,246 @@
 <div id="admin_dashboard__content" class="col-lg-9">
-    <div id="filter_bar">
-        <h4 class="filter_heading">Danh sách sản phẩm</h4>
-        <div class="filter_row">
-            <div class="btn-group">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Chọn loại sản phẩm
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
-                    <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
-                </div>
-            </div>
-            <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm" />
-            <button type="button" class="btn btn-outline filter_button" data-toggle="modal"
-                data-target="#modal_AddProduct">
-                + Thêm sản phẩm
-            </button>
+  <div id="filter_bar">
+    <h4 class="filter_heading">Danh sách sản phẩm</h4>
+    <div class="filter_row">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Chọn loại sản phẩm
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
+          <a class="dropdown-item" href="#">PhinDi Hạnh Nhân</a>
         </div>
+      </div>
+      <input class="filter_input btn" type="text" placeholder="Nhập tên để tìm kiếm" required />
+      <button type="button" class="btn btn-outline filter_button" data-toggle="modal" data-target="#modal_AddProduct">
+        + Thêm sản phẩm
+      </button>
     </div>
-    <div id="list_product">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Mã</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Tên sản phẩm</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Mô tả</th>
-                    <th scope="col">Danh mục</th>
-                    <th scope="col">Thao tác</th>
-                </tr>
-            </thead>
-            <tbody id="table_content">
-                {{#each products}}
-                <tr>
-                    <td scope="row">{{this._id}}</td>
-                    <td>
-                        <img src={{this.image}} width="40" height="40" class="rounded-circle" />
-                    </td>
-                    <td>{{this.name}}</td>
-                    <td>{{this.number}}</td>
-                    <td>{{this.price}}</td>
-                    <td>{{this.description}}</td>
-                    <td>{{this.categoryName}}</td>
-                    <td>
-                        <span data-toggle="modal" data-target="#settingProduct" data-id="{{this._id}}"
-                            data-name="{{this.name}}" data-description="{{this.description}}"
-                            data-price="{{this.price}}" data-number="{{this.number}}"
-                            data-categoryId="{{this.categoryId}}">
-                            <i class="fa-solid fa-edit"></i>
+  </div>
+  <div id="list_product">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Mã</th>
+          <th scope="col">Hình ảnh</th>
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col">Số lượng</th>
+          <th scope="col">Giá</th>
+          <th scope="col">Mô tả</th>
+          <th scope="col">Danh mục</th>
+          <th scope="col">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody id="table_content">
+        {{#each products}}
+        <tr>
+          <td scope="row">{{this._id}}</td>
+          <td>
+            <img src={{this.image}} width="40" height="40" class="rounded-circle" />
+          </td>
+          <td>{{this.name}}</td>
+          <td>{{this.number}}</td>
+          <td>{{this.price}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.categoryName}}</td>
+          <td>
+            <span data-toggle="modal" data-target="#settingProduct" data-id="{{this._id}}" data-name="{{this.name}}"
+              data-description="{{this.description}}" data-price="{{this.price}}" data-number="{{this.number}}"
+              data-categoryId="{{this.categoryId}}">
+              <i class="fa-solid fa-edit"></i>
 
-                        </span>
+            </span>
 
-                        <span data-toggle="modal" data-target="#confirmDeleteModal" data-id={{this._id}}><i
-                                class="fa-solid fa-trash ml-1 d-inline text-secondary"></i></span>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+            <span data-toggle="modal" data-target="#confirmDeleteModal" data-id={{this._id}}><i
+                class="fa-solid fa-trash ml-1 d-inline text-secondary"></i></span>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 </div>
 <!-- Edit Product modal -->
 <div class="modal fade" id="settingProduct" tabindex="-1" role="dialog" aria-labelledby="settingProductTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="settingProductTitle">
-                    Chỉnh sửa sản phẩm
-                </h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+  aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="settingProductTitle">
+          Chỉnh sửa sản phẩm
+        </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="SanPham_body">
+        <form id="updateProductForm" method="post" enctype="multipart/form-data">
+          <div class="name_category">
+            <div>
+              <p>Tên sản phẩm</p>
+              <input type="text" name="name" id="inputUpdateName" required />
+            </div>
+            <div>
+              <p>Danh mục</p>
+              <div class="btn-group category-dropdown w-100">
+                <button id="editCategoryDropdownButton" type="button" class="btn dropdown-toggle dropdown_placeholder"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  PhinDi
                 </button>
+                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
+                  {{#each categories}}
+                  <a class="dropdown-item"
+                    onclick="changeCategoryDropdownContent('settingProduct', {id: {{this._id}}, name: '{{this.name}}'})">
+                    {{this.name}}
+                  </a>
+                  {{/each}}
+                </div>
+              </div>
             </div>
-            <div class="modal-body" id="SanPham_body">
-                <form id="updateProductForm" method="post" enctype="multipart/form-data">
-                    <div class="name_category">
-                        <div>
-                            <p>Tên sản phẩm</p>
-                            <input type="text" name="name" id="inputUpdateName" required />
-                        </div>
-                        <div>
-                            <p>Danh mục</p>
-                            <div class="btn-group category-dropdown w-100">
-                                <button id="editCategoryDropdownButton" type="button"
-                                    class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    PhinDi
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
-                                    {{#each categories}}
-                                    <a class="dropdown-item"
-                                        onclick="changeCategoryDropdownContent('settingProduct', {id: {{this._id}}, name: '{{this.name}}'})">
-                                        {{this.name}}
-                                    </a>
-                                    {{/each}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Mô tả</p>
-                        <input type="text" name="description" id="inputUpdateDescription" />
-                    </div>
-                    <div class="giaca_soluong">
-                        <div>
-                            <p>Giá cả</p>
-                            <input type="text" name="price" id="inputUpdatePrice" required />
-                        </div>
-                        <div>
-                            <p>Số lượng</p>
-                            <input type="number" name="number" id="inputUpdateNumber" required />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Hình ảnh</label>
-                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
-                    </div>
-                </form>
-                {{! <div>
-                    <p>Hình ảnh</p>
-                    <form action="/" class="dropzone" id="my-dropzone" method="post"></form>
-                </div> }}
+          </div>
+          <div>
+            <p>Mô tả</p>
+            <input type="text" name="description" id="inputUpdateDescription" required />
+          </div>
+          <div class="giaca_soluong">
+            <div>
+              <p>Giá cả</p>
+              <input type="text" name="price" id="inputUpdatePrice" required />
             </div>
+            <div>
+              <p>Số lượng</p>
+              <input type="number" name="number" id="inputUpdateNumber" required />
+            </div>
+          </div>
+          <div>
+            <label>Hình ảnh</label>
+            <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
+          </div>
+        </form>
+        {{! <div>
+          <p>Hình ảnh</p>
+          <form action="/" class="dropzone" id="my-dropzone" method="post"></form>
+        </div> }}
+      </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Hủy
-                </button>
-                <button type="submit" form="updateProductForm" class="btn btn-success" data-dismiss="modal"
-                    id="btnUpdateProduct">
-                    Xác nhận
-                </button>
-            </div>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-outline" data-dismiss="modal">
+          Hủy
+        </button>
+        <button type="submit" form="updateProductForm" class="btn-default" data-dismiss="modal" id="btnUpdateProduct">
+          Xác nhận
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Add Product modal -->
 <div class="modal fade" id="modal_AddProduct" tabindex="-1" role="dialog" aria-labelledby="modal_AddProductTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modal_AddProductTitle">
-                    Thêm sản phẩm
-                </h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+  aria-hidden="true">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal_AddProductTitle">
+          Thêm sản phẩm
+        </h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="SanPham_body">
+        <form id="addProductForm" method="post" action="/products" enctype="multipart/form-data">
+          <div class="name_category">
+            <div>
+              <p>Tên sản phẩm</p>
+              <input type="text" name="name" id="inputUpdateName" required />
             </div>
-            <div class="modal-body" id="SanPham_body">
-                <form id="addProductForm" method="post" action="/products" enctype="multipart/form-data">
-                    <div class="name_category">
-                        <div>
-                            <p>Tên sản phẩm</p>
-                            <input type="text" name="name" id="inputUpdateName" required />
-                        </div>
-                        <div>
-                            <p>Danh mục</p>
-                            <div class="btn-group category-dropdown w-100">
-                                <button id="addCategoryDropdownButton" type="button"
-                                    class="btn dropdown-toggle dropdown_placeholder" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    PhinDi
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
-                                    {{#each categories}}
-                                    <a class="dropdown-item"
-                                        onclick="changeCategoryDropdownContent('modal_AddProduct',{id: {{this._id}}, name: '{{this.name}}'})">
-                                        {{this.name}}
-                                    </a>
-                                    {{/each}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Mô tả</label>
-                        <input type="text" name="description" id="InputDescription" />
-                    </div>
-                    <div class="giaca_soluong">
-                        <div>
-                            <label>Giá cả</label>
-                            <input type="text" name="price" id="InputPrice" required />
-                        </div>
-                        <div>
-                            <label>Số lượng</label>
-                            <input type="number" name="number" id="InputNumber" required />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Hình ảnh</label>
-                        <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
-                    </div>
-
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Hủy
+            <div>
+              <p>Danh mục</p>
+              <div class="btn-group category-dropdown w-100">
+                <button id="addCategoryDropdownButton" type="button" class="btn dropdown-toggle dropdown_placeholder"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  PhinDi
                 </button>
-
-                <button type="submit" class="btn btn-success" form="addProductForm" id="btnAddProduct">
-                    Xác nhận
-                </button>
+                <div class="dropdown-menu dropdown-menu-right filter_dropdown w-100">
+                  {{#each categories}}
+                  <a class="dropdown-item"
+                    onclick="changeCategoryDropdownContent('modal_AddProduct',{id: {{this._id}}, name: '{{this.name}}'})">
+                    {{this.name}}
+                  </a>
+                  {{/each}}
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+          <div>
+            <label>Mô tả</label>
+            <input type="text" name="description" id="InputDescription" required />
+          </div>
+          <div class="giaca_soluong">
+            <div>
+              <label>Giá cả</label>
+              <input type="text" name="price" id="InputPrice" required />
+            </div>
+            <div>
+              <label>Số lượng</label>
+              <input type="number" name="number" id="InputNumber" required />
+            </div>
+          </div>
+          <div>
+            <label>Hình ảnh</label>
+            <input type="file" name="image" accept=".jpg, .jpeg, .png, .jpg, .webp" required />
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-outline" data-dismiss="modal">
+          Hủy
+        </button>
+
+        <button type="submit" class="btn-default" form="addProductForm" id="btnAddProduct">
+          Xác nhận
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!--Confirm Delete Modal -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Xóa sản phẩm</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Xác nhận xóa sản phẩm này?
-            </div>
-            <div class="modal-footer">
-                <button id="btn-delete-product" type="button" class="btn btn-danger">Xóa</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-            </div>
-        </div>
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa sản phẩm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Xác nhận xóa sản phẩm này?
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-product" type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn-outline" data-dismiss="modal">Hủy</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <form method="POST" name="delete-product-form"></form>
 
 <script>
-    const products = JSON.parse(`{{{ json products }}}`);
-    const categories = JSON.parse(`{{{ json categories }}}`);
-
-    var editingProductID = -1;
-    var editingProductCategoryID = -1;
-
-    const changeCategoryDropdownContent = (whichModal, categoryInfo) => {
-        editingProductCategoryID = categoryInfo.id;
-        const categoryButton = document.querySelector(`#${whichModal} .category-dropdown > button`);
-        categoryButton.innerHTML = categoryInfo.name;
-    }
+  const products = JSON.parse(`{{{json products}}}`); const categories =
+    JSON.parse(`{{{json categories}}}`); var editingProductID = -1; var
+      editingProductCategoryID = -1; const changeCategoryDropdownContent =
+        (whichModal, categoryInfo) => {
+          editingProductCategoryID = categoryInfo.id;
+          const categoryButton = document.querySelector(`#${whichModal}
+  .category-dropdown > button`); categoryButton.innerHTML = categoryInfo.name;
+        }
 
 </script>
 <script src="/js/sanpham.js"></script>
