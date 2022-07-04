@@ -1,0 +1,62 @@
+{{#each orders}}
+<section id="payment" class="m-5">
+  <div class="container border p-5 ">
+    <div class="product-list">
+      <h3>Đơn hàng</h3>
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Điện thoại</th>
+            <th scope="col">Hình thức</th>
+            <th scope="col">Trạng thái</th>
+
+          </tr>
+        </thead>
+        <tbody>
+           {{!-- {{cart.map(product => {
+            return (
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.img}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price * product.quantity}}</td>
+                </tr>
+            )
+           }) }} --}}
+
+                  <tr id="keyOrder" key={{this.cartId}}>
+                    <td>{{this.customer_name}}</td>
+                    <td>
+                      {{this.customer_address}}
+                    </td>
+                    <td>{{this.customer_phone}}</td>
+                    <td>
+                        {{#if this.payment}} 
+                            Tiền mặt
+                            {{else}}
+                            Chuyển khoản
+                            {{/if}}
+                       </td>
+                    <td>
+                      {{this.status}}
+                    </td>
+                    
+                </tr>
+          
+        
+        </tbody>
+      </table>
+    </div>
+   
+ 
+  
+    </div>
+
+  </div> 
+</section>
+{{/each}}

@@ -1,9 +1,25 @@
 const Order = require('../models/Order');
 const cloudinary = require('../../utils/cloudinary');
 
-const { multipleMongooseToObject } = require('../../utils/mongoose');
+const {
+  multipleMongooseToObject,
+  mongooseToObject,
+} = require('../../utils/mongoose');
 
 class OrderController {
+  async Get(req, res, next) {
+    const { userId } = req.params;
+    let order;
+    try {
+      order = await Order.find({ cartId: userId });
+    } catch (error) {
+      console.log(error);
+      return next(error);
+    }
+    order = multipleMongooseToObject(order);
+    // console.log('Order', order);
+    res.render('order', { orders: order });
+  }
   //[POST] /
   async Add(req, res, next) {
     cloudinary.uploader.upload(req.file.path).then((result) => {
