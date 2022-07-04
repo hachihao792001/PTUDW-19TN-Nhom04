@@ -154,11 +154,13 @@ window.addEventListener('load', function () {
           const quantity = parseInt(quantityInput.val());
           if (quantity > 1) {
             quantityInput.val(quantity - 1);
+            UpdateDBCart({ id: productItem._id, quantity: quantity - 1 });
           }
         });
         plusButton.on('click', function () {
           const quantity = parseInt(quantityInput.val());
           quantityInput.val(quantity + 1);
+          UpdateDBCart({ id: productItem._id, quantity: quantity + 1 });
         });
 
         popUpContent.append(productItemElements);
