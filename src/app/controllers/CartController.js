@@ -71,6 +71,7 @@ class CartController {
     let currentCart;
     let product;
     let currentProduct;
+
     try {
       currentCart = await Cart.findOne({ userId });
     } catch (error) {
@@ -98,13 +99,13 @@ class CartController {
 
     // Check if product exist in Cart
     product = products.find((o) => o.productId == productId);
-
     if (!product) {
       res.status(404).json({ mess: 'Unfound product in Cart' });
       return;
     } else {
       currentCart.products = products.filter((p) => p.productId != productId);
       await currentCart.save();
+
       res.status(200).json({ mess: 'Cart delete' });
     }
   }

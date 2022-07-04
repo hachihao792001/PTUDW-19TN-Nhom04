@@ -296,7 +296,7 @@
               <div class='select'>
                 <div class='quantity'>
                   <i class='fa-solid fa-minus'></i>
-                  <input type='number' value='{{this.quantity}}'/>
+                  <input type='number' value='{{this.quantity}}' />
                   <i class='fa-solid fa-plus'></i>
                 </div>
               </div>
@@ -324,10 +324,12 @@
 </div>
 
 <script>
-	const serverCart = {{{json cart}}};
-	const serverProducts = {{{json products}}}
-	localStorage.setItem("cart", JSON.stringify({products: serverCart || []}));
-	localStorage.setItem("products", JSON.stringify({products: serverProducts || []}));
+  const serverCart =
+  {{{json cart}}}; const serverProducts =
+  {{{json products}}}
+  localStorage.setItem("cart", JSON.stringify({products: serverCart || []}));
+  localStorage.setItem("products", JSON.stringify({products: serverProducts ||
+  []}));
 </script>
 
 <!-- Payment detail modal -->
