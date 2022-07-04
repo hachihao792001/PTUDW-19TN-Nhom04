@@ -1,20 +1,20 @@
-window.addEventListener('load', function () {
-	const API_URL = 'http://localhost:3000';
+window.addEventListener("load", function () {
+  const API_URL = "http://localhost:3000";
 
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus');
+  $("#myModal").on("shown.bs.modal", function () {
+    $("#myInput").trigger("focus");
   });
 
   $(document).ready(function () {
     AOS.init({ duration: 1000 });
-    $('.promotion-slider').slick({
+    $(".promotion-slider").slick({
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 1,
       dots: true,
       arrows: true,
-      prevArrow: $('.slider-prev'),
-      nextArrow: $('.slider-next'),
+      prevArrow: $(".slider-prev"),
+      nextArrow: $(".slider-next"),
       autoplay: true,
       autoplaySpeed: 1500,
       responsive: [
@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
         },
       ],
     });
-    $('.images-slider').slick({
+    $(".images-slider").slick({
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -55,20 +55,20 @@ window.addEventListener('load', function () {
     });
   });
 
-  const numberWithCommas = (x, unit = 'đ') => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + unit;
+  const numberWithCommas = (x, unit = "đ") => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + unit;
   };
 
-  const userId = document.querySelector('#userId').innerHTML;
+  const userId = document.querySelector("#userId").innerHTML;
   const UpdateDBCart = async (product) => {
     let formData = new FormData();
-    formData.append('userId', userId);
-    formData.append('productId', product.id);
-    formData.append('quantity', product.quantity);
+    formData.append("userId", userId);
+    formData.append("productId", product.id);
+    formData.append("quantity", product.quantity);
 
     try {
       await fetch(`${API_URL}/cart`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
     } catch (error) {
@@ -78,12 +78,12 @@ window.addEventListener('load', function () {
 
   const DeleteDBCart = async (product) => {
     let formData = new FormData();
-    formData.append('userId', userId);
-    formData.append('productId', product.id);
+    formData.append("userId", userId);
+    formData.append("productId", product.id);
 
     try {
       await fetch(`${API_URL}/cart`, {
-        method: 'DELETE',
+        method: "DELETE",
         body: formData,
       });
     } catch (error) {
@@ -92,7 +92,7 @@ window.addEventListener('load', function () {
   };
 
   const updatePopupCart = () => {
-    const productsJson = localStorage.getItem('products') || '[]';
+    const productsJson = localStorage.getItem("products") || "[]";
     const productsConverted = JSON.parse(productsJson);
     const { products } = productsConverted;
 
@@ -102,11 +102,11 @@ window.addEventListener('load', function () {
       productsMap[products[i]._id] = products[i];
     }
 
-    const cartJson = localStorage.getItem('cart') || '{}';
+    const cartJson = localStorage.getItem("cart") || "{}";
     const cart = JSON.parse(cartJson);
 
-    const popUpContent = $('#cartModal #myPopup');
-    popUpContent.html('');
+    const popUpContent = $("#cartModal #myPopup");
+    popUpContent.html("");
 
     if (cart?.products?.length > 0) {
       let total = 0;
@@ -146,18 +146,18 @@ window.addEventListener('load', function () {
                     `)
         );
 
-        const minusButton = productItemElements.find('.minus-cart-button');
-        const plusButton = productItemElements.find('.plus-cart-button');
-        const quantityInput = productItemElements.find('.quantity-cart-input');
+        const minusButton = productItemElements.find(".minus-cart-button");
+        const plusButton = productItemElements.find(".plus-cart-button");
+        const quantityInput = productItemElements.find(".quantity-cart-input");
 
-        minusButton.on('click', function () {
+        minusButton.on("click", function () {
           const quantity = parseInt(quantityInput.val());
           if (quantity > 1) {
             quantityInput.val(quantity - 1);
             UpdateDBCart({ id: productItem._id, quantity: quantity - 1 });
           }
         });
-        plusButton.on('click', function () {
+        plusButton.on("click", function () {
           const quantity = parseInt(quantityInput.val());
           quantityInput.val(quantity + 1);
           UpdateDBCart({ id: productItem._id, quantity: quantity + 1 });
@@ -182,100 +182,143 @@ window.addEventListener('load', function () {
 
   updatePopupCart();
 
-  const btnAddProducts = document.querySelectorAll('.btn-add');
+  const btnAddProducts = document.querySelectorAll(".btn-add");
 
   btnAddProducts.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const localCart = localStorage.getItem('cart') || '{}';
+    btn.addEventListener("click", function () {
+      const localCart = localStorage.getItem("cart") || "{}";
       const cart = JSON.parse(localCart) || {};
-      const productId = this.getAttribute('data-product-id');
+      const productId = this.getAttribute("data-product-id");
 
       let hasProduct = false;
 
-      if (cart['products']) {
-        cart['products'].forEach(function (product) {
+      if (cart["products"]) {
+        cart["products"].forEach(function (product) {
           if (product.id == productId) {
             hasProduct = true;
           }
         });
       } else {
-        cart['products'] = [];
-        cart['products'].push({
+        cart["products"] = [];
+        cart["products"].push({
           id: productId,
           quantity: 1,
         });
       }
 
       if (hasProduct === true) {
-        this.innerText = 'Xóa khỏi giỏ hàng';
+        this.innerText = "Xóa khỏi giỏ hàng";
       }
 
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart));
     });
   });
 
   btnAddProducts.forEach(function (btn) {
-    const localCart = localStorage.getItem('cart') || '{}';
+    const localCart = localStorage.getItem("cart") || "{}";
     const cart = JSON.parse(localCart) || {};
-    const productId = btn.getAttribute('data-product-id');
+    const productId = btn.getAttribute("data-product-id");
     let hasProduct = false;
 
-    if (cart['products']) {
-      cart['products'].forEach(function (product) {
+    if (cart["products"]) {
+      cart["products"].forEach(function (product) {
         if (product.id === productId) {
           hasProduct = true;
-          btn.innerText = 'Xóa khỏi giỏ hàng';
+          btn.innerText = "Xóa khỏi giỏ hàng";
         }
       });
     }
 
     updatePopupCart();
 
-    btn.addEventListener('click', function () {
-      const localCart = localStorage.getItem('cart') || '{}';
+    btn.addEventListener("click", function () {
+      const localCart = localStorage.getItem("cart") || "{}";
       const cart = JSON.parse(localCart) || {};
-      const productId = btn.getAttribute('data-product-id');
+      const productId = btn.getAttribute("data-product-id");
       let hasProduct = false;
 
-      if (cart['products']) {
-        cart['products'].forEach(function (product) {
+      if (cart["products"]) {
+        cart["products"].forEach(function (product) {
           if (product.id === productId) {
             hasProduct = true;
           }
         });
       }
-      console.log('Cart', cart);
+      console.log("Cart", cart);
       if (hasProduct) {
-        cart['products'].forEach(function (product, index) {
+        cart["products"].forEach(function (product, index) {
           if (product.id == productId) {
-            cart['products'].splice(index, 1);
+            cart["products"].splice(index, 1);
           }
         });
         DeleteDBCart({ id: productId });
-        this.innerText = 'Thêm';
+        this.innerText = "Thêm";
       } else {
         let newProduct = {
           id: productId,
           quantity: 1,
         };
-        cart['products'].push(newProduct);
+        cart["products"].push(newProduct);
         UpdateDBCart(newProduct);
-        this.innerText = 'Xóa khỏi giỏ hàng';
+        this.innerText = "Xóa khỏi giỏ hàng";
       }
 
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart));
       updatePopupCart();
     });
   });
 
-  $('#cartModal').on('shown.bs.modal', function () {
+  $("#cartModal").on("shown.bs.modal", function () {
     updatePopupCart();
   });
 });
 
 const openCart = function () {
-  console.log('chay vo open cart roi');
-  document.getElementById('cart').click();
+  console.log("chay vo open cart roi");
+  document.getElementById("cart").click();
 };
 
-document.querySelector('#btnOrderNow').addEventListener('click', openCart);
+document.querySelector("#btnOrderNow").addEventListener("click", openCart);
+
+const btnOrder = document.getElementById("btn-order");
+btnOrder.addEventListener("click", function () {
+  console.log("inside handle payment event");
+  const name = document.getElementById("nameOrder").value;
+  const phone = document.getElementById("phoneOrder").value;
+  const address = document.getElementById("addressOrder").value;
+  const payment = document.getElementById("paymentMethodOrder").value;
+  const customer_id = document.querySelector("#userId").innerHTML;
+
+  const cartId = document.getElementById("keyOrder").getAttribute("key");
+  const status = "new";
+  const date = Date.now();
+  const total = document.getElementById("totalOrder");
+  const email = "";
+  const newOrder = {
+    cartId: cartId,
+    customer_id: customer_id,
+    payment: payment,
+    total: total,
+    date: date,
+    status: status,
+    customer_name: name,
+    customer_email: email,
+    customer_phone: phone,
+    customer_address: address,
+  };
+  CreateNewOrder(newOrder);
+});
+
+const CreateNewOrder = async (newOrder) => {
+  console.log("inside handle CreateNewOrder event");
+
+  let formData = new FormData({ ...newOrder });
+  try {
+    await fetch(`${API_URL}/order`, {
+      method: "POST",
+      body: formData,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
