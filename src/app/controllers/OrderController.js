@@ -1,10 +1,10 @@
-const Order = require('../models/Order');
-const cloudinary = require('../../utils/cloudinary');
+const Order = require("../models/Order");
+const cloudinary = require("../../utils/cloudinary");
 
 const {
   multipleMongooseToObject,
   mongooseToObject,
-} = require('../../utils/mongoose');
+} = require("../../utils/mongoose");
 
 class OrderController {
   async Get(req, res, next) {
@@ -21,26 +21,23 @@ class OrderController {
       return { ...o, index: index + 1 };
     });
     // console.log('Order', order);
-    res.render('order', { orders: orders });
+    res.render("order", { orders: orders });
   }
   //[POST] /
   async Add(req, res, next) {
     Order.findOne({}, { upsert: true })
-      .sort({ _id: 'desc' })
+      .sort({ _id: "desc" })
       .then((latestOrder) => {
         const formData = req.body;
         const now = new Date();
         const id = (latestOrder._id || 0) + 1;
         formData._id = id;
         formData.cartId = id;
-        formData.status = 'new';
+        formData.status = "new";
         formData.customer_id = req.userId;
         formData.date = now.getDate();
         const order = new Order(formData);
-        order
-          .save()
-          .then(() => res.redirect('/'))
-          .catch(next);
+        order.save().then(res.render("success")).catch(next);
       });
   }
 }
