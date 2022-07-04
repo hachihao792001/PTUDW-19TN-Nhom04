@@ -344,4 +344,47 @@ const openCart = function () {
     document.getElementById("cart").click();
 };
 
-document.querySelector("#btnOrderNow").addEventListener("click", openCart);
+document.querySelector('#btnOrderNow').addEventListener('click', openCart);
+
+const btnOrder = document.getElementById('btn-order');
+btnOrder.addEventListener('click', function () {
+  console.log('inside handle payment event');
+  const name = document.getElementById('nameOrder').value;
+  const phone = document.getElementById('phoneOrder').value;
+  const address = document.getElementById('addressOrder').value;
+  const payment = document.getElementById('paymentMethodOrder').value;
+  const customer_id = document.querySelector('#userId').innerHTML;
+
+  const cartId = document.getElementById('keyOrder').getAttribute('key');
+  const status = 'new';
+  const date = Date.now();
+  const total = document.getElementById('totalOrder');
+  const email = '';
+  const newOrder = {
+    cartId: cartId,
+    customer_id: customer_id,
+    payment: payment,
+    total: total,
+    date: date,
+    status: status,
+    customer_name: name,
+    customer_email: email,
+    customer_phone: phone,
+    customer_address: address,
+  };
+  CreateNewOrder(newOrder);
+});
+
+const CreateNewOrder = async (newOrder) => {
+  console.log('inside handle CreateNewOrder event');
+
+  let formData = new FormData({ ...newOrder });
+  try {
+    await fetch(`${API_URL}/order`, {
+      method: 'POST',
+      body: formData,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

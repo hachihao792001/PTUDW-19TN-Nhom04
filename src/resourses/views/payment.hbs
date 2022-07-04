@@ -29,7 +29,7 @@
            }) }} --}}
 
            {{#each mappedCart}}
-                  <tr>
+                  <tr id="keyOrder" key={{this._id}}>
                     <td>{{this.name}}</td>
                     <td>
                       <img src={{this.image}} width="60px" alt={{this.name}} />
@@ -64,33 +64,34 @@
 </div>
 
     </div>
-    <div class="deliver-info mt-4">
+    <form method="post" action="/order"> 
+      <div class="deliver-info mt-4">
       <h3>Thông tin giao hàng</h3>
       <div class="form-group row">
-        <label for="name" class="col-md-3 col-sm-12 col-form-label">Tên</label>
+        <label for="nameOrder" class="col-md-3 col-sm-12 col-form-label">Tên</label>
         <div class="col-md-9 col-sm-12">
-          <input type="text" class="form-control" id="name" />
+          <input type="text" class="form-control" id="nameOrder" name="customer_name"/>
         </div>
       </div>
       <div class="form-group row">
-        <label for="phone" class="col-md-3 col-sm-12 col-form-label">Số điện thoại</label>
+        <label for="phoneOrder" class="col-md-3 col-sm-12 col-form-label">Số điện thoại</label>
         <div class="col-md-9 col-sm-12">
-          <input type="text" class="form-control" id="phone" />
+          <input type="text" class="form-control" id="phoneOrder" name="customer_phone"/>
         </div>
       </div>
       <div class="form-group row">
-        <label for="address" class="col-md-3  col-sm-12 col-form-label">Địa chỉ</label>
+        <label for="addressOrder" class="col-md-3  col-sm-12 col-form-label">Địa chỉ</label>
         <div class="col-md-9 col-sm-12">
-          <input type="text" class="form-control" id="address" />
+          <input type="text" class="form-control" id="addressOrder" name="customer_address"/>
         </div>
       </div>
       <div class="form-group row">
-        <label for="paymentMethod" class="col-md-3 col-sm-12 col-form-label">Phương thức
+        <label for="paymentMethodOrder" class="col-md-3 col-sm-12 col-form-label">Phương thức
           thanh toán</label>
         <div class="col-md-9 col-sm-12">
-          <select class="form-control" id="paymentMethod">
-            <option>Tiền mặt</option>
-            <option>Tài khoản</option>
+          <select class="form-control" id="paymentMethodOrder" name="payment">
+            <option value="true">Tiền mặt</option>
+            <option value="false">Tài khoản</option>
 
           </select>
         </div>
@@ -110,17 +111,34 @@
             var moneyDots = total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 
             document.querySelector('#TotalPayment').innerHTML = 'Tổng tiền: ' +
-            moneyDots + 'đ'
+            moneyDots + 'đ';
+            document.getElementById("totalOrder").innerHTML=total;
 
             </script>
+            <div>
+
+            </div>
             <div class="control-btn col-sm-8  d-flex justify-content-end">           
                  <button class="btn-default btn-outline mr-3">Hủy</button>
-                <button class="btn-default">Thanh toán</button>
+                <button class="btn-default" id="btn-order" type="submit">Đặt hàng</button>
             </div>
+            {{!-- <script>
+              fucntion async HandleSubmit(e) {
+                  const formData = new FormData(e.currentTarget);
+                  await fetch('http://localhost:3000', {
+                    method: 'POST',
+                    body: formData
+                  })
+              }
+            </script> --}}
 
         </div>
-      </div>
+      </div></form>
+   
     </div>
 
-  </div>
+  </div> 
+   <span id="totalOrder" style="display:none">{{userId}}</span>
+
+  <span id="userIdOrder" style="display:none">{{userId}}</span>
 </section>
