@@ -62,9 +62,9 @@ window.addEventListener('load', function () {
   const userId = document.querySelector('#userId').innerHTML;
   const UpdateDBCart = async (product) => {
     let formData = new FormData();
-    formData.append('userId', userId);
-    formData.append('productId', product.id);
-    formData.append('quantity', product.quantity);
+    formData.append('userId', parseInt(userId));
+    formData.append('productId', parseInt(product._id));
+    formData.append('quantity', parseInt(product.quantity));
 
     try {
       await fetch(`${API_URL}/cart`, {
@@ -78,8 +78,8 @@ window.addEventListener('load', function () {
 
   const DeleteDBCart = async (product) => {
     let formData = new FormData();
-    formData.append('userId', userId);
-    formData.append('productId', product.id);
+    formData.append('userId', parseInt(userId));
+    formData.append('productId', parseInt(product._id));
 
     try {
       await fetch(`${API_URL}/cart`, {

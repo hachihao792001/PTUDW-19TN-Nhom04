@@ -9,6 +9,9 @@ class CartController {
   //[POST] /
   async Change(req, res, next) {
     const { userId, productId, quantity } = req.body;
+
+		console.log(req.body);
+
     let currentCart;
     let product, productIndex;
     let currentProduct;
