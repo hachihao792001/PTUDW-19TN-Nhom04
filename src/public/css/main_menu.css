@@ -187,6 +187,12 @@
     padding: 5px 12px !important;
 }
 
+.btn-add.btn-delete {
+	background-color: rgb(212, 212, 212);
+	border-color: #a3a3a3;
+	color:#000;
+}
+
 .popup {
     background-color: rgb(255, 255, 255);
     padding: 1rem 0;
