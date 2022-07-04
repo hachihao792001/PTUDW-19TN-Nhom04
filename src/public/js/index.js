@@ -1,4 +1,6 @@
 window.addEventListener('load', function () {
+	const API_URL = 'http://localhost:3000';
+
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus');
   });
@@ -65,7 +67,7 @@ window.addEventListener('load', function () {
     formData.append('quantity', product.quantity);
 
     try {
-      await fetch('http://localhost:3000/cart', {
+      await fetch(`${API_URL}/cart`, {
         method: 'POST',
         body: formData,
       });
@@ -80,7 +82,7 @@ window.addEventListener('load', function () {
     formData.append('productId', product.id);
 
     try {
-      await fetch('http://localhost:3000/cart', {
+      await fetch(`${API_URL}/cart`, {
         method: 'DELETE',
         body: formData,
       });
@@ -106,13 +108,11 @@ window.addEventListener('load', function () {
     const popUpContent = $('#cartModal #myPopup');
     popUpContent.html('');
 
-    console.log(cart.products);
-
     if (cart?.products?.length > 0) {
       let total = 0;
 
       cart?.products.forEach(function (product) {
-        const productItem = productsMap[product.id];
+        const productItem = productsMap[product._id];
         total += product.quantity * productItem.price;
 
         const productItemElements = $(
