@@ -11,7 +11,7 @@
 
 ## Đồ án giữa kỳ
 
-Nằm ở branch portal và client
+Nằm ở branch [portal](https://github.com/hachihao792001/PTUDW-19TN-Nhom04/tree/portal) và [client](https://github.com/hachihao792001/PTUDW-19TN-Nhom04/tree/client)
 
 Sign in, sign up: Hào\
 Footer: Thời\
@@ -27,4 +27,4 @@ Admin - Khuyến mãi, Popup chỉnh sửa khuyến mãi: Thời
 
 ## Đồ án cuối kỳ
 
-Nằm ở branch portal-v2 và client-v2
+Nằm ở branch [portal-v2](https://github.com/hachihao792001/PTUDW-19TN-Nhom04/tree/portal-v2) và [client-v2](https://github.com/hachihao792001/PTUDW-19TN-Nhom04/tree/client-v2)
