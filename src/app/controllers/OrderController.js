@@ -17,8 +17,11 @@ class OrderController {
       return next(error);
     }
     order = multipleMongooseToObject(order);
+    const orders = order.map((o, index) => {
+      return { ...o, index: index + 1 };
+    });
     // console.log('Order', order);
-    res.render('order', { orders: order });
+    res.render('order', { orders: orders });
   }
   //[POST] /
   async Add(req, res, next) {

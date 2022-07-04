@@ -2,7 +2,7 @@
 <section id="payment" class="m-5">
   <div class="container border p-5 ">
     <div class="product-list">
-      <h3>Đơn hàng</h3>
+      <h3>Đơn hàng {{this.index}}</h3>
 
 
       <table class="table">
@@ -13,6 +13,7 @@
             <th scope="col">Điện thoại</th>
             <th scope="col">Hình thức</th>
             <th scope="col">Trạng thái</th>
+            <th scope="col">Thời gian</th>
 
           </tr>
         </thead>
@@ -44,6 +45,9 @@
                        </td>
                     <td>
                       {{this.status}}
+                    </td>
+                    <td>
+                        {{timeToString this.date}}
                     </td>
                     
                 </tr>
